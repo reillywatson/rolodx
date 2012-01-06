@@ -1,7 +1,7 @@
 Getting started:
 1. Install virtualenv (Ubuntu: sudo apt-get install python-virtualenv, otherwise look it up)
 2. Create an environment: 'virtualenv --no-site-packages venv'
-3. Install Django: 'venv/bin/easy_install django'
+3. Install dependencies: 'venv/bin/pip install -r REQUIREMENTS'
 4. start server: from rolodx folder '../venv/bin/python manage.py runserver 127.0.0.1:8000'
 
 That should be it.
