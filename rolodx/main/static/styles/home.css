@@ -1,7 +1,7 @@
 .outertop {
-	color:#585135;
+	background-color:#585135;
 	background-image:url("/static/images/outerbackground.png");
-	background-position:bottom-left;
+	background-position:bottom left;
 	background-repeat:repeat-x;
 	float:left;
 	height:50%;
@@ -9,14 +9,14 @@
 }
 
 .bottomleft {
-	color:black;
+	background-color:black;
 	clear:both;
 	height:50%;
 	width:25%;
 }
 
 .bottomright {
-	color:black;
+	background-color:black;
 	float:left;
 	height:50%;
 	width:25%;
@@ -29,6 +29,9 @@
 }
 
 .middlebottom {
-	float:left;	
+	background-color:black;
+	float:left;
+	height:50%;
+	width:50%;	
 }
 
