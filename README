@@ -1,7 +1,8 @@
 Getting started:
 1. Install virtualenv (Ubuntu: sudo apt-get install python-virtualenv, otherwise look it up)
 2. Create an environment: 'virtualenv --no-site-packages venv'
-3. Install dependencies: 'venv/bin/pip install -r REQUIREMENTS'
-4. start server: from rolodx folder '../venv/bin/python manage.py runserver 127.0.0.1:8000'
+3. Add environment to git ignore list: 'echo venv >> .gitignore'
+4. Install dependencies: 'venv/bin/pip install -r REQUIREMENTS'
+5. start server: 'vevn/bin/python rolodx/manage.py runserver'
 
 That should be it.
