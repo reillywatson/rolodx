@@ -10,7 +10,7 @@
 
 .bottomleft {
 	background-color:black;
-	clear:both;
+	float:left;
 	height:50%;
 	width:25%;
 }
@@ -23,13 +23,17 @@
 }
 
 .middletop {
+	background-color:#837C69;
+	background-image:url("/static/images/outerbackground.png");
+	background-position:bottom left;
+	background-repeat:repeat-x;		        
 	float:left;
 	height:50%;
 	width:50%;
 }
 
 .middlebottom {
-	background-color:black;
+	background-color:#585135;
 	float:left;
 	height:50%;
 	width:50%;	
