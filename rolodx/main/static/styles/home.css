@@ -82,12 +82,23 @@
 	border-radius:10px;
 }
 
+.searchboxandbutton {
+	margin-top:140px;
+}
+
 .searchbox {
 	height:60px;
-	width:100%;
+	width:500px;
 	padding-left:20px;
 	padding-right:20px;
-	margin-top:140px;
+}
+
+.searchbutton {
+	width:65px;
+	height:64px;
+	background: url("/static/images/searchbutton.png") top center no-repeat;
+	border:none;
+	vertical-align:middle; /* this aligns the button with the input text box */
 }
 
 .description {
