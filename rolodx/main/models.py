@@ -31,7 +31,7 @@ class User(models.Model):
 		return self.name
 
 class Category(models.Model):
-	parent = models.ForeignKey('self')
+	parent = models.ForeignKey('self', blank=True, null=True)
 	name = models.CharField(max_length=200)
 	def __unicode__(self):
 		return self.name

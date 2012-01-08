@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>Rolodx. Find and rate professional services near you.</title>
-		<link href="static/styles/home.css" media="screen" rel="stylesheet" type="text/css" />
+		<link href="{{ STATIC_URL }}styles/home.css" media="screen" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
 		<div class="background">
@@ -14,12 +14,12 @@
 			<div class="bottomright"></div>
 		</div>
 		<div class="searchcontainer">
-			<img class="logo" src="static/images/logo.png"></img>
+			<img class="logo" src="{{ STATIC_URL }}images/logo.png"></img>
 
 			<div class="searchboxandbutton">
-				<form action="/onecolumnbase" method="post">
+				<form action="/category" method="POST">
 					{% csrf_token %}	
-					<input class="searchbox"></input>
+					<input type="text" name="category" class="searchbox" value="pet"></input>
 					<input type="submit" value="" class="searchbutton" />
 				</form>
 			</div>

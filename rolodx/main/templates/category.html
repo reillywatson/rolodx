@@ -1,0 +1,14 @@
+{% extends "onecolumnbase.html" %}
+
+{% block content %}
+	<br/>
+	num results: {{ num_results }}
+	<br/>
+	{% for category in categories %}
+	<a href="/category/{{ category.name }}">{{ category.name }}</a>
+	<br/>
+	{% endfor %}
+
+	TODO: Get and populate Professionals that fit this Category?<br/>
+	TODO: Change this into a generic search page, list Category matches and professional matches?
+{% endblock %}

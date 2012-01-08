@@ -112,3 +112,24 @@
 	background: url("/static/images/searchbuttonsmall.png");
 	vertical-align:middle; /* this aligns the button with the input text box */
 }
+
+.content {
+	background-color:#FEFFED;
+	border:3px solid #B0A996;
+	border-radius:10px;
+
+	position:absolute;
+	top:130px;
+	left:17%;
+	height:100%;
+	width:63%;
+	padding-left:30px;
+
+	/*
+	padding-right:75px;	
+	margin-top:150px;
+	width:600px;
+	margin-left:auto;
+	margin-right:auto;
+	*/
+}
