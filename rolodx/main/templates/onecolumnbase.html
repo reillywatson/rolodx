@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+	<title>Rolodx. Find and rate professional services near you.</title>
+	<link rel="stylesheet" href="static/styles/base.css" />
+</head>
+
+<body>
+	<div class="background">
+		<div class="topleft"></div>
+		<div class="topmiddle"></div>
+		<div class="topright"></div>
+		<div class="ringseparator"></div>
+		<div class="bottomleft"></div>
+		<div class="bottommiddle"></div>
+		<div class="bottomright"></div>
+	</div>	
+	<div id="header" class="header">
+		<img class="logo" src="static/images/logo.png" />
+		<div class="searchboxandbutton">
+			<form action="/onecolumnbase" method="post">
+				{% csrf_token %}	
+				<input class="searchbox"></input>
+				<input type="submit" value="" class="searchbutton" />
+			</form>
+		</div>
+	</div>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
+
