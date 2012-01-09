@@ -87,8 +87,10 @@
 }
 
 .searchbox {
-	height:60px;
+	height:65px;
 	width:500px;
+	font-size: 35px;
+	border: 2px solid black;
 	padding-left:20px;
 	padding-right:20px;
 }
@@ -98,22 +100,24 @@
 	height:64px;
 	background: url("/static/images/searchbutton.png") top center no-repeat;
 	border:none;
-	vertical-align:middle; /* this aligns the button with the input text box */
+	vertical-align: top;
+	margin-left: -5px;
 }
 
 .description {
-	font-size:20pt;
+	font-size:17pt;
 	font-weight:bold;
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	color:white;
-	padding-top:40px;
 	padding-bottom:40px;
-	text-align:center;
+	text-align: left;
 }
 
 .logo {
+	background: url("/static/images/logo.png") no-repeat;
 	position:absolute;
+	width: 550px;
+	height: 192px;
 	top:65px;
 	margin-top:0;
 }
-
