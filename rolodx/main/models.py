@@ -48,5 +48,3 @@ class Rating(models.Model):
 class ProfessionalRating(models.Model):
 	professional = models.ForeignKey(Professional)
 	rating = models.ForeignKey(Rating)
-
-#
