@@ -7,3 +7,6 @@ Getting started:
 4. start server: from rolodx directory '../venv/bin/python manage.py runserver'
 
 That should be it.
+
+When dependencies change:
+venv/bin/pip install -r REQUIREMENTS
