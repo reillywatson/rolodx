@@ -15,11 +15,10 @@
 		<div class="bottomright"></div>
 	</div>	
 	<div id="header" class="header">
-		<img class="logo" src="{{ STATIC_URL }}images/logo.png" />
+		<a href="/"><img class="logo" src="{{ STATIC_URL }}images/logo.png" /></a>
 		<div class="searchboxandbutton">
-			<form action="/onecolumnbase" method="post">
-				{% csrf_token %}	
-				<input class="searchbox"></input>
+			<form action="/search" method="GET">
+				<input class="searchbox" type="text" name="q"></input>
 				<input type="submit" value="" class="searchbutton" />
 			</form>
 		</div>

@@ -16,9 +16,8 @@
 		<div class="searchcontainer">
 			<span class="logo"></span>
 			<div class="searchboxandbutton">
-				<form action="/category" method="POST">
-					{% csrf_token %}	
-					<input type="text" name="category" class="searchbox" value="pet"></input>
+				<form action="/search" method="GET">
+					<input type="text" name="q" class="searchbox" value="josh"></input>
 					<input type="submit" value="" class="searchbutton" />
 				</form>
 			</div>
