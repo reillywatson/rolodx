@@ -1,21 +1,38 @@
-.topleft {
+.top {
 	background-color:#585135;
 	position:absolute;
 	top:0px;
 	left:0px;
 	height:50%;
-	width:25%;
+	width:100%;
 	z-index:-2;
 }
 
-.topright {
-	background-color:#585135;
+.topmiddle {
+	background-color: #837C69;
+	width: 900px;
+	z-index: -2;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.bottom {
+	background-color:black;
 	position:absolute;
-	top:0px;
-	left:75%;
+	top:50%;
+	left:0px;
 	height:50%;
-	width:25%;
+	width:100%;
 	z-index:-2;
+}
+
+.bottommiddle {
+	background-color: #48412E;
+	top: 50%;
+	width: 900px;
+	height: 100%;
+	z-index: -2;
+	margin: 0 auto;
 }
 
 .ringseparator {
@@ -30,56 +47,20 @@
 	z-index:-1;
 }
 
-.bottomleft {
-	background-color:black;
-	position:absolute;
-	top:50%;
-	left:0px;
-	height:50%;
-	width:25%;
-	z-index:-2;
-}
-
-.bottomright {
-	background-color:black;
-	position:absolute;
-	top:50%;
-	left:75%;
-	height:50%;
-	width:25%;
-	z-index:-2;
-}
-
-.topmiddle {
-	background-color:#837C69;
-	position:absolute;
-	top:0px;
-	left:25%;
-	height:50%;
-	width:50%;
-	z-index:-2;
-}
-
-.bottommiddle {
-	background-color:#585135;
-	position:absolute;
-	top:50%;
-	left:25%;
-	height:50%;
-	width:50%;
-	z-index:-2;	
-}
-
 .searchcontainer {
-	background-color:#918A77;
-	border:3px solid #B0A996;
-	padding-left:75px;
-	padding-right:75px;
-	margin-top:150px;
-	width:600px;
-	margin-left:auto;
-	margin-right:auto;
-	border-radius:10px;
+    background-color: #918A77;
+    border: 3px solid #B0A996;
+    border-radius: 10px 10px 10px 10px;
+    bottom: 0;
+    height: 290px;
+    left: 0;
+    margin: auto;
+    padding-left: 75px;
+    padding-right: 75px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 625px;
 }
 
 .searchboxandbutton {
@@ -97,8 +78,8 @@
 
 .searchbutton {
 	width:65px;
-	height:64px;
-	background: url("/static/images/searchbutton.png") top center no-repeat;
+	height:71px;
+	background: url("/static/images/searchbutton.png") center center no-repeat;
 	border:none;
 	vertical-align: top;
 	margin-left: -5px;
@@ -115,9 +96,8 @@
 
 .logo {
 	background: url("/static/images/logo.png") no-repeat;
-	position:absolute;
+	position: absolute;
 	width: 550px;
 	height: 192px;
-	top:65px;
-	margin-top:0;
+	margin-top: -70px;
 }
