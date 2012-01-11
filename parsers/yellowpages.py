@@ -1,27 +1,10 @@
-import requests
-import BeautifulSoup
 import pickle
 import re
 import sys
 import traceback
-import time
+from parsecommon import PageRetriever
 
-baseUrl = 'http://www.yellowpages.ca'
-
-def getPage(url):
-	if not url.startswith('http'):
-		url = baseUrl + url
-	print 'retrieving: ' + url
-	url = url.replace(' ', '%20')
-	tries = 0
-	while tries < 3:
-		response = requests.get(url)
-		if response.status_code == 200:
-			return BeautifulSoup.BeautifulSoup(response.content)
-		print 'failed with error %d, retrying!' % response.status_code
-		time.sleep(1)
-		tries = tries + 1
-	return None
+getPage = PageRetriever('http://www.yellowpages.ca').getPage
 
 def parseBusiness(url):
 	try:
