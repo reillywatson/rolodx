@@ -21,14 +21,22 @@
 			<div class="ringseparator"></div>
 		</div>
 	</div>
-		
-	<div class="content_top"></div>
-		
-	<div class="categories"></div>
+	
+	<div class="body_container">
+		<div class="content_top">
+			<span class="map_toggle"></span>
+			<span class="results_sort"></span>
+			<span id="category_breadcrumb">Arts > Interior Design: <<  <1 2 3 4... 9> >></span>
+			<span id="location_search">Location-Based Search: ON</span>
+		</div>
 
-    <div id="content" class="content">	
-		{% block content %}{% endblock %}	
+		<div class="categories"></div>			
+		
+		<div id="content" class="content">	
+			{% block content %}{% endblock %}	
+		</div>
 	</div>
+	
 </body>
 </html>
 
