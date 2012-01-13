@@ -1,7 +1,6 @@
 html { background-color: black; }
 body { margin: 0px; padding: 0px; }
 
-
 /*********************************************************************************/
 /***********						HEADER							**************/
 /*********************************************************************************/
@@ -81,8 +80,41 @@ body { margin: 0px; padding: 0px; }
 /*********************************************************************************/
 .categories {
     float: left;
+    margin-top: 30px;
     width: 10%;
-	margin-left: 20px;
+}
+
+.category {
+	background-repeat: no-repeat;
+	margin: 0 10;
+	width: 100%;
+	height: 40px;
+	margin-left: 20px;    
+	margin-bottom: 40px;
+}
+
+.c1 {
+	background-image: url("/static/images/c1.png");
+}
+
+.c2 {
+	background-image: url("/static/images/c2.png");
+}
+
+.c3 {
+	background-image: url("/static/images/c3.png");
+}
+
+.c4 {
+	background-image: url("/static/images/c4.png");
+}
+
+.c5{
+	background-image: url("/static/images/c5.png");
+}
+
+.more_categories{
+	background-image: url("/static/images/more_categories.png");
 }
 
 /*********************************************************************************/
@@ -111,7 +143,8 @@ body { margin: 0px; padding: 0px; }
     float: left;
     height: 78px;
     width: 102px;
-    margin-bottom: -15px;
+    margin-bottom: -15px;    
+	margin-left: 10px;
 }
 
 .results_sort {
