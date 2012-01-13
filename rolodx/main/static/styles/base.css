@@ -69,15 +69,74 @@ body { margin: 0px; padding: 0px; }
 .ringseparator {
     background-image: url("/static/images/ring_sm.png");
     background-repeat: repeat;
-    float: right;
     height: 33px;
-    margin-top: 8px;
-    width: 101%;
+    position: relative;
+    top: 104px;
+    width: 100%;
 }
 
 /*********************************************************************************/
-/***********						CATEGORIES						**************/
+/***********						CONTENT							**************/
 /*********************************************************************************/
+
+.content_container {
+    background-color: #48412E;
+    margin: 0 auto;
+    min-height: 500px;
+    min-width: 890px;
+    overflow: auto;
+    width: 66%;
+}
+
+.inner {
+    background: url("/static/images/separator.png") repeat-y scroll 10% 0 transparent;
+    float: left;
+    margin-top: 30px;
+    width: 100%;
+}
+
+/** ================		CONTENT HEADER		=================== **/
+.content_top {
+    height: 60px;
+    width: 100%;
+    float: left;
+}
+
+.map_toggle {
+    background-image: url("/static/images/map_on.png");
+    background-repeat: no-repeat;
+    float: left;
+    height: 78px;
+    width: 102px;
+    margin-bottom: -15px;    
+	margin-left: 10px;
+}
+
+.results_sort {
+    background-image: url("/static/images/results_sort.png");
+    background-repeat: no-repeat;
+    float: left;
+    height: 39px;    
+	margin-left: 10px;
+    width: 145px;
+}
+
+#category_breadcrumb {
+	float: left;
+	color: white;
+	font-size: 20px;
+	padding: 5px 0px 0px 10px;
+}
+
+#location_search {
+	float: right;
+	color: white;
+	font-size: 20px;
+	padding: 5px 10px 0px 0px;
+	
+}
+
+/** ================			CATEGORIES			=================== **/
 .categories {
     float: left;
     margin-top: 30px;
@@ -117,60 +176,6 @@ body { margin: 0px; padding: 0px; }
 	background-image: url("/static/images/more_categories.png");
 }
 
-/*********************************************************************************/
-/***********						CONTENT							**************/
-/*********************************************************************************/
-
-.body_container {
-    background-color: #48412E;
-    margin: 0 auto;
-    min-height: 500px;
-    min-width: 890px;
-    width: 66%;
-}
-
-/** ================		CONTENT HEADER		=================== **/
-.content_top {
-    height: 60px;
-    width: 100%;
-    float: left;
-	margin-top: 10px;
-}
-
-.map_toggle {
-    background-image: url("/static/images/map_on.png");
-    background-repeat: no-repeat;
-    float: left;
-    height: 78px;
-    width: 102px;
-    margin-bottom: -15px;    
-	margin-left: 10px;
-}
-
-.results_sort {
-    background-image: url("/static/images/results_sort.png");
-    background-repeat: no-repeat;
-    float: left;
-    height: 39px;    
-	margin-left: 10px;
-    width: 145px;
-}
-
-#category_breadcrumb {
-	float: left;
-	color: white;
-	font-size: 20px;
-	padding: 5px 0px 0px 10px;
-}
-
-#location_search {
-	float: right;
-	color: white;
-	font-size: 20px;
-	padding: 5px 10px 0px 0px;
-	
-}
-
 /** ================			CONTENT			=================== **/
 .content {
     background-color: #FEFFED;
@@ -178,5 +183,5 @@ body { margin: 0px; padding: 0px; }
     border-radius: 10px 10px 10px 10px;
     float: right;
     margin-right: 20px;
-    width: 85%;
+    width: 83%;
 }
