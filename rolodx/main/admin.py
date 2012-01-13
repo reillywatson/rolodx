@@ -1,10 +1,12 @@
-from main.models import Professional, User, Category, ProfessionalCategory, Rating, ProfessionalRating, Service
+from main.models import Professional, User, Category, ProfessionalCategory, Service, Review, ProfessionalReview, UserProfessional
 from django.contrib import admin
 
+# Kept in the same order as models.py
+admin.site.register(Service)
+admin.site.register(Category)
 admin.site.register(Professional)
 admin.site.register(User)
-admin.site.register(Category)
+admin.site.register(Review)
+admin.site.register(ProfessionalReview)
 admin.site.register(ProfessionalCategory)
-admin.site.register(Rating)
-admin.site.register(ProfessionalRating)
-admin.site.register(Service)
+admin.site.register(UserProfessional)

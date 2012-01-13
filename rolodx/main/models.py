@@ -15,36 +15,64 @@ class Service(models.Model):
 	def __unicode__(self):
 		return self.description
 
+class Category(models.Model):
+	parent = models.ForeignKey('self', blank=True, null=True)
+	name = models.CharField(max_length=200)
+	occupation = models.CharField(max_length=200)
+	def __unicode__(self):
+		return self.name
+
 class Professional(models.Model):
 	name = models.CharField(max_length=200)
-	description = models.TextField()
-	website = models.URLField()
+	description = models.TextField(blank=True, null=True)
+	email = models.CharField(max_length=200)
+	website = models.URLField(blank=True, null=True)
+	categories = models.ManyToManyField(Category, blank=True, null=True)
+
+	averageRating = models.DecimalField(decimal_places=1, max_digits=2)
+	numRatings = models.IntegerField()
+
+	# Contact info
+	street_address = models.CharField(max_length=200, blank=True, null=True)
+	state_province = models.CharField(max_length=10, blank=True, null=True)
+	country = models.CharField(max_length=100, blank=True, null=True)
+	daytimePhone = models.CharField(max_length=20, blank=True, null=True)
+	eveningPhone = models.CharField(max_length=20, blank=True, null=True)
+
+	#icon?
+
 	# A Professional may offer multiple services. 
 	# Multiple Professionals may offer the same services.
-	services = models.ManyToManyField(Service)
+	# TODO: Not sure if this is required, needs good example first
+	services = models.ManyToManyField(Service, blank=True, null=True)
 	def __unicode__(self):
 		return self.name
 
 class User(models.Model):
 	name = models.CharField(max_length=200)
+	external_id = models.CharField(max_length=200)
+	# TODO: Other facebook things
+	email = models.CharField(max_length=200, blank=True, null=True) #email optional?
 	def __unicode__(self):
 		return self.name
 
-class Category(models.Model):
-	parent = models.ForeignKey('self', blank=True, null=True)
-	name = models.CharField(max_length=200)
-	def __unicode__(self):
-		return self.name
+class Review(models.Model):
+	user = models.ForeignKey(User)
+	professional = models.ForeignKey(Professional)
+	text = models.CharField(max_length=2000)
+	rating = models.DecimalField(decimal_places=1, max_digits=2)
+	date = models.DateTimeField()
+	#If we want to do " x / y found this helpful", we'd need different fields
+	karma = models.IntegerField()
+
+class ProfessionalReview(models.Model):
+	professional = models.ForeignKey(Professional)
+	rating = models.ForeignKey(Review)
 
 class ProfessionalCategory(models.Model):
 	professional = models.ForeignKey(Professional)
 	category = models.ForeignKey(Category)
 
-class Rating(models.Model):
-	score = models.IntegerField()
-	rater = models.ForeignKey(User)
-	review = models.TextField()
-
-class ProfessionalRating(models.Model):
+class UserProfessional(models.Model):
+	user = models.ForeignKey(User)
 	professional = models.ForeignKey(Professional)
-	rating = models.ForeignKey(Rating)
