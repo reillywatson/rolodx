@@ -1,3 +1,4 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
 <head>
 	<title>Rolodx. Find and rate professional services near you.</title>
@@ -5,28 +6,29 @@
 </head>
 
 <body>
-	<div class="background">
-		<div class="topleft"></div>
-		<div class="topmiddle"></div>
-		<div class="topright"></div>
-		<div class="ringseparator"></div>
-		<div class="bottomleft"></div>
-		<div class="bottommiddle"></div>
-		<div class="bottomright"></div>
-	</div>	
 	<div id="header" class="header">
-		<a href="/"><img class="logo" src="{{ STATIC_URL }}images/logo.png" /></a>
-		<div class="searchboxandbutton">
-			<form action="/search" method="GET">
-				<input class="searchbox" type="text" name="q"></input>
-				<input type="submit" value="" class="searchbutton" />
-			</form>
+		<div class="header_content">
+			<a href="/" class="logo"></a>
+	
+			<div class="searchboxandbutton">
+				<div class="searchadvanced"></div>
+				<form action="/search" method="GET">
+					<input class="searchbox" type="text" name="q"></input>
+					<input type="submit" value="" class="searchbutton" />
+				</form>
+			</div>
+			
+			<div class="ringseparator"></div>
 		</div>
 	</div>
+		
+	<div class="content_top"></div>
+		
+	<div class="categories"></div>
 
-    <div id="content" class="content">
-        {% block content %}{% endblock %}
-    </div>
+    <div id="content" class="content">	
+		{% block content %}{% endblock %}	
+	</div>
 </body>
 </html>
 

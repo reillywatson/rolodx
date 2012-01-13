@@ -1,117 +1,81 @@
-.topleft {
-	background-color:#585135;
-	position:absolute;
-	top:0px;
-	left:0px;
-	height:101px;
-	width:15%;
-	z-index:-2;
-}
+html { background-color: black; }
+body { margin: 0px; padding: 0px; }
 
-.topmiddle {
-	background-color:#837C69;
-	position:absolute;
-	top:0px;
-	left:15%;
-	height:101px;
-	width:70%;
-	z-index:-2;
-}
-
-.topright {
-	background-color:#585135;
-	position:absolute;
-	top:0px;
-	left:85%;
-	height:101px;
-	width:15%;
-	z-index:-2;
-}
-
-.ringseparator {
-	background-image:url("/static/images/outerbackground.png");
-	position:absolute;
-	z-index:0;
-	top:100px;
-	margin-top:-27px;
-	left:14%;
-	right:14%;
-	height: 54px;
-	z-index:-1;
-}
-
-.bottomleft {
-	background-color:black;
-	position:absolute;
-	top:100px;
-	left:0px;
-	height:100%;
-	width:15%;
-	z-index:-2;
-}
-
-.bottomright {
-	background-color:black;
-	position:absolute;
-	top:100px;
-	left:85%;
-	height:100%;
-	width:15%;
-	z-index:-2;
-}
-
-.bottommiddle {
-	background-color:#585135;
-	position:absolute;
-	top:100px;
-	left:15%;
-	height:100%;
-	width:70%;
-	z-index:-2;	
-}
+/** ================		HEADER		=================== **/
 
 .header {
+	height:120px;
+	background-color: #585135;
+	border-bottom: 5px outset #585135;
+	margin-top: 40px;
+}
 
+.header_content {
 	width:66%;
+	min-width: 890px;
 	height:100px;
-	/*background-color:#918A77;
-	border:3px solid #B0A996; */
-	
 	margin-left:auto;
 	margin-right:auto;
-
 	position:relative;
+	padding-bottom: 20px;
+	
+	background-color: #837c69;
+	border-bottom: 5px outset #837c69;
 }
 
 .logo {
-	height: 55px;
-	margin-top:0px;
+	background-image:url("/static/images/logo_sm.png");
+	background-repeat: no-repeat;
+	height: 140px;
+    width: 344px;
+	float: left;
+    margin-top: -40px;
+	margin-left: 20px;
 }
 
 .searchboxandbutton {
-	position: absolute;
-	width: 400px;
-	height: 29px;
-	right: 0px;
-	top: 25px;
+    float: right;
+    height: 50px;
+    margin-top: 25px;
+	margin-right: 20px;
+    width: 456px;
+}
+
+.searchadvanced {
+	background-image: url("/static/images/advanced.png");
+	background-repeat: none;
+	
+	float: left;
+	height:50px;
+	width:100px;
 }
 
 .searchbox {
-	position: absolute;
-	right:30px;
-	height:29px;
+	float: left;
+	height:45px;
 	width:300px;
 }
 
 .searchbutton {
-	position: absolute;
-	right:0px;
-	height:29px;
-	width:30px;
+	float: left;
+	height:50px;
+	width:50px;
 	border:none;
-	background: url("/static/images/searchbuttonsmall.png");
+	background-image: url("/static/images/searchbutton_sm.png");
+	background-repeat: none;
 	vertical-align:middle; /* this aligns the button with the input text box */
 }
+
+.ringseparator {
+    background-image: url("/static/images/ring_sm.png");
+    background-repeat: repeat;
+    float: right;
+    height: 33px;
+    margin-top: 8px;
+    width: 101%;
+}
+
+/** ================		CONTENT		=================== **/
 
 .content {
 	background-color:#FEFFED;
@@ -119,17 +83,9 @@
 	border-radius:10px;
 
 	position:absolute;
-	top:130px;
+	top:240px;
 	left:17%;
 	height:100%;
 	width:63%;
 	padding-left:30px;
-
-	/*
-	padding-right:75px;	
-	margin-top:150px;
-	width:600px;
-	margin-left:auto;
-	margin-right:auto;
-	*/
 }
