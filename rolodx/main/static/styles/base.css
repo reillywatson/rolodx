@@ -14,7 +14,7 @@ body { margin: 0px; padding: 0px; }
 
 .header_content {
 	width:66%;
-	min-width: 890px;
+	min-width: 955px;
 	height:100px;
 	margin:0 auto;
 	padding-bottom: 20px;
@@ -83,7 +83,7 @@ body { margin: 0px; padding: 0px; }
     background-color: #48412E;
     margin: 0 auto;
     min-height: 500px;
-    min-width: 890px;
+    min-width: 955px;
     overflow: auto;
     width: 66%;
 }
@@ -184,4 +184,5 @@ body { margin: 0px; padding: 0px; }
     float: right;
     margin-right: 20px;
     width: 83%;
+	min-width: 830px;
 }
