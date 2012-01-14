@@ -1,0 +1,60 @@
+{% extends 'onecolumnbase.html' %}
+
+{% block head %} 
+	<link rel="stylesheet" href="{{ STATIC_URL }}styles/item.css" /> 
+	<script type="text/javascript" src="{{ STATIC_URL }}scripts/item.js"></script>
+	<script type="text/javascript">
+		var results = {{results|safe}};
+	</script>
+{% endblock %}
+
+
+{% block content %}
+	<div class="item">
+		<div class="item_container_top">
+			<div class="item_metadata">
+				<div class="item_metadata_top">
+					<div class="item_metadata_icon"></div>
+					<div class="item_metadata_main_top_actions">
+						<div class="item_metadata_name"></div>
+						<div class="item_metadata_job"></div>
+						<div class="item_metadata_rating">
+							<div class="item_metadata_rating_text">Rating:</div>
+							<div class="item_metadata_rating_stars"></div>
+							<div class="item_metadata_rating_text">(53)</div>
+						</div>
+						<div class="item_metadata_separator"></div>
+						<div class="item_metadata_address"></div>
+						<div class="item_metadata_action"></div>
+						<div class="item_metadata_action"></div>
+					</div>
+				</div>
+				<div class="item_metadata_bottom">
+					<div class="item_medata_web">Web </div>
+					<div class="item_medata_contact">Contact </div>
+					<div class="item_medata_web">Hours </div>
+				</div>
+				<div class="item_metadata_main_images"></div>
+			</div>
+			<div class="item_metadata_description"></div>
+		</div>
+		<div class="item_map"></div>
+	</div>
+	
+	<div class="item_container_bottom">
+		<div class="item_rate">
+			<div class="item_rate_stars"></div>
+			<div class="item_rate_review"></div>
+			<div class="item_rate_rate_button"></div>
+			<div class="item_rate_facebook"></div>
+		</div>
+		
+		<div class="item_reviews">
+			<div class="item_review">
+				<div class="item_review_stars"></div>
+				<div class="item_review_text"></div>
+				<div class="item_review_author"></div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

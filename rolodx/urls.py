@@ -6,9 +6,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'main.views.home'),
-    url(r'^onecolumnbase$', 'main.views.base'),
     url(r'^category/(?P<category_name>.+)/$', 'main.views.category'), #direct category access
     url(r'^search/',  'main.views.search'), #include('haystack.urls')),
+    url(r'^pro/', 'main.views.item'),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

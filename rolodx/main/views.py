@@ -8,13 +8,13 @@ from django.utils import simplejson
 def home(request):
 	return render_to_response('home.html', context_instance=RequestContext(request))
 
-def base(request):
-	return render_to_response('onecolumnbase.html', context_instance=RequestContext(request))
-
 def search(request):
 	results = SearchController().search(request.GET['q']);
 	print serialize('json', results)
 	return render_to_response('search.html', {'results' : serialize('json', results)}, context_instance=RequestContext(request))
+
+def item(request):
+	return render_to_response('item.html', context_instance=RequestContext(request))
 
 def search_category(request):
 	categories = Category.objects.filter(name__contains=request.POST['category'])
