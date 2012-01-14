@@ -1,4 +1,110 @@
-.item_container {
-    margin: 0 auto;
-    width: 740px;
+/*********************************************************************************/
+/***********						TOP							**************/
+/*********************************************************************************/
+
+.item {
+	margin: 30px auto 0;
+    width: 800px;
+    height: 380px;
 }
+
+.item_container_top {
+	float: left;    
+	max-width: 500px;
+}
+
+.item_metadata_icon {
+	background-image: url("/static/images/placeholders/item_icon.png");
+    float: left;
+    height: 155px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    width: 155px;
+}
+
+.item_metadata_name {
+	color: #c90003;
+    font-size: 20px;
+}
+
+.item_metadata_job {
+	color: #c90003;
+    font-size: 20px;
+}
+
+/** ================		RATING		=================== **/
+.item_metadata_rating {
+	border-bottom: 2px solid #E5C29C;
+    overflow: auto;
+    padding-bottom: 5px;
+}
+
+.item_metadata_rating_text {
+	color: #929084;
+    float: left;
+}
+
+.item_metadata_num_ratings {
+	color: #929084;
+    float: right;
+}
+
+.item_metadata_address {
+	font-weight: bold;
+	margin: 5px 0;
+}
+
+.item_metadata_action {
+	float: left;
+    height: 35px;
+    margin-right: 5px;
+    width: 150px;
+}
+
+.item_metadata_action1 {
+	background-image: url("/static/images/placeholders/action1.png");
+}
+
+.item_metadata_action2 {
+	background-image: url("/static/images/placeholders/action2.png");
+}
+
+.item_metadata_main_top_actions {
+	float: left;
+}
+
+
+.item_metadata_bottom {
+	clear: left;
+}
+
+.item_medata_web {
+	font-weight: bold;
+    margin-left: 120px;
+}
+
+.item_medata_contact {
+	font-weight: bold;
+    margin-left: 100px;
+}
+
+.item_medata_hours {
+	font-weight: bold;
+    margin-left: 110px;
+}
+
+.item_metadata_description {
+	margin-top: 20px;
+}
+
+.item_map {
+	background-image: url("/static/images/placeholders/item_map.png");
+    float: right;
+    height: 320px;
+    width: 230px;
+}
+
+
+/*********************************************************************************/
+/***********						BOTTOM							**************/
+/*********************************************************************************/

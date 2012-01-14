@@ -38,13 +38,6 @@
     width: 50px;
 }
 
-.pro_stars {
-    background-image: url("/static/images/star.png");
-    float: left;
-    height: 20px;
-    width: 100px;
-}
-
 .pro_text {
 	color: red;
     float: left;
