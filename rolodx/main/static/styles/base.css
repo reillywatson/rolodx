@@ -153,23 +153,23 @@ body { margin: 0px; padding: 0px; }
 }
 
 .c1 {
-	background-image: url("/static/images/c1.png");
+	background-image: url("/static/images/placeholders/c1.png");
 }
 
 .c2 {
-	background-image: url("/static/images/c2.png");
+	background-image: url("/static/images/placeholders/c2.png");
 }
 
 .c3 {
-	background-image: url("/static/images/c3.png");
+	background-image: url("/static/images/placeholders/c3.png");
 }
 
 .c4 {
-	background-image: url("/static/images/c4.png");
+	background-image: url("/static/images/placeholders/c4.png");
 }
 
 .c5{
-	background-image: url("/static/images/c5.png");
+	background-image: url("/static/images/placeholders/c5.png");
 }
 
 .more_categories{
