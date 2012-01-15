@@ -114,19 +114,20 @@
 	background-color: #dcdbc9;
 	border-radius: 10px;
 	overflow: auto;
+	padding: 20px 40px;
 }
 
+/** ================		ADD NEW RATING		=================== **/
 .item_rate {    
 	float: left;
-    margin-bottom: 10px;
-    margin-left: 40px;
+    margin-bottom: 20px;
 }
 
 .item_rate_stars {
     background-color: white;
     background-image: url("/static/images/star.png");
     border-color: -moz-use-text-color;
-    border-radius: 10px 10px 0 0;
+    border-radius: 5px 5px 0 0;
     border-style: solid solid none;
     border-width: 1px 1px 0;
 	float: left;
@@ -158,4 +159,23 @@
 .item_rate_facebook {
 	float: left;
 	margin-top: 8px;
+}
+
+/** ================		REVIEWS		=================== **/
+.item_reviews {
+    clear: left;
+    overflow: auto;
+}
+
+.item_review {
+	margin-bottom: 10px;	
+}
+
+.item_review_text {
+	clear: left;
+}
+
+.item_review_author {
+	clear: left;
+    margin-left: 20px;
 }
