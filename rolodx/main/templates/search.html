@@ -3,16 +3,6 @@
 {% block head %} 
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/search.css" /> 
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/search.js"></script>
-	<!-- TODO: do we need this?
-	<script type="text/javascript">
-		var results = {{results|safe}};
-		for (var i=0; i<results.length; i++) {
-			var result = results[i];
-			var child = document.createElement("div");
-			var parent = document.getElementById("left");
-		}
-	</script>
-	-->
 {% endblock %}
 
 

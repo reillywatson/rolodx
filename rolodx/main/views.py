@@ -7,6 +7,7 @@ from django.core.serializers import serialize
 def home(request):
 	return render_to_response('home.html', context_instance=RequestContext(request))
 
+#TODO: Do we need to send results as json?
 def search(request):
 	results = SearchController().search(request.GET['q']);
 	print serialize('json', results)
