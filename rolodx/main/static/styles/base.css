@@ -186,3 +186,66 @@ body { margin: 0px; padding: 0px; }
     width: 83%;
 	min-width: 830px;
 }
+
+
+/**	===============			RATINGS				=====================**/
+.rating_stars_0_5 {
+    background-image: url("/static/images/star.png");
+    float: left;
+    height: 20px;
+    width: 10px;
+}
+.rating_stars_1 {
+    background-image: url("/static/images/star.png");
+    float: left;
+    height: 20px;
+    width: 20px;
+}
+.rating_stars_1_5 {
+    background-image: url("/static/images/star.png");
+    float: left;
+    height: 20px;
+    width: 30px;
+}
+.rating_stars_2 {
+    background-image: url("/static/images/star.png");
+    float: left;
+    height: 20px;
+    width: 40px;
+}
+.rating_stars_2_5 {
+    background-image: url("/static/images/star.png");
+    float: left;
+    height: 20px;
+    width: 50px;
+}
+.rating_stars_3 {
+    background-image: url("/static/images/star.png");
+    float: left;
+    height: 20px;
+    width: 60px;
+}
+.rating_stars_3_5 {
+    background-image: url("/static/images/star.png");
+    float: left;
+    height: 20px;
+    width: 70px;
+}
+.rating_stars_4 {
+    background-image: url("/static/images/star.png");
+    float: left;
+    height: 20px;
+    width: 80px;
+}
+.rating_stars_4_5 {
+    background-image: url("/static/images/star.png");
+    float: left;
+    height: 20px;
+    width: 90px;
+}
+.rating_stars_5 {
+    background-image: url("/static/images/star.png");
+    float: left;
+    height: 20px;
+    width: 100px;
+}
