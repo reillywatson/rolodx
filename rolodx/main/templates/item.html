@@ -4,7 +4,17 @@
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/item.css" /> 
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/item.js"></script>
 	<script type="text/javascript">
-		var results = {{results|safe}};
+		window.onload = function () {
+			//var results = {{results|safe}};
+
+			var result = {"author":"Javascript is SWEET!", 
+							"text" : "Dude I totally added this comment with javascript. I'm so frigging awesome!",
+							"rating" : 5};
+							
+			var parentDocument = document.getElementById('item_reviews');
+			var review = new Review(result);
+			review.render(parentDocument);
+		}
 	</script>
 {% endblock %}
 
@@ -48,7 +58,7 @@
 			<div class="item_rate_facebook"><input type="checkbox"></input>Also submit to Facebook</div>
 		</div>
 		
-		<div class="item_reviews">
+		<div id="item_reviews" class="item_reviews">
 			<div class="item_review">
 				<div class="rating_stars_3"></div>
 				<div class="item_review_text">I've seen better. Or have I. It's hard to say, really. What was the questions again? Either way. I strongly suggest you make up your own mind about how useful he is.</div>
