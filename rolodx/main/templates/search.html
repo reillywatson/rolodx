@@ -3,6 +3,7 @@
 {% block head %} 
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/search.css" /> 
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/search.js"></script>
+	<!-- TODO: do we need this?
 	<script type="text/javascript">
 		var results = {{results|safe}};
 		for (var i=0; i<results.length; i++) {
@@ -11,55 +12,31 @@
 			var parent = document.getElementById("left");
 		}
 	</script>
+	-->
 {% endblock %}
 
 
 {% block content %}
-	<div class="search_container">
+<div class="search_container">
+	{% for result in results %}
 		<div id="left">
-			<a href="/pro">
-			<div class="pro_container">
-				<img class="pro_icon"></img>
-				<div class="pro_text">Josh JaySome Sumali</div>
-				<div class="pro_text">Coder Ninja</div>
-				<div class="pro_text">
-					<div class="pro_rating">Rating:</div>
-					<div class="pro_stars"></div>
+				<div class="pro_container">
+					<img class="pro_icon" />
+					<a href="/pro">
+						<div class="pro_text">{{ result.name }}</div>
+					</a>
+					<div class="pro_text">{{ result.occupation }}</div>
+					<div class="pro_text">
+						<!-- TODO -->
+						<div class="pro_rating">Rating:</div>
+						<div class="pro_stars"></div>
+					</div>
+					<div class="pro_description">{{ result.description }}</div>
+					<div class="pro_separator"></div>
 				</div>
-				<div class="pro_description">The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</div>
-				<div class="pro_separator"></div>
-			</div>
-			</a>
-			
-			<a href="/pro">
-			<div class="pro_container">
-				<img class="pro_icon"></img>
-				<div class="pro_text">Helen DotDotDot Huo</div>
-				<div class="pro_text">Le Artiste</div>
-				<div class="pro_text">
-					<div class="pro_rating">Rating:</div>
-					<div class="pro_stars"></div>
-				</div>
-				<div id="pro_description">Cupcake ipsum dolor. Sit amet powder. Carrot cake candy faworki donut topping icing sweet applicake bonbon. Tiramisu chocolate bar wafer liquorice sesame snaps ice cream candy canes ice cream. Gummi bears sugar plum cake. Oat cake candy liquorice cake pudding. Pie souffle pastry cake sweet roll cotton candy. Sweet roll pastry bonbon. Sesame snaps donut faworki apple pie muffin danish sweet faworki tart. Ice cream muffin jelly-o chocolate bar marzipan. Brownie liquorice icing tootsie roll cotton candy ice cream chocolate danish. Chocolate cake candy icing lemon drops tiramisu lollipop.</div>
-				<div class="pro_separator"></div>
-			</div>
 			</a>
 		</div>
-		
-		<div id="right">
-			<a href="/pro">
-			<div class="pro_container">
-				<img class="pro_icon"></img>
-				<div class="pro_text">Reilly Rilester Watson</div>
-				<div class="pro_text">Chief Developer Officer</div>
-				<div class="pro_text">
-					<div class="pro_rating">Rating:</div>
-					<div class="pro_stars"></div>
-				</div>
-				<div class="pro_description">Lorizzle ipsizzle dolor uhuh ... yih! amizzle, consectetizzle adipiscing elit. Its fo rizzle get down get down dang, aliquet we gonna chung, owned quis, gravida vizzle, fizzle. Pellentesque egizzle tortizzle. Sizzle erizzle. Sure izzle dolizzle dapibus turpizzle yo mamma crackalackin. Maurizzle dang shizzle my nizzle crocodizzle ghetto turpizzle. Check it out izzle tortor. Pellentesque eleifend rhoncizzle da bomb. In hizzle sure platea dictumst. Da bomb dapibus. Curabitur tellizzle i'm in the shizzle, pretizzle fo shizzle, mattizzle gangsta, eleifend vitae, nunc. Doggy suscipit. Shizzlin dizzle da bomb velit own yo' dawg.</div>
-				<div class="pro_separator"></div>
-			</div>
-			</a>
-		</div>
-	</div>
+	{% endfor %}
+</div>
+
 {% endblock %}

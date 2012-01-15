@@ -24,6 +24,7 @@ class Category(models.Model):
 
 class Professional(models.Model):
 	name = models.CharField(max_length=200)
+	occupation = models.CharField(max_length=200, blank = True, null = True);
 	description = models.TextField(blank=True, null=True)
 	email = models.CharField(max_length=200)
 	website = models.URLField(blank=True, null=True)

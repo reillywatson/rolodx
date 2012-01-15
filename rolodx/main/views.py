@@ -1,9 +1,8 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from main.models import Category
-from backend.search_controller import SearchController
+from rolodx.main.controllers.search_controller import SearchController
 from django.core.serializers import serialize
-from django.utils import simplejson
 
 def home(request):
 	return render_to_response('home.html', context_instance=RequestContext(request))
@@ -11,7 +10,9 @@ def home(request):
 def search(request):
 	results = SearchController().search(request.GET['q']);
 	print serialize('json', results)
-	return render_to_response('search.html', {'results' : serialize('json', results)}, context_instance=RequestContext(request))
+	return render_to_response('search.html',
+								{'jsonresults' : serialize('json', results), 'results' : results},
+							  context_instance=RequestContext(request))
 
 def item(request):
 	return render_to_response('item.html', context_instance=RequestContext(request))
