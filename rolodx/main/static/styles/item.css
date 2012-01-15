@@ -15,7 +15,7 @@
 	max-width: 500px;
 }
 
-.item_metadata_icon {
+#item_metadata_icon {
 	background-image: url("/static/images/placeholders/item_icon.png");
     float: left;
     height: 155px;
@@ -24,12 +24,12 @@
     width: 155px;
 }
 
-.item_metadata_name {
+#item_metadata_name {
 	color: #c90003;
     font-size: 20px;
 }
 
-.item_metadata_job {
+#item_metadata_job {
 	color: #c90003;
     font-size: 20px;
 }
@@ -46,12 +46,12 @@
     float: left;
 }
 
-.item_metadata_num_ratings {
+#item_metadata_num_ratings {
 	color: #929084;
     float: right;
 }
 
-.item_metadata_address {
+#item_metadata_address {
 	font-weight: bold;
 	margin: 5px 0;
 }
@@ -80,22 +80,22 @@
 	clear: left;
 }
 
-.item_medata_web {
+#item_metadata_web {
 	font-weight: bold;
     margin-left: 120px;
 }
 
-.item_medata_contact {
+#item_metadata_contact {
 	font-weight: bold;
     margin-left: 100px;
 }
 
-.item_medata_hours {
+#item_metadata_hours {
 	font-weight: bold;
     margin-left: 110px;
 }
 
-.item_metadata_description {
+#item_metadata_description {
 	margin-top: 20px;
 }
 
