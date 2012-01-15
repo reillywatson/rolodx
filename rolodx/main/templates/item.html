@@ -12,16 +12,31 @@
 							"description" :  "Bacon ipsum dolor sit amet swine drumstick cow, ham ribeye meatball pork loin kielbasa ground round bacon prosciutto bresaola strip steak chuck chicken. Hamburger spare ribs shankle chuck turducken jowl, ribeye pork drumstick turkey bacon shank short ribs andouille. Pig hamburger ham hock t-bone, tri-tip chuck biltong ham. Pork loin tenderloin pancetta, ribeye jerky short ribs pork belly leberkase biltong kielbasa pork chop frankfurter tri-tip filet mignon. Meatball beef pork belly prosciutto filet mignon tongue. Pork belly biltong sirloin, rump meatball boudin kielbasa shank ham turkey beef pancetta pork chop venison. Salami pastrami leberkase frankfurter cow.",
 							"website" : "http://uh.oh", "email" : "spam@me.com", "hours" : "8PM - 3AM"}
 			
-			var reviewData = {"author":"Javascript is SWEET!", 
+			var reviewData0 = {"author":"Someone useless", 
+							"text" : "I've seen better. Or have I. It's hard to say, really. What was the questions again? Either way. I strongly suggest you make up your own mind about how useful he is.",
+							"rating" : 3};
+
+			var reviewData1 = {"author":"One Angry Dude", 
+							"text" : "This guy SUCKS! I hate him soooo much.",
+							"rating" : 0.5};
+
+			var reviewData2 = {"author":"Lurker", 
+							"text" : "",
+							"rating" : 4.5};
+							
+			var reviewData3 = {"author":"Javascript is SWEET!", 
 							"text" : "Dude I totally added this comment with javascript. I'm so frigging awesome!",
 							"rating" : 5};
-							
+			var reviews = [reviewData0, reviewData1, reviewData2, reviewData3];
+			
 			var item = new Item(itemData);
 			item.render();
 			
 			var parentDocument = document.getElementById('item_reviews');
-			var review = new Review(reviewData);
-			review.render(parentDocument);
+			for (var i=0; i<reviews.length; i++) {
+				var review0 = new Review(reviewData0);
+				review0.render(parentDocument);
+			}
 		}
 	</script>
 {% endblock %}
@@ -66,21 +81,6 @@
 			<div class="item_rate_facebook"><input type="checkbox"></input>Also submit to Facebook</div>
 		</div>
 		
-		<div id="item_reviews" class="item_reviews">
-			<div class="item_review">
-				<div class="rating_stars_3"></div>
-				<div class="item_review_text">I've seen better. Or have I. It's hard to say, really. What was the questions again? Either way. I strongly suggest you make up your own mind about how useful he is.</div>
-				<div class="item_review_author">- Someone useless</div>
-			</div>
-			<div class="item_review">
-				<div class="rating_stars_0_5"></div>
-				<div class="item_review_text">This guy SUCKS! I hate him soooo much.</div>
-				<div class="item_review_author">- An Angry Dude</div>
-			</div>
-			<div class="item_review">
-				<div class="rating_stars_4_5"></div>
-				<div class="item_review_author">- Lurker</div>
-			</div>
-		</div>
+		<div id="item_reviews" class="item_reviews"></div>
 	</div>
 {% endblock %}
