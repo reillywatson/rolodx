@@ -3,9 +3,11 @@
 /*********************************************************************************/
 
 .item {
-	margin: 30px auto 0;
+    height: 330px;
+    margin: 30px auto 0;
+    overflow: hidden;
     width: 800px;
-    height: 380px;
+	margin: 30px auto 20px;
 }
 
 .item_container_top {
@@ -108,3 +110,52 @@
 /*********************************************************************************/
 /***********						BOTTOM							**************/
 /*********************************************************************************/
+.item_container_bottom {
+	background-color: #dcdbc9;
+	border-radius: 10px;
+	overflow: auto;
+}
+
+.item_rate {    
+	float: left;
+    margin-bottom: 10px;
+    margin-left: 40px;
+}
+
+.item_rate_stars {
+    background-color: white;
+    background-image: url("/static/images/star.png");
+    border-color: -moz-use-text-color;
+    border-radius: 10px 10px 0 0;
+    border-style: solid solid none;
+    border-width: 1px 1px 0;
+	float: left;
+    height: 20px;
+    margin-top: 15px;
+    width: 100px;
+}
+
+.item_rate_review {
+    border: 1px solid;
+    clear: left;
+    float: left;
+    font-family: sans-serif;
+    font-size: 17px;
+    height: 50px;
+    margin-bottom: 5px;
+    padding: 10px;
+    width: 500px;
+}
+
+.item_rate_rate_button {
+	background-image: url("/static/images/rate.png");
+	float: left;
+	clear: left;
+	height: 35px;
+	width: 100px;
+}
+
+.item_rate_facebook {
+	float: left;
+	margin-top: 8px;
+}
