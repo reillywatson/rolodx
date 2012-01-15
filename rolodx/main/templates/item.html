@@ -5,12 +5,7 @@
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/item.js"></script>
 	<script type="text/javascript">
 		window.onload = function () {
-			// TODO: get real data from server
-			//var results = {{results|safe}};
-
-			var itemData = {"name" : "Robert LeMan Beghian", "job" : "Senior Co-Op Student", "rating" : "0.5", "numRatings" : "53", "address" : "123 Fake Street, Springfield, ON.",
-							"description" :  "Bacon ipsum dolor sit amet swine drumstick cow, ham ribeye meatball pork loin kielbasa ground round bacon prosciutto bresaola strip steak chuck chicken. Hamburger spare ribs shankle chuck turducken jowl, ribeye pork drumstick turkey bacon shank short ribs andouille. Pig hamburger ham hock t-bone, tri-tip chuck biltong ham. Pork loin tenderloin pancetta, ribeye jerky short ribs pork belly leberkase biltong kielbasa pork chop frankfurter tri-tip filet mignon. Meatball beef pork belly prosciutto filet mignon tongue. Pork belly biltong sirloin, rump meatball boudin kielbasa shank ham turkey beef pancetta pork chop venison. Salami pastrami leberkase frankfurter cow.",
-							"website" : "http://uh.oh", "email" : "spam@me.com", "hours" : "8PM - 3AM"}
+			var results = {{results|safe}};
 			
 			var reviewData0 = {"author":"Someone useless", 
 							"text" : "I've seen better. Or have I. It's hard to say, really. What was the questions again? Either way. I strongly suggest you make up your own mind about how useful he is.",
@@ -29,7 +24,7 @@
 							"rating" : 5};
 			var reviews = [reviewData0, reviewData1, reviewData2, reviewData3];
 			
-			var item = new Item(itemData);
+			var item = new Item(results.itemData);
 			item.render();
 			
 			var parentDocument = document.getElementById('item_reviews');

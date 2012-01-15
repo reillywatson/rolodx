@@ -23,6 +23,7 @@ class Category(models.Model):
 		return self.name
 
 class Professional(models.Model):
+	# TODO: We need an ID here. Something we can use on the site.
 	name = models.CharField(max_length=200)
 	occupation = models.CharField(max_length=200, blank = True, null = True);
 	description = models.TextField(blank=True, null=True)
