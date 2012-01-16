@@ -79,20 +79,17 @@ Review.prototype = {
     
     constructor : Review,
 	
+	content : "";
+	
 	init : function( data ) {
 		function starsNumToString(num) {
 			var rounded = Math.round(num* 2) / 2;
 			return (rounded == 0 ) ? "0_5" : rounded.toString().replace(/\./,'_');
 		}
-		
 		this.rating = starsNumToString(data.rating);
 		this.author = data.author;
 		this.text = data.text;
 		
-		
-	},
-	
-	render : function( parent ) {
         var template = "";
 		template +=	'<div class="item_review">';
 		template +=		'<div class="rating_stars_{stars}"></div>';
@@ -104,7 +101,11 @@ Review.prototype = {
 		template = template.replace(/{text}/,this.text);
 		template = template.replace(/{author}/,this.author);
 		
-		parent.innerHTML += template
+		this.content = template;
+	},
+	
+	render : function( parent ) {
+		parent.innerHTML += this.content
 	},
 	
 	toString : function() {

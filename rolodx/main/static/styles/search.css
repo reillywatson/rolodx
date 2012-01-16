@@ -47,3 +47,8 @@
 .pro_description {
 	
 }
+
+.no-link {
+	text-decoration: none;
+	color: black;
+}

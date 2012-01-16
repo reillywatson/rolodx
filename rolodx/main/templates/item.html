@@ -4,33 +4,38 @@
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/item.css" /> 
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/item.js"></script>
 	<script type="text/javascript">
-		window.onload = function () {
-			var results = {{results|safe}};
+		var results = {{results|safe}};
+		var item = new Item(results.itemData);
 			
-			var reviewData0 = {"author":"Someone useless", 
+		var reviewData0 = {"author":"Someone useless", 
 							"text" : "I've seen better. Or have I. It's hard to say, really. What was the questions again? Either way. I strongly suggest you make up your own mind about how useful he is.",
 							"rating" : 3};
 
-			var reviewData1 = {"author":"One Angry Dude", 
+		var reviewData1 = {"author":"One Angry Dude", 
 							"text" : "This guy SUCKS! I hate him soooo much.",
 							"rating" : 0.5};
 
-			var reviewData2 = {"author":"Lurker", 
+		var reviewData2 = {"author":"Lurker", 
 							"text" : "",
 							"rating" : 4.5};
 							
-			var reviewData3 = {"author":"Javascript is SWEET!", 
+		var reviewData3 = {"author":"Javascript is SWEET!", 
 							"text" : "Dude I totally added this comment with javascript. I'm so frigging awesome!",
 							"rating" : 5};
-			var reviews = [reviewData0, reviewData1, reviewData2, reviewData3];
-			
-			var item = new Item(results.itemData);
+		var reviewData = [reviewData0, reviewData1, reviewData2, reviewData3];
+		var reviews = [];
+		for (var i=0; i<reviewData.length; i++) {
+			reviews.push(new Review(reviewData[i]));
+		}
+		
+		window.onload = function () {
+			// Render Professional metadata
 			item.render();
 			
+			// Render reviews
 			var parentDocument = document.getElementById('item_reviews');
 			for (var i=0; i<reviews.length; i++) {
-				var review0 = new Review(reviewData0);
-				review0.render(parentDocument);
+				reviews[i].render(parentDocument);
 			}
 		}
 	</script>
