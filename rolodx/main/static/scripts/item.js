@@ -79,7 +79,7 @@ Review.prototype = {
     
     constructor : Review,
 	
-	content : "";
+	content : "",
 	
 	init : function( data ) {
 		function starsNumToString(num) {
