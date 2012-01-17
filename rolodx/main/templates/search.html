@@ -7,7 +7,9 @@
 		var results = {{results|safe}};
 		var searchResults = [];
 		for (var i=0; i<results.length; i++) {
-			searchResults.push(new SearchResult(results[i].fields));
+			var data = results[i].fields;
+			data.id = results[i].pk;
+			searchResults.push(new SearchResult(data));
 		}
 		
 		window.onload = function () {

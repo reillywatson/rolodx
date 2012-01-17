@@ -4,6 +4,8 @@ SearchResult = function( resultData ) {
 
 SearchResult.prototype = {
 	
+	id : null,
+	
 	icon : null,
 	
 	name : null, 
@@ -24,6 +26,7 @@ SearchResult.prototype = {
 			return (rounded == 0 ) ? "0_5" : rounded.toString().replace(/\./,'_');
 		}
 		this.rating = starsNumToString(resultData.rating);
+		this.id = resultData.id;
 		this.icon = resultData.icon;
 		this.name = resultData.name;
 		this.occupation = resultData.occupation;
@@ -31,7 +34,7 @@ SearchResult.prototype = {
 		
 		var template = "";
 		template +="<div class='pro_container'>";
-		template += "	<a class='no-link' href='/pro/proId'>";
+		template += "	<a class='no-link' href='/pro/{id}'>";
 		template +="		<img class='pro_icon'></img>";
 		template +="		<div class='pro_text'>{name}</div>";
 		template +="		<div class='pro_text'>{occupation}</div>";
@@ -44,6 +47,7 @@ SearchResult.prototype = {
 		template +="	</a>"
 		template +="</div>"
 		
+		template = template.replace(/{id}/,this.id);
 		template = template.replace(/{name}/,this.name);
 		template = template.replace(/{occupation}/,this.occupation);
 		template = template.replace(/{description}/, (this.description ? this.description : ""));

@@ -6,13 +6,13 @@ Item.prototype = {
 	
 	name : null,
 	
-	job : null,
+	occupation : null,
 	
 	rating : null,
 	
 	numRatings : null,
 	
-	address : null,
+	street_address : null,
 	
 	website : null,
 	
@@ -35,8 +35,8 @@ Item.prototype = {
 		this.rating = starsNumToString(data.rating);
 		this.numRatings = data.numRatings;
 		this.name = data.name;
-		this.job = data.job;
-		this.address = data.address;
+		this.occupation = data.occupation;
+		this.street_address = data.street_address;
 		this.website = data.website;
 		this.email = data.email;
 		this.hours = data.hours;
@@ -47,10 +47,10 @@ Item.prototype = {
 	render : function () {
 		document.getElementById("item_metadata_icon");
 		document.getElementById("item_metadata_name").innerHTML = this.name;
-		document.getElementById("item_metadata_job").innerHTML = this.job;
+		document.getElementById("item_metadata_job").innerHTML = this.occupation;
 		document.getElementById("item_metadata_rating_stars").className = "rating_stars_" + this.rating;
 		document.getElementById("item_metadata_num_ratings").innerHTML = "(" + this.numRatings + ")";
-		document.getElementById("item_metadata_address").innerHTML = this.address;
+		document.getElementById("item_metadata_address").innerHTML = this.street_address;
 		document.getElementById("item_metadata_web").innerHTML = "Web: " + this.website;
 		document.getElementById("item_metadata_contact").innerHTML = "Contact: " + this.email;
 		document.getElementById("item_metadata_hours").innerHTML = "Hours: " + this.hours;
