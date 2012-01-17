@@ -24,7 +24,7 @@ body { margin: 0px; padding: 0px; }
 }
 
 .logo {
-	background-image:url("/static/images/logo_sm.png");
+	background-image:url("../images/logo_sm.png");
 	background-repeat: no-repeat;
 	height: 140px;
     width: 344px;
@@ -43,7 +43,7 @@ body { margin: 0px; padding: 0px; }
 }
 
 .searchadvanced {
-	background-image: url("/static/images/advanced.png");
+	background-image: url("../images/advanced.png");
 	background-repeat: none;
 	
 	float: left;
@@ -62,12 +62,12 @@ body { margin: 0px; padding: 0px; }
 	height:50px;
 	width:50px;
 	border:none;
-	background-image: url("/static/images/searchbutton_sm.png");
+	background-image: url("../images/searchbutton_sm.png");
 	background-repeat: none;
 }
 
 .ringseparator {
-    background-image: url("/static/images/ring_sm.png");
+    background-image: url("../images/ring_sm.png");
     background-repeat: repeat;
     height: 33px;
     position: relative;
@@ -89,7 +89,7 @@ body { margin: 0px; padding: 0px; }
 }
 
 .inner {
-    background: url("/static/images/separator.png") repeat-y scroll 10% 0 transparent;
+    background: url("../images/separator.png") repeat-y scroll 10% 0 transparent;
     float: left;
     margin-top: 30px;
     width: 100%;
@@ -103,7 +103,7 @@ body { margin: 0px; padding: 0px; }
 }
 
 .map_toggle {
-    background-image: url("/static/images/map_on.png");
+    background-image: url("../images/map_on.png");
     background-repeat: no-repeat;
     float: left;
     height: 78px;
@@ -113,7 +113,7 @@ body { margin: 0px; padding: 0px; }
 }
 
 .results_sort {
-    background-image: url("/static/images/results_sort.png");
+    background-image: url("../images/results_sort.png");
     background-repeat: no-repeat;
     float: left;
     height: 39px;    
@@ -153,27 +153,27 @@ body { margin: 0px; padding: 0px; }
 }
 
 .c1 {
-	background-image: url("/static/images/placeholders/c1.png");
+	background-image: url("../images/placeholders/c1.png");
 }
 
 .c2 {
-	background-image: url("/static/images/placeholders/c2.png");
+	background-image: url("../images/placeholders/c2.png");
 }
 
 .c3 {
-	background-image: url("/static/images/placeholders/c3.png");
+	background-image: url("../images/placeholders/c3.png");
 }
 
 .c4 {
-	background-image: url("/static/images/placeholders/c4.png");
+	background-image: url("../images/placeholders/c4.png");
 }
 
 .c5{
-	background-image: url("/static/images/placeholders/c5.png");
+	background-image: url("../images/placeholders/c5.png");
 }
 
 .more_categories{
-	background-image: url("/static/images/more_categories.png");
+	background-image: url("../images/more_categories.png");
 }
 
 /** ================			CONTENT			=================== **/
@@ -190,61 +190,61 @@ body { margin: 0px; padding: 0px; }
 
 /**	===============			RATINGS				=====================**/
 .rating_stars_0_5 {
-    background-image: url("/static/images/star.png");
+    background-image: url("../images/star.png");
     float: left;
     height: 20px;
     width: 10px;
 }
 .rating_stars_1 {
-    background-image: url("/static/images/star.png");
+    background-image: url("../images/star.png");
     float: left;
     height: 20px;
     width: 20px;
 }
 .rating_stars_1_5 {
-    background-image: url("/static/images/star.png");
+    background-image: url("../images/star.png");
     float: left;
     height: 20px;
     width: 30px;
 }
 .rating_stars_2 {
-    background-image: url("/static/images/star.png");
+    background-image: url("../images/star.png");
     float: left;
     height: 20px;
     width: 40px;
 }
 .rating_stars_2_5 {
-    background-image: url("/static/images/star.png");
+    background-image: url("../images/star.png");
     float: left;
     height: 20px;
     width: 50px;
 }
 .rating_stars_3 {
-    background-image: url("/static/images/star.png");
+    background-image: url("../images/star.png");
     float: left;
     height: 20px;
     width: 60px;
 }
 .rating_stars_3_5 {
-    background-image: url("/static/images/star.png");
+    background-image: url("../images/star.png");
     float: left;
     height: 20px;
     width: 70px;
 }
 .rating_stars_4 {
-    background-image: url("/static/images/star.png");
+    background-image: url("../images/star.png");
     float: left;
     height: 20px;
     width: 80px;
 }
 .rating_stars_4_5 {
-    background-image: url("/static/images/star.png");
+    background-image: url("../images/star.png");
     float: left;
     height: 20px;
     width: 90px;
 }
 .rating_stars_5 {
-    background-image: url("/static/images/star.png");
+    background-image: url("../images/star.png");
     float: left;
     height: 20px;
     width: 100px;
