@@ -124,9 +124,8 @@
 }
 
 .item_rate_stars {
-    background-color: white;
+    background-color: #FFF;
     background-image: url("../images/star.png");
-    border-color: -moz-use-text-color;
     border-radius: 5px 5px 0 0;
     border-style: solid solid none;
     border-width: 1px 1px 0;

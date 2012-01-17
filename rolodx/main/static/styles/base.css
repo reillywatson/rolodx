@@ -1,5 +1,5 @@
-html { background-color: black; }
-body { margin: 0px; padding: 0px; }
+html { background-color: #000; }
+body { margin: 0; padding: 0; }
 
 /*********************************************************************************/
 /***********						HEADER							**************/
@@ -44,7 +44,7 @@ body { margin: 0px; padding: 0px; }
 
 .searchadvanced {
 	background-image: url("../images/advanced.png");
-	background-repeat: none;
+	background-repeat: no-repeat;
 	
 	float: left;
 	height:50px;
@@ -63,7 +63,7 @@ body { margin: 0px; padding: 0px; }
 	width:50px;
 	border:none;
 	background-image: url("../images/searchbutton_sm.png");
-	background-repeat: none;
+	background-repeat: no-repeat;
 }
 
 .ringseparator {
@@ -123,14 +123,14 @@ body { margin: 0px; padding: 0px; }
 
 #category_breadcrumb {
 	float: left;
-	color: white;
+	color: #FFF;
 	font-size: 20px;
 	padding: 5px 0px 0px 10px;
 }
 
 #location_search {
 	float: right;
-	color: white;
+	color: #FFF;
 	font-size: 20px;
 	padding: 5px 10px 0px 0px;
 	
@@ -145,7 +145,7 @@ body { margin: 0px; padding: 0px; }
 
 .category {
 	background-repeat: no-repeat;
-	margin: 0 10;
+	margin: 0 10px;
 	width: 100%;
 	height: 40px;
 	margin-left: 20px;    
