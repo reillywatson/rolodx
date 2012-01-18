@@ -5,8 +5,6 @@ from django.db import models
 #	This would make sense if we'll be having users who have their own business(es)
 #	listed on rolodx.
 
-# TODO: we probably need some sort of denormalization of ratings, so getting the average rating of a Pro isn't so slow
-
 # reminder: Update admin.py for any new model classes added.
 
 # An arbitrary service which a Professional provides.
