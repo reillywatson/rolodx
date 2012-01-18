@@ -34,10 +34,10 @@ class Professional(models.Model):
 
 	# Contact info
 	street_address = models.CharField(max_length=200, blank=True, null=True)
-	state_province = models.CharField(max_length=10, blank=True, null=True)
+	state_province = models.CharField(max_length=50, blank=True, null=True)
 	country = models.CharField(max_length=100, blank=True, null=True)
-	daytimePhone = models.CharField(max_length=20, blank=True, null=True)
-	eveningPhone = models.CharField(max_length=20, blank=True, null=True)
+	daytimePhone = models.CharField(max_length=50, blank=True, null=True)
+	eveningPhone = models.CharField(max_length=50, blank=True, null=True)
 
 	#icon?
 
