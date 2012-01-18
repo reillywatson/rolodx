@@ -1,5 +1,5 @@
 import re
-from parsecommon import PageRetriever
+from pageretriever import PageRetriever
 import json
 
 # this will likely need updating.  Login to ontariodoctordirectory.ca (this may cost you $10!) and copy your cookie data here.

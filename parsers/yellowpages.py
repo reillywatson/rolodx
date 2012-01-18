@@ -2,7 +2,7 @@ import pickle
 import re
 import sys
 import traceback
-from parsecommon import PageRetriever
+from pageretriever import PageRetriever
 
 getPage = PageRetriever('http://www.yellowpages.ca').getPage
 
