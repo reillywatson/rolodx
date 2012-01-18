@@ -16,7 +16,8 @@
 }
 
 #item_metadata_icon {
-	background-image: url("../images/placeholders/item_icon.png");
+	background-image: url("../images/placeholders/sprites.png");
+	background-position: 0 -284px;
     float: left;
     height: 155px;
     margin-bottom: 15px;
@@ -54,6 +55,7 @@
 #item_metadata_address {
 	font-weight: bold;
 	margin: 5px 0;
+	max-width: 300px;
 }
 
 .item_metadata_action {
@@ -64,11 +66,13 @@
 }
 
 .item_metadata_action1 {
-	background-image: url("../images/placeholders/action1.png");
+	background-image: url("../images/placeholders/sprites.png");
+	background-position: 0 0;
 }
 
 .item_metadata_action2 {
-	background-image: url("../images/placeholders/action2.png");
+	background-image: url("../images/placeholders/sprites.png");
+	background-position: 0 -39px;
 }
 
 .item_metadata_main_top_actions {
@@ -100,7 +104,8 @@
 }
 
 .item_map {
-	background-image: url("../images/placeholders/item_map.png");
+	background-image: url("../images/placeholders/sprites.png");
+	background-position: 0 -444px;
     float: right;
     height: 320px;
     width: 230px;

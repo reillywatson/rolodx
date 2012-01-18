@@ -33,7 +33,7 @@ class Professional(models.Model):
 	numRatings = models.IntegerField()
 
 	# Contact info
-	street_address = models.CharField(max_length=200, blank=True, null=True)
+	street_address = models.CharField(max_length=2000, blank=True, null=True)
 	state_province = models.CharField(max_length=50, blank=True, null=True)
 	country = models.CharField(max_length=100, blank=True, null=True)
 	daytimePhone = models.CharField(max_length=50, blank=True, null=True)

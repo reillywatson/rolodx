@@ -25,7 +25,8 @@
 }
 
 .pro_icon {
-	background-image: url("../images/placeholders/p1.png");
+	background-image: url("../images/placeholders/sprites.png");
+	background-position: 0 -761px;
 	background-repeat: no-repeat;
 	float: left;
 	width: 90px;

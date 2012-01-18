@@ -153,23 +153,28 @@ body { margin: 0; padding: 0; }
 }
 
 .c1 {
-	background-image: url("../images/placeholders/c1.png");
+	background-image: url("../images/placeholders/sprites.png");
+	background-position: 0 -77px;
 }
 
 .c2 {
-	background-image: url("../images/placeholders/c2.png");
+	background-image: url("../images/placeholders/sprites.png");
+	background-position: 0 -118px; 
 }
 
 .c3 {
-	background-image: url("../images/placeholders/c3.png");
+	background-image: url("../images/placeholders/sprites.png");
+	background-position: 0 -162px;
 }
 
 .c4 {
-	background-image: url("../images/placeholders/c4.png");
+	background-image: url("../images/placeholders/sprites.png");
+	background-position: 0 -205px; 
 }
 
 .c5{
-	background-image: url("../images/placeholders/c5.png");
+	background-image: url("../images/placeholders/sprites.png");
+	background-position: 0 -245px;
 }
 
 .more_categories{
