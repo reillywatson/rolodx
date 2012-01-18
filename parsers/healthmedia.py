@@ -2,6 +2,38 @@ import re
 from pageretriever import PageRetriever
 import json
 
+def populate_doctors():
+	import os
+	import json
+	from rolodx.main.models import Professional, Category
+	from django.db import transaction
+	with transaction.commit_on_success():
+		rootCat = Category(name='Doctors', occupation='Doctor')
+		rootCat.save()
+		# you'll probably need to change this!
+		base = '/home/reilly/rolodx/parsers/doctors'
+		files = sorted(os.listdir(base))
+		for file in files:
+			doctors = json.loads(open(base+'/'+file).read())
+			print 'found %d doctors in %s' % (len(doctors), file)
+			for doc in doctors:
+				pro = Professional(
+					name = doc['name'].replace('Doctor ', ''),
+					occupation = 'Doctor',
+					street_address = doc['address'],
+					state_province = 'Ontario',
+					country = 'Canada',
+					daytimePhone = doc['phone'],
+					averageRating = 0,
+					numRatings = 0)
+				pro.save()
+				if doc['category'] != 'None':
+					category = Category(parent=rootCat, name = doc['category'], occupation = doc['category'])
+					category.save()
+					pro.categories.add(category)
+					pro.save()
+	print 'success!'
+
 # this will likely need updating.  Login to ontariodoctordirectory.ca (this may cost you $10!) and copy your cookie data here.
 # My account is reillywatson@gmail.com/123456, but it's only good for 1 month.
 # If you don't care about specialty information, you don't need to bother logging in, everything else ought to work.
