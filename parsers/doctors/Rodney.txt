@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(519) 785-0456", "fax": "(519) 785-2064", "name": "Doctor Michael Christopher Tenki", "address": "Rodney Medical Clinic\nP O Box 249\n226 Furnival Road\nRodney\nOntario\nN0L 2C0"}]

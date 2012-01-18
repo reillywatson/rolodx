@@ -1,0 +1,1 @@
+[{"category": "Internal Medicine", "phone": "(905) 939-9022", "fax": "(905) 939-9806", "name": "Doctor Fabio Varlese", "address": "R R 1\n42 Carrying Place Trail\nKettleby\nOntario\nL0G 1J0"}]

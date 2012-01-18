@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(705) 776-3655", "fax": "(705) 776-1940", "name": "Doctor Michel Leo Truchon", "address": "Bonfield Medical Centre\n105 Landon Street\nBox 304\nBonfield\nOntario\nP0H 1E0"}]

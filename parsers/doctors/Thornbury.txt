@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(519) 599-2732", "fax": "(519) 599-5895", "name": "Doctor Timothy Gordon Remillard", "address": "21 Arthur Street West\nThornbury\nOntario\nN0H 2P0"}]

@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(613) 378-1754", "fax": "", "name": "Doctor Catherine Louise Koester", "address": "PO Box 129\n5 Earl Street\nNewburgh\nOntario\nK0K 2S0"}, {"category": "Family Medicine", "phone": "(613) 378-1754", "fax": "(613) 378-1776", "name": "Doctor Joanna Elizabeth McDonald", "address": "Newburgh Clinic\nBox 129\nNewburgh\nOntario\nK0K 2S0"}]

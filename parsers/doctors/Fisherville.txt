@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(905) 779-3436", "fax": "(905) 779-3022", "name": "Doctor Timothy Giles Mead", "address": "Lions Medical Clinic\nFisherville\nOntario\nN0A 1G0"}]

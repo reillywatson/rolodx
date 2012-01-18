@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 679-5466", "fax": "(705) 679-5588", "name": "Doctor Steven Thomas Sears", "address": "18 Silver Street\nCobalt\nOntario\nP0J 1C0"}, {"category": "Family Medicine", "phone": "", "fax": "", "name": "Doctor Lindsay Anne Sit", "address": "18 Silver Street\nCobalt\nOntario\nP0J 1C0"}]

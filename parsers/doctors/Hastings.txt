@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(705) 696-2231", "fax": "", "name": "Doctor Elias Ronson Maraghi", "address": "Unit 2\n8 Water Street\nHastings\nOntario\nK0L 1Y0"}]

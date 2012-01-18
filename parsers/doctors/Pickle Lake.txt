@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(807) 928-2047", "fax": "(807) 928-2584", "name": "Doctor Lawrence David Nelson", "address": "Pickle Lake Health Clinic\nBox 302\n3 Ann Street\nPickle Lake\nOntario\nP0V 3A0"}]

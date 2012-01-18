@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(519) 296-5807", "fax": "(519) 296-4887", "name": "Doctor Laurence Hadley Stuart Gibbs", "address": "125 King Street\nBox 329\nThedford\nOntario\nN0M 2N0"}]

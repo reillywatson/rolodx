@@ -1,0 +1,1 @@
+[{"category": "Internal Medicine", "phone": "", "fax": "", "name": "Doctor Douglas William MacPherson", "address": "Migration Health Consultants Inc\n14130 Creditview Road\nCheltenham\nOntario\nL7C 1Y4"}]

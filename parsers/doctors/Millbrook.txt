@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 932-2772", "fax": "(705) 932-4089", "name": "Doctor James Peter Liston", "address": "Millbrook Medical Centre\n1 Lisa Court\nMillbrook\nOntario\nL0A 1G0"}, {"category": "Family Medicine", "phone": "(705) 932-2772", "fax": "", "name": "Doctor John David Van Loon", "address": "P O Box 290\nMillbrook\nOntario\nL0A 1G0"}]

@@ -1,0 +1,1 @@
+[{"category": "Diagnostic Radiology", "phone": "(519) 647-2884", "fax": "", "name": "Doctor Gerald James Gill", "address": "R R 2\n769 Field Road\nLynden\nOntario\nL0R 1T0"}, {"category": "None", "phone": "(519) 647-3422", "fax": "(519) 647-2901", "name": "Doctor Darrell Kirk Picketts", "address": "Box 100\n89 Lynden Road\nLynden\nOntario\nL0R 1T0"}]

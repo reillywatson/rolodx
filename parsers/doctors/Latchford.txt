@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 676-2200", "fax": "(705) 676-2111", "name": "Doctor Brenda Jane Hardie", "address": "Box 100\n66 Main Street\nFred Keenan Community Centre\nLatchford\nOntario\nP0J 1N0"}]

@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(613) 524-3225", "fax": "", "name": "Doctor Joseph Charle Luc Clement", "address": "4553 Ste Catherine\nSt Isidore\nOntario\nK0C 2B0"}, {"category": "Family Medicine", "phone": "(613) 524-3225", "fax": "(613) 524-2513", "name": "Doctor Manon Amelie Denis-LeBlanc", "address": "4553 St Catherine Street\nSt Isidore\nOntario\nK0C 2B0"}]

@@ -1,0 +1,1 @@
+[{"category": "Anesthesiology", "phone": "(519) 631-2020", "fax": "", "name": "Doctor Robert Mark Soderman", "address": "Rural Route 1\nUnion\nOntario\nN0L 2L0"}]

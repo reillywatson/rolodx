@@ -1,0 +1,1 @@
+[{"category": "Anesthesiology", "phone": "(705) 267-4991", "fax": "", "name": "Doctor David George Hook", "address": "Box 1178\nSchumacher\nOntario\nP0N 1G0"}]

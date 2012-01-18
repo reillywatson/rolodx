@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(519) 924-2012", "fax": "(519) 924-3828", "name": "Doctor Brian Martin Power", "address": "6 Alice Street\nFlesherton\nOntario\nN0C 1E0"}, {"category": "Family Medicine", "phone": "(519) 924-2012", "fax": "(519) 924-3828", "name": "Doctor Harvey Brian Winfield", "address": "Box 220\nFlesherton\nOntario\nN0C 1E0"}]

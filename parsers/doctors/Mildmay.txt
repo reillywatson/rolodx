@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(519) 367-2600", "fax": "(519) 367-2601", "name": "Doctor Philip Bruce James", "address": "12 Absalom Street East\nMildmay\nOntario\nN0G 2J0"}]

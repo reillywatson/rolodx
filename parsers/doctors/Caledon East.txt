@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(905) 584-9377", "fax": "(905) 584-5283", "name": "Doctor Brindusa Marina Popa", "address": "15955 Airport Road\nSuite 103\nCaledon East\nOntario\nL7C 1H9"}]

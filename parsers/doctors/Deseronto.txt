@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(613) 396-3420", "fax": "(613) 396-5105", "name": "Doctor Robert Bruce Reynolds", "address": "176 Center Street\nDeseronto\nOntario\nK0K 1X0"}]

@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(905) 562-5221", "fax": "(905) 562-7699", "name": "Doctor Michael Alexander Manjos", "address": "3951 19th Street\nJordan Station\nOntario\nL0R 1S0"}]

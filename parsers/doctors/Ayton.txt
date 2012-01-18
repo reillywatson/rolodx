@@ -1,0 +1,1 @@
+[{"category": "Internal Medicine", "phone": "", "fax": "", "name": "Doctor Peter Vertner Clarke", "address": "P.O. Box 4\nAyton\nOntario\nN0G 1C0"}]

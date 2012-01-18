@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 438-3189", "fax": "(705) 438-5174", "name": "Doctor Kinga Tatiana Koprowicz", "address": "1699 Kirkfield Road\nKirkfield\nOntario\nK0M 2B0"}]

@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(519) 285-3770", "fax": "(519) 285-3768", "name": "Doctor Panagiotis Diavolitsis", "address": "Thamesford Medical Clinic\n141 Dundas Street West\nThamesford\nOntario\nN0M 2M0"}]

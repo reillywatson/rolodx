@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(519) 874-4242", "fax": "(519) 773-5900", "name": "Doctor Charles Larry Leatherdale", "address": "P O Box 220\n61 Victoria Street\nPort Burwell\nOntario\nN0J 1T0"}]

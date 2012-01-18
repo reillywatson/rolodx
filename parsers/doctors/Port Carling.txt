@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(705) 765-5349", "fax": "(705) 765-5377", "name": "Doctor Paulette Elizabeth Burns", "address": "5 Armstrong Point Road\nPort Carling\nOntario\nP0B 1J0"}, {"category": "Neurosurgery", "phone": "(705) 765-6754", "fax": "", "name": "Doctor Bruce James Nixon", "address": "General Delivery\nPort Carling\nOntario\nP0B 1J0"}]

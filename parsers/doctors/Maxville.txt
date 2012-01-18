@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(613) 527-2030", "fax": "(613) 527-2030", "name": "Doctor Theo Anthony Jaggassar", "address": "P O Box 350\nMedical Centre\nMaxville\nOntario\nK0C 1T0"}]

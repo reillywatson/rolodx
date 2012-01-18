@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 437-2057", "fax": "(705) 437-2349", "name": "Doctor Patricia Martha Marchuk", "address": "319 Pefferlaw Road\nPefferlaw\nOntario\nL0E 1N0"}]

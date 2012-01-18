@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(519) 289-0352", "fax": "(519) 289-0355", "name": "Doctor Michael John Vreugdenhil", "address": "Southwest Ontario Aboriginal\nHealth Access Centre\nRR #1 Chippewa\nMuncey\nOntario\nN0L 1Y0"}]

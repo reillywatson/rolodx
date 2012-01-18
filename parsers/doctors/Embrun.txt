@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(613) 443-3311", "fax": "", "name": "Doctor Joseph Jacques Raoul Brunet", "address": "P O Box 1259\nEmbrun\nOntario\nK0A 1W0"}, {"category": "Family Medicine", "phone": "(613) 443-3311", "fax": "(613) 443-0142", "name": "Doctor Julie Marie Isabel Lockman", "address": "869 Rue Notre-Dame\nC P 1259\nEmbrun\nOntario\nK0A 1W0"}]

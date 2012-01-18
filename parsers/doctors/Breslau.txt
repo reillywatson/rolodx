@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(519) 648-2252", "fax": "", "name": "Doctor John Paul Schaman", "address": "Rural Route 2\nBreslau\nOntario\nN0B 1M0"}]

@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 569-3244", "fax": "(705) 569-2610", "name": "Doctor Stephen Peter Goddard", "address": "17 O'Conner Drive\nTemagami\nOntario\nP0H 2H0"}]

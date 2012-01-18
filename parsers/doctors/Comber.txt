@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(519) 687-2333", "fax": "", "name": "Doctor Raymond Cary Anderson", "address": "Comber Medical Centre\n6405 Main Street\nBox 38\nComber\nOntario\nN0P 1J0"}]

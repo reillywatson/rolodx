@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "", "fax": "", "name": "Doctor Charles William Murphy", "address": "R R 1\n600 380 Side Road 50 North\nBerkeley\nOntario\nN0H 1C0"}]

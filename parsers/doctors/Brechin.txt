@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 484-5352", "fax": "(705) 484-5400", "name": "Doctor Christopher Paul Brand", "address": "PO Box 184\nBrechin\nOntario\nL0K 1B0"}]

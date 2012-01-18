@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(519) 372-2336", "fax": "", "name": "Doctor Murray Stephen McQuigge", "address": "339757 Kemble Bypass Road\nR R 2\nKemble\nOntario\nN0H 1S0"}]

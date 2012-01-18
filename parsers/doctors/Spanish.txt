@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(705) 844-2263", "fax": "(705) 844-2028", "name": "Doctor Roger Ephrem Joseph Larochelle", "address": "Spanish Medical Clinic\n16 Trunk Road\nP O Box 279\nSpanish\nOntario\nP0P 2A0"}]

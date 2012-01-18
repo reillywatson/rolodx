@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(613) 637-2170", "fax": "(613) 637-5296", "name": "Doctor Jan Wojciech Krawczyk", "address": "Medical Centre Street\nPost Office Box 280\nWhitney\nOntario\nK0J 2M0"}]

@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(705) 739-7335", "fax": "", "name": "Doctor John Patrick Brennan", "address": "7 Pineview Avenue\nR R 2\nMinesing\nOntario\nL0L 1Y2"}]

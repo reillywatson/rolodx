@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 594-2338", "fax": "(705) 594-1361", "name": "Doctor Klere Danielle Bourgault", "address": "11790 Highway 64\nVerner\nOntario\nP0H 2M0"}]

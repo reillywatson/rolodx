@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(807) 822-2320", "fax": "(807) 822-2686", "name": "Doctor Laing Pollante Velicaria", "address": "White River Medical Clinic\nP O Box 278\n102 Winnipeg Street\nWhite River\nOntario\nP0M 3G0"}]

@@ -1,0 +1,1 @@
+[{"category": "Psychiatry", "phone": "(905) 841-9726", "fax": "", "name": "Doctor Kathleen Kimberley Cormack", "address": "4425 17th Sideroad\nKing City\nOntario\nL7B 1K4"}]

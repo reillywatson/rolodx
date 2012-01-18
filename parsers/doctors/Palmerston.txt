@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(519) 343-3831", "fax": "(519) 343-9944", "name": "Doctor Christopher Frederick Cressey", "address": "130 Main Street East\nPalmerston\nOntario\nN0G 2P0"}, {"category": "None", "phone": "(519) 343-5000", "fax": "(519) 343-3544", "name": "Doctor Gavin Rupert Semelhago", "address": "207 Main Street West\nBox 890\nPalmerston\nOntario\nN0G 2P0"}]

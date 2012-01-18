@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(519) 727-4247", "fax": "(519) 727-5000", "name": "Doctor Christopher Paul Cole", "address": "The Cole Clinic Inc for\nHair Transplant\n1344 County Road 22\nP O Box 17\nEmeryville\nOntario\nN0R 1C0"}]

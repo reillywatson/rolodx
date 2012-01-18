@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(613) 966-2002", "fax": "", "name": "Doctor Aleida Rackham", "address": "R R 1\nCarrying Place\nOntario\nK0K 1L0"}, {"category": "Family Medicine", "phone": "(613) 967-1661", "fax": "", "name": "Doctor Robert Lorne Vaughan", "address": "R R 1\n1442 Country Road 3\nCarrying Place\nOntario\nK0K 1L0"}]

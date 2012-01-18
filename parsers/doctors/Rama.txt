@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 325-3611", "fax": "", "name": "Doctor Nadir Hikmat Elia Al-Jazrawi", "address": "Rama Clinic\nSuite 200\n5884 Rama Road\nRama\nOntario\nL0K 1T0"}]

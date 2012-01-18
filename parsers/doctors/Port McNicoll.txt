@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(705) 534-7913", "fax": "", "name": "Doctor William Walter Kettle", "address": "Site 7\nPO Box 109\nR R #1\n32 Dawlish Drive\nPort McNicoll\nOntario\nL0K 1R0"}]

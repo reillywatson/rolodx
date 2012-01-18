@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(905) 262-0281", "fax": "(905) 262-0282", "name": "Doctor Sandra Elizabeth Hartman", "address": "P O Box 243\nSt Davids\nOntario\nL0S 1P0"}]

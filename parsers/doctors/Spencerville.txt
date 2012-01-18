@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(613) 658-1200", "fax": "(613) 658-5507", "name": "Doctor Senta Ute Frauke Bauermeister", "address": "R R 4\n2205 Millar Road West\nSpencerville\nOntario\nK0E 1X0"}]

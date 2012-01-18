@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(519) 867-2644", "fax": "(519) 867-3573", "name": "Doctor Kenneth Leslie Threndyle", "address": "Box 220\n1494 St Clair Parkway\nCourtright\nOntario\nN0N 1H0"}]

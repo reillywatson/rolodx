@@ -1,0 +1,1 @@
+[{"category": "General Surgery", "phone": "(519) 376-9466", "fax": "", "name": "Doctor Alvin Lozon", "address": "R R 1\nAnnan\nOntario\nN0H 1B0"}]

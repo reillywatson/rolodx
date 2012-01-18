@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(613) 387-3120", "fax": "(613) 387-2842", "name": "Doctor Deborah Ellen Briggs", "address": "1-106 Drynan Way\nBox 70\nSeeleys Bay\nOntario\nK0H 2N0"}]

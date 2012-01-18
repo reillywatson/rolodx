@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(519) 236-4314", "fax": "(519) 236-7508", "name": "Doctor Michael Hurley", "address": "P O Box 98\n43 Main Street West\nZurich\nOntario\nN0M 2T0"}]

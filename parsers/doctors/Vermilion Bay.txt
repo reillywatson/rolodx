@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(807) 227-2675", "fax": "", "name": "Doctor Yvon Rene Gagnon", "address": "Box 250\nVermilion Bay\nOntario\nP0V 2V0"}]

@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(807) 852-3222", "fax": "(807) 852-3990", "name": "Doctor Albert Michael Beller", "address": "Box 278\nRainy River\nOntario\nP0W 1L0"}, {"category": "Family Medicine", "phone": "(807) 852-3232", "fax": "", "name": "Doctor John David Singleton", "address": "Rainy River Health Centre\n4th Street\nRainy River\nOntario\nP0W 1L0"}]

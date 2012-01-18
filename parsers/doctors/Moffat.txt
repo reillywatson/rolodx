@@ -1,0 +1,1 @@
+[{"category": "Anesthesiology", "phone": "(519) 822-2108", "fax": "", "name": "Doctor William Alfred Vernon Henderson", "address": "Rural Route 1\nMoffat\nOntario\nL0P 1J0"}]

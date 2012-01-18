@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(519) 599-5775", "fax": "(519) 599-7140", "name": "Doctor Carola Ester Maria Elkhuizen", "address": "P O Box 179\n164 Clark Street\nClarksburg\nOntario\nN0H 1J0"}, {"category": "None", "phone": "(519) 599-5775", "fax": "(519) 599-7140", "name": "Doctor Karin Elizabeth Euler", "address": "164 Clark Street\nClarksburg\nOntario\nN0H 1J0"}]

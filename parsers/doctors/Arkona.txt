@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(519) 828-3821", "fax": "(519) 828-3429", "name": "Doctor Robert Alan Beattie", "address": "Arkona Medical Centre\nP O Box 99\n14 Union Street\nArkona\nOntario\nN0M 1B0"}, {"category": "None", "phone": "(519) 828-3821", "fax": "(519) 828-3429", "name": "Doctor Wayne Douglas Johnson", "address": "Arkona Medical Centre\nArkona\nOntario\nN0M 1B0"}]

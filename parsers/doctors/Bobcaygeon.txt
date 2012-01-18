@@ -1,0 +1,1 @@
+[{"category": "Anesthesiology", "phone": "(705) 738-6369", "fax": "", "name": "Doctor Marianne Davis", "address": "71 South Harbour Drive\nBobcaygeon\nOntario\nK0M 1A0"}, {"category": "Family Medicine", "phone": "(705) 738-6136", "fax": "(705) 738-3771", "name": "Doctor Stephen Clifford Oldridge", "address": "85 Bolton Street\nP O Box 28\nBobcaygeon\nOntario\nK0M 1A0"}]

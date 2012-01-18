@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "", "fax": "", "name": "Doctor James Douglas Hedges", "address": "P O Box 790\n250 German School Road\nSt George\nOntario\nN0E 1N0"}, {"category": "None", "phone": "(519) 448-3331", "fax": "(519) 448-3334", "name": "Doctor Timothy Lindol Hutton", "address": "2 Sunnyside Drive\nSt George\nOntario\nN0E 1N0"}]

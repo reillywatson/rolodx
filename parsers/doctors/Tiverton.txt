@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(519) 361-5311", "fax": "(519) 361-5677", "name": "Doctor Michael Gerard Joseph Emond", "address": "Bruce Power Health Services\nHealth Service Department B10\nP O Box 1540\n177 Tie Road\nTiverton\nOntario\nN0G 2G0"}]

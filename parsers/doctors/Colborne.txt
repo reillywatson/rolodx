@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(905) 355-2075", "fax": "(905) 355-3366", "name": "Doctor Trevor Alan Hearnden", "address": "91 King Street East\nP O Box 209\nColborne\nOntario\nK0K 1S0"}, {"category": "None", "phone": "(905) 355-5355", "fax": "(905) 355-5929", "name": "Doctor Iris Ruth Noland", "address": "P O Box 339\n56 Toronto Road\nColborne\nOntario\nK0K 1S0"}]

@@ -1,0 +1,1 @@
+[{"category": "Psychiatry", "phone": "(613) 372-0045", "fax": "(613) 372-0692", "name": "Doctor Robert John McCaldon", "address": "P O Box 126\n5763 Highway 38\nHartington\nOntario\nK0H 1W0"}]

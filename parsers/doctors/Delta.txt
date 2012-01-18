@@ -1,0 +1,1 @@
+[{"category": "Community Medicine", "phone": "(613) 928-3126", "fax": "", "name": "Doctor Robert Charles Donald Climie", "address": "P O Box 159\nDelta\nOntario\nK0E 1G0"}]

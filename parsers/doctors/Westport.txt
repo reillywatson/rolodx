@@ -1,0 +1,1 @@
+[{"category": "Obstetrics and Gynecology", "phone": "(613) 273-2900", "fax": "(613) 273-2901", "name": "Doctor Elaine Patricia Riddick", "address": "3 Church Street\nWestport\nOntario\n K0G 1X0 "}, {"category": "None", "phone": "(613) 273-3777", "fax": "(613) 273-4656", "name": "Doctor Brian Hazen Trickey", "address": "Box 189\nWestport\nOntario\nK0G 1X0"}]

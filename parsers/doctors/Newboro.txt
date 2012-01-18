@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "", "fax": "", "name": "Doctor Ian Kent Shiozaki", "address": "Rideau Medical Centre\n2 John Street\nNewboro\nOntario\nK0G 1P0"}]

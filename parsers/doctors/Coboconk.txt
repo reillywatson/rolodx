@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 454-3375", "fax": "(705) 454-1534", "name": "Doctor Shabaz Mansoor Warsi", "address": "Coboconk Community Medical Center\nGrandy Street\nP O Box 147\nCoboconk\nOntario\nK0M 1K0"}]

@@ -1,0 +1,1 @@
+[{"category": "Neuropathology", "phone": "(905) 274-9212", "fax": "(416) 966-0837", "name": "Doctor Taras Babiak", "address": "1184 Stavebank Road\nPort Credit\nOntario\nL5G 2V2"}, {"category": "Family Medicine", "phone": "(905) 271-4440", "fax": "", "name": "Doctor Donald Maclean Thomson", "address": "22 Mississauga Road North\nPort Credit\nOntario\nL5H 2H6"}]

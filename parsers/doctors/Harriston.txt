@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(519) 338-2505", "fax": "", "name": "Doctor Mary Jo Calarco", "address": "24 Elora Street South\nP O Box 398\nHarriston\nOntario\nN0G 1Z0"}, {"category": "None", "phone": "(519) 338-2922", "fax": "", "name": "Doctor Jan Vanderkooy", "address": "Box 569\nHarriston\nOntario\nN0G 1Z0"}]

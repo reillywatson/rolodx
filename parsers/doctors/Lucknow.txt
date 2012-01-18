@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(519) 528-2810", "fax": "(519) 528-3408", "name": "Doctor John Michael Shubat", "address": "Lucknow Medical Centre\n691 Havelock Street\nBox 160\nLucknow\nOntario\nN0G 2H0"}, {"category": "Family Medicine", "phone": "(519) 528-2810", "fax": "", "name": "Doctor Sean Peter Sleeth", "address": "691 Havelock Street\nLucknow\nOntario\nN0G 2H0"}]

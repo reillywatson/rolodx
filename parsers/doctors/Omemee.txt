@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(705) 799-0000", "fax": "", "name": "Doctor John James Ludwig", "address": "Omemee Medical Centre\n23 Wellington Street\nP O Box 310\nOmemee\nOntario\nK0L 2W0"}, {"category": "None", "phone": "(705) 799-5230", "fax": "", "name": "Doctor Jules Sobrian", "address": "Box 339\n67 King Street West\nOmemee\nOntario\nK0L 2W0"}]

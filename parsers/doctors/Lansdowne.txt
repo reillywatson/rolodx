@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(613) 659-2525", "fax": "(613) 659-2278", "name": "Doctor John Byron Erb", "address": "1012A Prince Street\nLansdowne\nOntario\nK0E 1L0"}, {"category": "None", "phone": "(613) 659-2525", "fax": "", "name": "Doctor Julian Lawrence Gitterman", "address": "1012A Prince Street\nLansdowne\nOntario\nK0E 1L0"}]

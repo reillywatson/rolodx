@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 752-5521", "fax": "(705) 752-2193", "name": "Doctor John Philip Seguin", "address": "506 Astorville Road\nR R  1\nAstorville\nOntario\nP0H 1B0"}]

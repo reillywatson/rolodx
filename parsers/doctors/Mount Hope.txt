@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(905) 679-4241", "fax": "(905) 679-6100", "name": "Doctor Eleonora Clara Lalli", "address": "P O Box 40\n3051 Homestead Drive\nMount Hope\nOntario\nL0R 1W0"}, {"category": "None", "phone": "(905) 679-4241", "fax": "", "name": "Doctor John William Ridge", "address": "P O Box 209\nMount Hope\nOntario\nL0R 1W0"}]

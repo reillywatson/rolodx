@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(613) 724-3571", "fax": "(819) 425-2509", "name": "Doctor Jean De Guise", "address": "23 Marie-Eve\nAlfred\nOntario\nK0B 1A0"}, {"category": "None", "phone": "(613) 679-2502", "fax": "(613) 679-2954", "name": "Doctor Marcel Feldman", "address": "C P 400\n377 St Philippe Street\nAlfred\nOntario\nK0B 1A0"}]

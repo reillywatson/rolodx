@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 869-1112", "fax": "(705) 869-1132", "name": "Doctor Stephanie Ann Borsato", "address": "36 McIntyre Street\nNairn Centre\nOntario\nP0M 2L0"}]

@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(705) 762-3210", "fax": "(705) 762-1549", "name": "Doctor Michael Krawetz", "address": "1033 River Street\nP O Box 228\nBala\nOntario\nP0C 1A0"}]

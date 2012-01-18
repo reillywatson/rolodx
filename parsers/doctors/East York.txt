@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(416) 421-2282", "fax": "", "name": "Doctor Lung Kwan Ng", "address": "599 Broadway Avenue\nEast York\nOntario\nM4G 2S4"}, {"category": "None", "phone": "(416) 461-8272", "fax": "", "name": "Doctor Brian Ling Bong Tse", "address": "Toronto East General Hospital\nDepartment of Family Medicine\n825 Coxwell Avenue\nEast York\nOntario\nM4C 3E7"}]

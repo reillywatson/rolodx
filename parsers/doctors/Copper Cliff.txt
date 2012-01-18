@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(705) 682-0415", "fax": "(750) 682-0415", "name": "Doctor Paul Brubacher Martin", "address": "Box 642\n32 Collins Drive\nCopper Cliff\nOntario\nP0M 1N0"}]

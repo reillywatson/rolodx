@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(613) 374-2077", "fax": "(613) 374-2483", "name": "Doctor Laurel Jane Dempsey", "address": "Box 160\nVerona\nOntario\nK0H 2W0"}]

@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(613) 582-3685", "fax": "", "name": "Doctor Angus Scott Daniel", "address": "Whitewater Bromley Community\nHealth Centre\n20 Robertson Drive\nBeachburg\nOntario\nK0J 1C0"}]

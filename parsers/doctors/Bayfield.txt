@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(519) 565-2922", "fax": "(519) 565-5922", "name": "Doctor Charles James Wallace", "address": "P O Box 209\n16 The Square\nBayfield\nOntario\nN0M 1G0"}]

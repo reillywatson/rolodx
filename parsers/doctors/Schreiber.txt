@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(807) 824-2934", "fax": "(807) 824-2758", "name": "Doctor David Edward Hurst", "address": "415 Scotia Street\nSchreiber\nOntario\nP0T 2S0"}, {"category": "Family Medicine", "phone": "(807) 824-2934", "fax": "(807) 824-2758", "name": "Doctor Ian Bruce Thompson", "address": "P. O. Box 760\n415 Scotia Street\nSchreiber\nOntario\nP0T 2S0"}]

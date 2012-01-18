@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 789-1131", "fax": "(705) 789-1132", "name": "Doctor David Wilson Hillier", "address": "520 Boundary Road\nP O Box 364\nNovar\nOntario\nP0A 1R0"}]

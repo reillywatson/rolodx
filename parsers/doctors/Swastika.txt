@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(705) 642-3317", "fax": "(705) 642-3200", "name": "Doctor Frederick Jack Hacking", "address": "Kenogami Clinic\nPO Box 528\nR R 2\nSite 4\nSwastika\nOntario\nP0K 1T0"}]

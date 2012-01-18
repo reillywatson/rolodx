@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(705) 721-9388", "fax": "(705) 739-4986", "name": "Doctor Derek Samuel Nesdoly", "address": "2372 Gill Road\nMidhurst\nOntario\nL0L 1X0"}, {"category": "Family Medicine", "phone": "(705) 735-0922", "fax": "(705) 735-1530", "name": "Doctor Susan Lois Mary Smith", "address": "Midhurst HealthCentre\n30 Spence Avenue\nMidhurst\nOntario\nL0L 1X1"}]

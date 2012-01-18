@@ -1,0 +1,1 @@
+[{"category": "Internal Medicine", "phone": "(519) 225-2035", "fax": "(519) 225-2700", "name": "Doctor Nicola Karin McLean", "address": "South Perth Endocrinology\nand Metabolism\nR R 1\nGranton\nOntario\nN0M 1V0"}]

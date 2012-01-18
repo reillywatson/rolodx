@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(613) 646-2436", "fax": "(613) 646-2436", "name": "Doctor Carey Dale Purdon", "address": "Box 190\nCobden\nOntario\nK0J 1K0"}, {"category": "None", "phone": "(613) 646-7997", "fax": "(613) 646-2571", "name": "Doctor Teresa Aranka Ilma Rheaume", "address": "Whitewater Bromley Community\nHealth Centre\n70 Main Street\nCobden\nOntario\nK0G 1K0"}]

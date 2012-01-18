@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(519) 928-5666", "fax": "(519) 928-3260", "name": "Doctor Constantine Mallin", "address": "21 Main Street North\nP O Box 340\nGrand Valley\nOntario\nL0N 1G0"}]

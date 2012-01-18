@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(519) 237-3693", "fax": "(519) 237-3605", "name": "Doctor Yuen-Ming Lam", "address": "Dashwood Medical Centre\nP O  Box 89\n145 Centre Street\nDashwood\nOntario\nN0M 1N0"}]

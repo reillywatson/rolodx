@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(705) 689-6482", "fax": "(705) 689-2592", "name": "Doctor Mary Elizabeth Trotter", "address": "Box 207\nWashago\nOntario\nL0K 2B0"}]

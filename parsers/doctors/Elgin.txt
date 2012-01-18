@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "", "fax": "", "name": "Doctor Elspeth Margaret Catriona Kushnir", "address": "Dean Island Medical Service\nP O Box 473\nElgin\nOntario\nK0G 1E0"}, {"category": "None", "phone": "(613) 359-6244", "fax": "", "name": "Doctor Hugh Gordon John Lafave", "address": "883 Davis Lock Road\nElgin\nOntario\nK0G 1E0"}]

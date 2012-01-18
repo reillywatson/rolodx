@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(519) 268-7301", "fax": "(519) 268-2397", "name": "Doctor Alexandre Peter Bohdanowicz", "address": "4036 Catherines Street\nDorchester\nOntario\nN0L 1G0"}, {"category": "None", "phone": "(519) 268-2011", "fax": "(519) 268-8672", "name": "Doctor Gerard Michael MacNeil", "address": "B1-2135 Dorchester Road\nDorchester\nOntario\nN0L 1G2"}]

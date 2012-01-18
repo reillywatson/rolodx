@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(519) 848-3936", "fax": "(519) 848-3937", "name": "Doctor Lynton Stephen Bon", "address": "270 George Street\nArthur\nOntario\nN0G 1A0"}, {"category": "None", "phone": "(519) 848-3798", "fax": "(519) 848-6373", "name": "Doctor Thomas Alfred Landoni", "address": "Arthur Family Health Centre\n110 Charles Street East\nArthur\nOntario\nN0G 1A0"}]

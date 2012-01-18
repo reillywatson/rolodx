@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(519) 422-1321", "fax": "(519) 422-3568", "name": "Doctor Roddy Terence Caulfeild", "address": "Sauble Family Health Team\n 672 Main Street\nSauble Beach\nOntario\nN0H 2G0 "}]

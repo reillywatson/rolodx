@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(705) 966-5180", "fax": "(705) 966-5182", "name": "Doctor Walter William Francis Kealy", "address": "24 Nickel Street\nLevack\nOntario\nP0M 2C0"}, {"category": "Family Medicine", "phone": "(705) 966-3426", "fax": "(705) 966-0252", "name": "Doctor Jennifer Betina Laski", "address": "Onaping Falls Medical Centre\nBox 160\nLevack\nOntario\nP0M 2C0"}]

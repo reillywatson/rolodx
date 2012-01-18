@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 924-2230", "fax": "(705) 924-2053", "name": "Doctor Brett Alexander Jamieson", "address": "P O Box 40\nWarkworth\nOntario\nK0K 3K0"}, {"category": "Family Medicine", "phone": "(705) 924-8046", "fax": "(705) 924-8047", "name": "Doctor Navpreet Singh", "address": "15847 County Road 29\nWarkworth\nOntario\nK0K 3K0"}]

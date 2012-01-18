@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 859-2170", "fax": "(705) 859-2212", "name": "Doctor Jennifer Leigh Davis", "address": "23 Spragge Street\nManitowaning\nOntario\nP0P 1N0"}]

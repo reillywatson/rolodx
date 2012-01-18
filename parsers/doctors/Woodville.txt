@@ -1,0 +1,1 @@
+[{"category": "Family Medicine", "phone": "(705) 439-2412", "fax": "(705) 439-2770", "name": "Doctor John Lee Bingham", "address": "Woodville Medical Centre\nBox 98\nWoodville\nOntario\nK0M 2T0"}, {"category": "Family Medicine", "phone": "(705) 439-2411", "fax": "(705) 439-2770", "name": "Doctor Maria Amelia Cescon", "address": "P O Box 98\nWoodville\nOntario\nK0M 2T0"}]

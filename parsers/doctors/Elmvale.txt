@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(705) 322-6330", "fax": "(705) 322-6320", "name": "Doctor Hans Edward Harlos", "address": "Unit 2\n40 Yonge Street South\nElmvale\nOntario\nL0L 1P0"}]

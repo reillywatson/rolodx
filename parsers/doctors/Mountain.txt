@@ -1,0 +1,1 @@
+[{"category": "None", "phone": "(613) 989-2026", "fax": "", "name": "Doctor Robert Azaric Joseph Morel", "address": "R R 3\n502 SG Boundary Road\nMountain\nOntario\nK0E 1S0"}]
