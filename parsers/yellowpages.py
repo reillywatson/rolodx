@@ -4,7 +4,7 @@ import sys
 import traceback
 from pageretriever import PageRetriever
 
-getPage = PageRetriever('http://www.yellowpages.ca').getPage
+getPage = PageRetriever('http://www.yellowpages.ca').getPageSoup
 
 def parseBusiness(url):
 	try:

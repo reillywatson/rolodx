@@ -38,7 +38,7 @@ def populate_doctors():
 # My account is reillywatson@gmail.com/123456, but it's only good for 1 month.
 # If you don't care about specialty information, you don't need to bother logging in, everything else ought to work.
 cookie = "__unam=864e7ef-134e8e1f09d-4670959b-1; __utmx=245865818.; __utmxx=245865818.; PHPSESSID=a5b685b5bd5d96b72680f6b96bf4ab3a; __utma=166909665.526384761.1326757732.1326757732.1326757732.1; __utmb=166909665.21.10.1326757732; __utmc=166909665; __utmz=166909665.1326757732.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)"
-getPage = PageRetriever('http://www.ontariodoctordirectory.ca', headers={'Cookie':cookie}).getPage
+getPage = PageRetriever('http://www.ontariodoctordirectory.ca', headers={'Cookie':cookie}).getPageSoup
 
 def tryMatch(pattern, text):
 	result = ''

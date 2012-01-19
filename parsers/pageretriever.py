@@ -17,9 +17,11 @@ class PageRetriever:
 			arguments = dict(kwargs.items() + self.args.items())
 			response = requests.get(url, **arguments)
 			if response.status_code == 200:
-				return BeautifulSoup.BeautifulSoup(response.content)
+				return response.content
 			print 'failed with error %d, retrying!' % response.status_code
 			time.sleep(1)
 			tries = tries + 1
 		return None
+	def getPageSoup(self, url, **kwargs):
+		return BeautifulSoup.BeautifulSoup(self.getPage(url, **kwargs))
 
