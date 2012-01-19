@@ -29,7 +29,7 @@ Item.prototype = {
 	init : function( data ) {		
 		function starsNumToString(num) {
 			var rounded = Math.round(num* 2) / 2;
-			return (rounded == 0 ) ? "0_5" : rounded.toString().replace(/\./,'_');
+			return rounded.toString().replace(/\./,'_');
 		}
 		
 		this.rating = starsNumToString(data.rating);

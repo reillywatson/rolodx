@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from models import Category, Professional
+from ui_models import SearchPageModel, ItemPageModel
 from controllers.search_controller import SearchController
 from django.core.serializers import serialize
 
@@ -9,11 +10,14 @@ def home(request):
 
 def search(request):
 	results = SearchController().search(request.GET['q'])
-	return render_to_response('search.html', {'results' : serialize('json', results)}, context_instance=RequestContext(request))
+	searchModel = SearchPageModel(results).json
+	#searchModel = serialize('json', results)	-- This is 3 times larger then searchPageModel
+	return render_to_response('search.html', {'results' : searchModel}, context_instance=RequestContext(request))
 
 def item(request, itemId):
-	item = Professional.objects.filter(pk=int(itemId))
-	results = {"itemData" : serialize('json', item), "reviews" : []}
+	item = Professional.objects.get(pk=int(itemId))
+	itemModel = ItemPageModel(item).json
+	results = {"itemData" : itemModel, "reviews" : []}
 	return render_to_response('item.html', {"results" : results}, context_instance=RequestContext(request))
 
 def search_category(request):
