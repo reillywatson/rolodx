@@ -36,13 +36,11 @@ SearchResult.prototype = {
 		template +="<div class='pro_container'>";
 		template += "	<a class='no-link' href='/pro/{id}'>";
 		template +="		<img class='pro_icon'></img>";
-		template +="		<div class='pro_text'>{name}</div>";
-		template +="		<div class='pro_text'>{occupation}</div>";
-		template +="		<div class='pro_text'>"
-		template +="			<div class='pro_rating'>Rating:</div>"
+		template +="		<div class='pro_text'>{name},&nbsp;{occupation}</div>";
+		template +="		<div class='pro_description'>{description}</div>"
+		template +="		<div class='pro_rating'>"
 		template +="			<div class='rating_stars_{stars}'></div>"
 		template +="		</div>"
-		template +="		<div class='pro_description'>{description}</div>"
 		template +="		<div class='pro_separator'></div>"
 		template +="	</a>"
 		template +="</div>"
