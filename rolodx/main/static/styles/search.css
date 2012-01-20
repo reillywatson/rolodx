@@ -37,7 +37,14 @@
 
 .pro_rating {
     float: left;
-    width: 50px;
+    width: 450px;
+}
+
+.num_ratings{
+    color: #A3A29E;
+    float: left;
+    font-size: 15px;
+    margin-left: 5px;
 }
 
 .pro_text {

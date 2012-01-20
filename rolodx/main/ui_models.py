@@ -4,7 +4,7 @@ from django.core.serializers import serialize
 class SearchPageModel():
     def __init__(self, searchResults):
         self.numResults = len(searchResults)
-        self.json = serialize('json', searchResults, fields=('name','occupation','averageRating','description'))
+        self.json = serialize('json', searchResults, fields=('name','occupation','averageRating','description', 'numRatings'))
         
         
 class ItemPageModel():

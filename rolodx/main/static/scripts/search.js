@@ -14,6 +14,8 @@ SearchResult.prototype = {
 	
 	rating : null,
 	
+	numRatings : null,
+	
 	description : null,
 	
 	constructor : SearchResult,
@@ -31,6 +33,7 @@ SearchResult.prototype = {
 		this.name = resultData.name;
 		this.occupation = resultData.occupation;
 		this.description = resultData.description;
+		this.numRatings = resultData.numRatings;
 		
 		var template = "";
 		template +="<div class='pro_container'>";
@@ -38,10 +41,13 @@ SearchResult.prototype = {
 		template +="		<img class='pro_icon'></img>";
 		template +="		<div class='pro_text'>{name},&nbsp;{occupation}</div>";
 		template +="		<div class='pro_description'>{description}</div>"
-		template +="		<div class='pro_rating'>"
-		template +="			<div class='rating_stars_{stars}'></div>"
-		template +="		</div>"
-		template +="		<div class='pro_separator'></div>"
+		
+		if (resultData.averageRating != 0) {
+			template +="		<div class='pro_rating'>"
+			template +="			<div class='rating_stars_{stars}'></div>"
+			template +="			<div class='num_ratings'>({num_ratings})</div>"
+			template +="		</div>"
+		}
 		template +="	</a>"
 		template +="</div>"
 		
@@ -50,6 +56,7 @@ SearchResult.prototype = {
 		template = template.replace(/{occupation}/,this.occupation);
 		template = template.replace(/{description}/, (this.description ? this.description : ""));
 		template = template.replace(/{stars}/,this.rating);
+		template = template.replace(/{num_ratings}/,this.numRatings);
 		
 		this.content = template;
 	},
