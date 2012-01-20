@@ -25,7 +25,7 @@ SearchResult.prototype = {
 			var rounded = Math.round(num* 2) / 2;
 			return rounded.toString().replace(/\./,'_');
 		}
-		this.rating = starsNumToString(resultData.rating);
+		this.rating = starsNumToString(resultData.averageRating);
 		this.id = resultData.id;
 		this.icon = resultData.icon;
 		this.name = resultData.name;

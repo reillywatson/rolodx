@@ -32,7 +32,7 @@ Item.prototype = {
 			return rounded.toString().replace(/\./,'_');
 		}
 		
-		this.rating = starsNumToString(data.rating);
+		this.rating = starsNumToString(data.averageRating);
 		this.numRatings = data.numRatings;
 		this.name = data.name;
 		this.occupation = data.occupation;
