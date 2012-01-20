@@ -9,10 +9,11 @@
     width: 350px;
 }
 
-#right {
-    float: right;
-    margin-bottom: 20px;
-    width: 350px;
+#map_canvas {
+	float: right;
+	height: 300px;
+	width: 300px;
+	margin-top: 20px;
 }
 
 .pro_container {

@@ -12,21 +12,33 @@
 			searchResults.push(new SearchResult(data));
 		}
 		
+		function initializeMap() {
+			var myOptions = {
+			  center: new google.maps.LatLng(43.716589,-79.340686),
+			  zoom: 12,
+			  mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+		}
+		
 		window.onload = function () {
 			var leftParent = document.getElementById('left');
-			var rightParent = document.getElementById('right');
 			for (var i=0; i<searchResults.length; i++) {
-				searchResults[i].render( i % 2 == 0? leftParent : rightParent );
+				searchResults[i].render( leftParent );
 			}
+			initializeMap();
 		}
 	</script>
+	<script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAlLwEDIyHgeeg30BZpdAdsXumvBxbWXOA&sensor=true">
+    </script>
 {% endblock %}
 
 
 {% block content %}
 <div class="search_container">
 	<div id="left"></div>
-	<div id="right"></div>
+	<div id="map_canvas"></div>
 </div>
 
 {% endblock %}
