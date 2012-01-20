@@ -15,8 +15,8 @@ def search(request):
 	return render_to_response('search.html', {'results' : searchModel}, context_instance=RequestContext(request))
 
 def item(request, itemId):
-	item = Professional.objects.get(pk=int(itemId))
-	itemModel = ItemPageModel(item).json
+	items = Professional.objects.filter(pk=int(itemId))
+	itemModel = ItemPageModel(items).json
 	results = {"itemData" : itemModel, "reviews" : []}
 	return render_to_response('item.html', {"results" : results}, context_instance=RequestContext(request))
 

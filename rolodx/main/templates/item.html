@@ -5,7 +5,7 @@
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/item.js"></script>
 	<script type="text/javascript">
 		var itemData = {{results.itemData|safe}};
-		var item = new Item(itemData);
+		var item = new Item(itemData[0].fields);
 			
 		var reviewData0 = {"author":"Someone useless", 
 							"text" : "I've seen better. Or have I. It's hard to say, really. What was the questions again? Either way. I strongly suggest you make up your own mind about how useful he is.",
