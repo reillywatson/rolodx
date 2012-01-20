@@ -10,6 +10,7 @@
 }
 
 #map_canvas {
+	border: 1px solid;
 	float: right;
 	height: 300px;
     margin-top: 30px;
