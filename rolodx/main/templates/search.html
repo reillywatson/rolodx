@@ -4,59 +4,27 @@
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/search.css" /> 
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAlLwEDIyHgeeg30BZpdAdsXumvBxbWXOA&sensor=true"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/search.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}scripts/googleMapper.js"></script>
 	<script type="text/javascript">
+		
 		var results = {{results|safe}};
+		var googleMapper = new GoogleMapper();
 		var searchResults = [];
 		for (var i=0; i<results.length; i++) {
 			var data = results[i].fields;
 			data.id = results[i].pk;
 			searchResults.push(new SearchResult(data));
+			
+			googleMapper.addMarker(data);
 		}
 		
-		function initializeMap() {
-			var location = new google.maps.LatLng(43.716589,-79.340686);
-			var myOptions = {
-				center: location,
-				zoom: 11,
-				disableDefaultUI: true,
-    			mapTypeId: google.maps.MapTypeId.ROADMAP
-			};
-			var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-			
-			var image = 'beachflag.png';
-			var marker = new google.maps.Marker({
-				position: location,
-				title: "Hello",
-				map: map,
-				//icon: image
-			});
-			
-			var contentString = 
-				'<div id="map_bubble_content">'+
-					'<div class="map_bubble_name">{name}</div>'+
-					'<div class="map_bubble_rating">'+
-						'<div class="rating_stars_5"></div>'+
-						'<div class="map_bubble_num_ratings">{numRatings}</div>'+
-					'</div>'+
-				'</div>';
-
-			var infowindow = new google.maps.InfoWindow({
-				content: contentString,
-				maxWidth: 200
-			});
-			
-			google.maps.event.addListener(marker, 'click', function() {
-			  infowindow.open(map,marker);
-			});
-
-		}
-		
-		window.onload = function () {
+		window.onload = function () {			
 			var leftParent = document.getElementById('left');
 			for (var i=0; i<searchResults.length; i++) {
 				searchResults[i].render( leftParent );
 			}
-			initializeMap();
+			
+			googleMapper.render("map_canvas");
 		}
 	</script>
 {% endblock %}

@@ -42,10 +42,10 @@ SearchResult.prototype = {
 		template +="		<div class='pro_text'>{name},&nbsp;{occupation}</div>";
 		template +="		<div class='pro_description'>{description}</div>"
 		if (resultData.averageRating != 0) {
-			template +="		<div class='pro_rating'>"
-			template +="			<div class='rating_stars_{stars}'></div>"
-			template +="			<div class='num_ratings'>({num_ratings})</div>"
-			template +="		</div>"
+		template +="		<div class='pro_rating'>"
+		template +="			<div class='rating_stars_{stars}'></div>"
+		template +="			<div class='num_ratings'>({num_ratings})</div>"
+		template +="		</div>"
 		}
 		template +="	</a>"
 		template +="</div>"

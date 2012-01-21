@@ -74,6 +74,7 @@
 .map_bubble_rating {
 	overflow: auto;
 	float: left;
+	clear: left;
 }
 
 .map_bubble_name {
