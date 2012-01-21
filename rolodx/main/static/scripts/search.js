@@ -41,7 +41,6 @@ SearchResult.prototype = {
 		template +="		<img class='pro_icon'></img>";
 		template +="		<div class='pro_text'>{name},&nbsp;{occupation}</div>";
 		template +="		<div class='pro_description'>{description}</div>"
-		
 		if (resultData.averageRating != 0) {
 			template +="		<div class='pro_rating'>"
 			template +="			<div class='rating_stars_{stars}'></div>"

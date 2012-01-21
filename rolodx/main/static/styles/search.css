@@ -1,6 +1,6 @@
 .search_container {
     margin: 0 auto;
-    width: 810px;
+    width: 850px;
 }
 
 #left {    
@@ -9,12 +9,9 @@
     width: 550px;
 }
 
-#map_canvas {
-	border: 1px solid;
-	float: right;
-	height: 300px;
-    margin-top: 30px;
-	width: 220px;
+.no-link {
+	text-decoration: none;
+	color: black;
 }
 
 .pro_container {
@@ -65,7 +62,26 @@
     overflow: hidden;
 }
 
-.no-link {
-	text-decoration: none;
-	color: black;
+/** ================		GOOGLE MAPS		=================== **/
+#map_canvas {
+	border: 1px solid;
+	float: right;
+	height: 350px;
+    margin-top: 30px;
+	width: 280px;
+}
+
+.map_bubble_rating {
+	overflow: auto;
+	float: left;
+}
+
+.map_bubble_name {
+	float: left;
+    color: #2AA4C9;
+    font-family: sans-serif;
+}
+
+.map_bubble_num_ratings {
+	float: left;
 }
