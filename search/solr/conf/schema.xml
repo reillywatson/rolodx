@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema name="rolodx-professional" version="1.1">
+	<types>
+		<fieldType name="string" class="solr.StrField" sortMissingLast="true" omitNorms="true" />
+		<fieldType name="boolean" class="solr.BoolField" omitNorms="true" />
+		
+		<fieldType name="int" class="solr.TrieIntField" precisionStep="0" omitNorms="true" positionIncrementGap="0"/>
+		<fieldType name="float" class="solr.TrieFloatField" precisionStep="0" omitNorms="true" positionIncrementGap="0"/>
+		<fieldType name="long" class="solr.TrieLongField" precisionStep="0" omitNorms="true" positionIncrementGap="0"/>
+		<fieldType name="double" class="solr.TrieDoubleField" precisionStep="0" omitNorms="true" positionIncrementGap="0"/>
+		<fieldType name="date" class="solr.TrieDateField" sortMissingLast="true" omitNorms="true" />
+		
+		<fieldType name="sint" class="solr.SortableIntField" sortMissingLast="true" omitNorms="true"/>
+		<fieldType name="slong" class="solr.SortableLongField" sortMissingLast="true" omitNorms="true"/>
+		<fieldType name="sfloat" class="solr.SortableFloatField" sortMissingLast="true" omitNorms="true"/>
+		<fieldType name="sdouble" class="solr.SortableDoubleField" sortMissingLast="true" omitNorms="true"/>
+
+		<fieldType name="string_ignore_case" class="solr.TextField" positionIncrementGap="100" omitNorms="true">
+			<analyzer>
+				<tokenizer class="solr.KeywordTokenizerFactory" />
+				<filter class="solr.LowerCaseFilterFactory" />
+			</analyzer>
+		</fieldType>
+	</types>
+
+	<!-- A mapping of the Professional properties from the Model.py class-->
+	<fields>
+		<field name="id" type="string" indexed="true" stored="true" />
+		<field name="name" type="string_ignore_case" indexed="true" stored="true" />
+		<field name="occupation" type="string_ignore_case" indexed="true" stored="true" />
+		<field name="description" type="string_ignore_case" indexed="true" stored="true" />
+		<field name="email" type="string_ignore_case" indexed="true" stored="true" />
+		<field name="website" type="string_ignore_case" indexed="true" stored="true" />
+		<field name="categories" type="string_ignore_case" indexed="true" stored="true" multiValued="true" />
+		<field name="averageRating" type="string_ignore_case" indexed="true" stored="true" />
+		<field name="numRatings" type="string_ignore_case" indexed="true" stored="true" />
+		<field name="street_address" type="string_ignore_case" indexed="true" stored="true" />
+		<field name="state_province" type="string_ignore_case" indexed="true" stored="true" />
+		<field name="country" type="string_ignore_case" indexed="true" stored="true" />
+		<field name="daytimePhone" type="string_ignore_case" indexed="true" stored="true" />
+		<field name="eveningPhone" type="string_ignore_case" indexed="true" stored="true" />
+ 	</fields>
+	<uniqueKey>id</uniqueKey>
+	<defaultSearchField>description</defaultSearchField>
+</schema>
