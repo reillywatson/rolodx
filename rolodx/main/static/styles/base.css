@@ -128,6 +128,10 @@ body { margin: 0; padding: 0; }
 	padding: 5px 0px 0px 10px;
 }
 
+.pager {
+	color: #FFF;
+}
+
 #location_search {
 	float: right;
 	color: #FFF;
