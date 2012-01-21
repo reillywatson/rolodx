@@ -3,7 +3,7 @@ Getting started:
 	- Ubuntu: sudo apt-get install python-virtualenv 
 	- Windows: 'python virtualenv.py' (from https://raw.github.com/pypa/virtualenv/master/virtualenv.py)
 2. Create an environment: 'virtualenv --no-site-packages venv'
-3. Install dependencies: 'venv/bin/pip install -r REQUIREMENTS'
+3. Install dependencies: 'venv/bin/pip install -r requirements.txt'
 4. start server: from rolodx directory '../venv/bin/python manage.py runserver'
 
 That should be it.
