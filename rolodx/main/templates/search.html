@@ -39,10 +39,12 @@
 {% endblock %}
 
 {% block pagination %}
-<div class="pagination">
+<span class="pagination">
 	<span class="step-links">
+		
 		{% if pagedata.has_previous %}
-			<a href="?q={{ searchquery }}&n={{ pagedata.paginator.per_page }}&p={{ pagedata.previous_page_number }}">previous</a>
+			<a href="?q={{ searchquery }}&n={{ pagedata.paginator.per_page }}&p=1">&lt;&lt;</a>
+			<a href="?q={{ searchquery }}&n={{ pagedata.paginator.per_page }}&p={{ pagedata.previous_page_number }}">&lt;</a>
 		{% endif %}
 
 		<span class="current">
@@ -50,8 +52,9 @@
 		</span>
 
 		{% if pagedata.has_next %}
-			<a href="?q={{ searchquery }}&n={{ pagedata.paginator.per_page }}&p={{ pagedata.next_page_number }}">next</a>
+			<a href="?q={{ searchquery }}&n={{ pagedata.paginator.per_page }}&p={{ pagedata.next_page_number }}">&gt;</a>
+			<a href="?q={{ searchquery }}&n={{ pagedata.paginator.per_page }}&p={{ pagedata.paginator.num_pages }}">&gt;&gt;</a>
 		{% endif %}
 	</span>
-</div>
+</span>
 {% endblock %}
