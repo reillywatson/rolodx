@@ -8,11 +8,13 @@ from django.core.serializers import serialize
 def home(request):
 	return render_to_response('home.html', context_instance=RequestContext(request))
 
+def clamp(minval, n, maxval):
+	return max(minval, min(n, maxval))
+
 def search(request):
-	results = SearchController().search(request.GET['q'])
-	searchModel = SearchPageModel(results).json
-	#searchModel = serialize('json', results)	-- This is 3 times larger then searchPageModel
-	return render_to_response('search.html', {'results' : searchModel}, context_instance=RequestContext(request))
+	pagedata = SearchController().search(request.GET['q'], int(request.GET.get('p','1')), int(request.GET.get('n','20')))
+	searchModel = SearchPageModel([a.object for a in pagedata.object_list]).json
+	return render_to_response('search.html', {'results' : searchModel, 'pagedata' : pagedata, 'searchquery' : request.GET['q']}, context_instance=RequestContext(request))
 
 def item(request, itemId):
 	items = Professional.objects.filter(pk=int(itemId))

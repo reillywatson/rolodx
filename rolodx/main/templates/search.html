@@ -37,3 +37,21 @@
 </div>
 
 {% endblock %}
+
+{% block pagination %}
+<div class="pagination">
+	<span class="step-links">
+		{% if pagedata.has_previous %}
+			<a href="?q={{ searchquery }}&n={{ pagedata.paginator.per_page }}&p={{ pagedata.previous_page_number }}">previous</a>
+		{% endif %}
+
+		<span class="current">
+			Page {{ pagedata.number }} of {{ pagedata.paginator.num_pages }}
+		</span>
+
+		{% if pagedata.has_next %}
+			<a href="?q={{ searchquery }}&n={{ pagedata.paginator.per_page }}&p={{ pagedata.next_page_number }}">next</a>
+		{% endif %}
+	</span>
+</div>
+{% endblock %}
