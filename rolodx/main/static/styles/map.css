@@ -1,0 +1,21 @@
+.map_canvas {
+    float: right;
+    width: 280px;
+	border: 1px solid;
+}
+
+.map_bubble_rating {
+	overflow: auto;
+	float: left;
+	clear: left;
+}
+
+.map_bubble_name {
+	float: left;
+    color: #2AA4C9;
+    font-family: sans-serif;
+}
+
+.map_bubble_num_ratings {
+	float: left;
+}

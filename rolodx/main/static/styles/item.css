@@ -103,11 +103,8 @@
 	margin-top: 20px;
 }
 
-#item_map {
-    float: right;
+#map_canvas {
     height: 320px;
-    width: 230px;
-	border: 1px solid;
 }
 
 

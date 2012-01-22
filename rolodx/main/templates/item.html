@@ -2,6 +2,7 @@
 
 {% block head %} 
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/item.css" /> 
+	<link rel="stylesheet" href="{{ STATIC_URL }}styles/map.css" /> 
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAlLwEDIyHgeeg30BZpdAdsXumvBxbWXOA&sensor=true"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/item.js"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/googleMapper.js"></script>
@@ -36,7 +37,7 @@
 			// Render Professional metadata
 			item.render();
 			
-			googleMapper.render("item_map");
+			googleMapper.render("map_canvas");
 			
 			// Render reviews
 			var parentDocument = document.getElementById('item_reviews');
@@ -76,7 +77,7 @@
 			</div>
 			<div id="item_metadata_description"></div>
 		</div>
-		<div id="item_map"></div>
+		<div id="map_canvas" class="map_canvas"></div>
 	</div>
 	
 	<div class="item_container_bottom">

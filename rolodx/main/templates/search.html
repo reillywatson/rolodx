@@ -2,6 +2,7 @@
 
 {% block head %} 
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/search.css" /> 
+	<link rel="stylesheet" href="{{ STATIC_URL }}styles/map.css" /> 
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAlLwEDIyHgeeg30BZpdAdsXumvBxbWXOA&sensor=true"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/search.js"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/googleMapper.js"></script>
@@ -56,7 +57,7 @@
 {% block content %}
 <div class="search_container">
 	<div id="left"></div>
-	<div id="map_canvas"></div>
+	<div id="map_canvas" class="map_canvas"></div>
 </div>
 
 {% endblock %}
