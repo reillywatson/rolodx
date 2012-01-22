@@ -41,7 +41,8 @@ class Professional(models.Model):
 	country = models.CharField(max_length=100, blank=True, null=True)
 	daytimePhone = models.CharField(max_length=50, blank=True, null=True)
 	eveningPhone = models.CharField(max_length=50, blank=True, null=True)
-
+	address_latitude = models.DecimalField(max_digits=11, decimal_places=8, blank=True, null=True)
+	address_longitude = models.DecimalField(max_digits=11, decimal_places=8, blank=True, null=True)
 	#icon?
 
 	# A Professional may offer multiple services. 
