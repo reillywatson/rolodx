@@ -20,6 +20,8 @@ SearchResult.prototype = {
 	
 	constructor : SearchResult,
 	
+	element : null,
+	
 	content : "",
 	
 	init : function( resultData ) {
@@ -36,19 +38,17 @@ SearchResult.prototype = {
 		this.numRatings = resultData.numRatings;
 		
 		var template = "";
-		template +="<div class='pro_container'>";
 		template += "	<a class='no-link' href='/pro/{id}'>";
 		template +="		<img class='pro_icon'></img>";
 		template +="		<div class='pro_text'>{name},&nbsp;{occupation}</div>";
-		template +="		<div class='pro_description'>{description}</div>"
+		template +="		<div class='pro_description'>{description}</div>";
 		if (resultData.averageRating != 0) {
-		template +="		<div class='pro_rating'>"
-		template +="			<div class='rating_stars_{stars}'></div>"
-		template +="			<div class='num_ratings'>({num_ratings})</div>"
-		template +="		</div>"
+		template +="		<div class='pro_rating'>";
+		template +="			<div class='rating_stars_{stars}'></div>";
+		template +="			<div class='num_ratings'>({num_ratings})</div>";
+		template +="		</div>";
 		}
-		template +="	</a>"
-		template +="</div>"
+		template +="	</a>";
 		
 		template = template.replace(/{id}/,this.id);
 		template = template.replace(/{name}/,this.name);
@@ -57,12 +57,17 @@ SearchResult.prototype = {
 		template = template.replace(/{stars}/,this.rating);
 		template = template.replace(/{num_ratings}/,this.numRatings);
 		
-		this.content = template;
+		this.element = document.createElement("div");
+		this.element.className = "pro_container";
+		this.element.innerHTML = template;
 	},
 	
 	render : function ( parent ) {
-		parent.innerHTML += this.content;
+		parent.appendChild(this.element);
+	},
+	
+	addMouseOver : function( i, mapper ) {
+		this.element.onmouseover = function(event) { mapper.setSelected(i); };
 	}
-
 }
 	

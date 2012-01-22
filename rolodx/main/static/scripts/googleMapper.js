@@ -13,6 +13,8 @@ GoogleMapper.prototype = {
 	
 	infoWindow : null,
 	
+	selected : 0,
+	
 	init : function( data ) {
 		this.options = {
 			center: this.center,
@@ -27,9 +29,10 @@ GoogleMapper.prototype = {
 		});
 	},
 	
-	addMarker : function( data ) {
+	addMarker : function( data, index ) {
 		this.center = new google.maps.LatLng(this.center.lat() + 0.01,-79.350676);
-		var image = 'TODO';
+		var imageOn = "../static/images/marker_on.png";
+		var imageOff = "../static/images/marker_off.png";
 		
 		var infoWindowContentTemplate  = '';
 		infoWindowContentTemplate += '<div id="map_bubble_content">';
@@ -49,7 +52,7 @@ GoogleMapper.prototype = {
 			position: this.center,
 			title: data.name,
 			content: infoWindowContent,
-			//icon: image
+			icon: index == this.selected? imageOn : imageOff
 		});
 		
 		this.markers.push(marker);
@@ -70,7 +73,19 @@ GoogleMapper.prototype = {
 			google.maps.event.addListener(marker, 'click', function() {
 				that.infoWindow.setContent(this.content);
 				that.infoWindow.open(map,this);
-			});			
+			});
 		}
+	},
+	
+	setSelected : function (selection) {
+		var imageOn = "../static/images/marker_on.png";
+		var imageOff = "../static/images/marker_off.png";
+		
+		// Unset the previously selected marker
+		this.markers[this.selected].setIcon(imageOff);
+		
+		// Set the new marker
+		this.selected = selection;
+		this.markers[selection].setIcon(imageOn);
 	}
 }
