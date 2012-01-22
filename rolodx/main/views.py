@@ -12,7 +12,7 @@ def clamp(minval, n, maxval):
 	return max(minval, min(n, maxval))
 
 def search(request):
-	pagedata = SearchController().search(request.GET['q'], int(request.GET.get('p','1')), int(request.GET.get('n','20')))
+	pagedata = SearchController().search(request.GET['q'], int(request.GET.get('p','1')), int(request.GET.get('n','7')))
 	searchModel = SearchPageModel([a.object for a in pagedata.object_list]).json
 	return render_to_response('search.html', {'results' : searchModel, 'pagedata' : pagedata, 'searchquery' : request.GET['q']}, context_instance=RequestContext(request))
 
