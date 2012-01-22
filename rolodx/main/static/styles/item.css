@@ -25,14 +25,10 @@
     width: 155px;
 }
 
-#item_metadata_name {
-	color: #c90003;
+.item_text {
+    color: #2AA4C9;
     font-size: 20px;
-}
-
-#item_metadata_job {
-	color: #c90003;
-    font-size: 20px;
+    font-weight: bold;
 }
 
 /** ================		RATING		=================== **/
