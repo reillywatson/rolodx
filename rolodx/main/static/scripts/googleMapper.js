@@ -21,8 +21,7 @@ GoogleMapper.prototype = {
 			zoom: 11,
 			disableDefaultUI: true,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
-		};
-		
+		};		
 		
 		this.infoWindow = new google.maps.InfoWindow({
 			maxWidth: 200
@@ -30,7 +29,9 @@ GoogleMapper.prototype = {
 	},
 	
 	addMarker : function( data, index ) {
-		this.center = new google.maps.LatLng(this.center.lat() + 0.01,-79.350676);
+		if (!data.address_latitude) {
+			return;
+		}
 		var imageOn = "../static/images/marker_on.png";
 		var imageOff = "../static/images/marker_off.png";
 		
@@ -49,7 +50,7 @@ GoogleMapper.prototype = {
 		// NOTE: 'content' isn't an existing attribute. But it'll be added for me, and it'll hold the infoWindow content for later. 
 		// This is so that I can use a single infoWindow object, instead of n (which is easier and faster).
 		var marker = new google.maps.Marker({
-			position: this.center,
+			position: new google.maps.LatLng(data.address_latitude, data.address_longitude),
 			title: data.name,
 			content: infoWindowContent,
 			icon: index == this.selected? imageOn : imageOff
@@ -60,11 +61,11 @@ GoogleMapper.prototype = {
 	
 	render : function( parent ) {
 		var map = new google.maps.Map(document.getElementById(parent), this.options);
-		
+		var bounds = new google.maps.LatLngBounds();
 		for (var i=0; i< this.markers.length; i++) {
 			var marker = this.markers[i];
 			marker.setMap(map);
-			
+			bounds.extend(marker.position);
 			// I'm gonna be tricky, here.
 			//	I'll keep a reference to the current GoogleMapper object in 'that'
 			//	When I'm inside my "clicked" function, I'll get the global infoWindow from 'that', and my data from 'this' (which is the current marker clicked)
@@ -75,6 +76,7 @@ GoogleMapper.prototype = {
 				that.infoWindow.open(map,this);
 			});
 		}
+		map.fitBounds(bounds)
 	},
 	
 	setSelected : function (selection) {
