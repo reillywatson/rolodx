@@ -86,7 +86,7 @@ body { margin: 0; padding: 0; }
     background-color: #48412E;
     margin: 0 auto;
     min-height: 500px;
-    min-width: 955px;
+    min-width: 990px;
     overflow: auto;
     width: 66%;
 }
@@ -196,7 +196,7 @@ body { margin: 0; padding: 0; }
     float: right;
     margin-right: 20px;
     width: 83%;
-	min-width: 830px;
+	min-width: 860px;
 }
 
 

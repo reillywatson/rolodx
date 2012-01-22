@@ -123,10 +123,15 @@ GoogleMapper.prototype = {
 		var trigger = document.getElementById(id);
 		var that = this;
 		trigger.onclick = function() {
-			var oldClass = that.container.className;
-			that.container.className = oldClass == "map_canvas"? "map_canvas_full" : "map_canvas";
-			var center = that.map.getCenter();
+			if (that.container.className == "map_canvas") {
+				that.container.className = "map_canvas_full";
+				this.firstChild.data = "Shrink Map...";
+			} else {
+				that.container.className = "map_canvas";
+				this.firstChild.data = "Expand Map...";
+			}
 			
+			var center = that.map.getCenter();			
 			google.maps.event.trigger(that.map, "resize");
 			that.map.setCenter(center);
 		}
