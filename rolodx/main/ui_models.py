@@ -10,5 +10,5 @@ class SearchPageModel():
 class ItemPageModel():
     def __init__(self, item):
         self.numComments = 0;   # TODO
-        self.json = serialize('json', item, fields=('name','occupation','averageRating','numRatings','street_address','website','email','description'))
+        self.json = serialize('json', item, fields=('name','occupation','averageRating','numRatings','street_address','website','email','description', 'address_latitude', 'address_longitude'))
         

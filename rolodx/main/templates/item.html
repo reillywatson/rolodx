@@ -2,10 +2,14 @@
 
 {% block head %} 
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/item.css" /> 
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAlLwEDIyHgeeg30BZpdAdsXumvBxbWXOA&sensor=true"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/item.js"></script>
+	<script type="text/javascript" src="{{ STATIC_URL }}scripts/googleMapper.js"></script>
 	<script type="text/javascript">
 		var itemData = {{results.itemData|safe}};
 		var item = new Item(itemData[0].fields);
+		var googleMapper = new GoogleMapper();
+		googleMapper.addMarker(itemData[0].fields, 0);
 			
 		var reviewData0 = {"author":"Someone useless", 
 							"text" : "I've seen better. Or have I. It's hard to say, really. What was the questions again? Either way. I strongly suggest you make up your own mind about how useful he is.",
@@ -31,6 +35,8 @@
 		window.onload = function () {
 			// Render Professional metadata
 			item.render();
+			
+			googleMapper.render("item_map");
 			
 			// Render reviews
 			var parentDocument = document.getElementById('item_reviews');
@@ -70,7 +76,7 @@
 			</div>
 			<div id="item_metadata_description"></div>
 		</div>
-		<div class="item_map"></div>
+		<div id="item_map"></div>
 	</div>
 	
 	<div class="item_container_bottom">

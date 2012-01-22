@@ -103,9 +103,11 @@
 	margin-top: 20px;
 }
 
-.item_map {
+#item_map {
+/*
 	background-image: url("../images/placeholders/sprites.png");
 	background-position: 0 -444px;
+*/
     float: right;
     height: 320px;
     width: 230px;
