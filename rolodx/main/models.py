@@ -20,8 +20,11 @@ class Category(models.Model):
 	def __unicode__(self):
 		return self.name
 
+# If you change fields in the Professional class, you may need to edit
+# the Solr schema.xml to match.
 class Professional(models.Model):
 	# TODO: We need an ID here. Something we can use on the site.
+	# JS: All model classes have an auto-incrementing property 'id' - can we use that?
 	name = models.CharField(max_length=200)
 	occupation = models.CharField(max_length=200, blank = True, null = True);
 	description = models.TextField(blank=True, null=True)
@@ -38,7 +41,8 @@ class Professional(models.Model):
 	country = models.CharField(max_length=100, blank=True, null=True)
 	daytimePhone = models.CharField(max_length=50, blank=True, null=True)
 	eveningPhone = models.CharField(max_length=50, blank=True, null=True)
-
+	address_latitude = models.DecimalField(max_digits=11, decimal_places=8, blank=True, null=True)
+	address_longitude = models.DecimalField(max_digits=11, decimal_places=8, blank=True, null=True)
 	#icon?
 
 	# A Professional may offer multiple services. 
