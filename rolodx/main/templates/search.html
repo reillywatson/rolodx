@@ -20,14 +20,13 @@
 		
 		window.onload = function () {		
 			googleMapper.render("map_canvas");
+			googleMapper.setExpandTrigger("expand_map");
 	
 			var leftParent = document.getElementById('left');
 			for (var i=0 ; i<searchResults.length; i++) {
 				searchResults[i].render( leftParent );
-				
 				searchResults[i].addMouseOver( i, googleMapper );
 			}
-		
 		}
 	</script>
 {% endblock %}
@@ -56,8 +55,9 @@
 
 {% block content %}
 <div class="search_container">
-	<div id="left"></div>
 	<div id="map_canvas" class="map_canvas"></div>
+	<div id="left"></div>
+	<div id="expand_map">Expand Map...</div>
 </div>
 
 {% endblock %}

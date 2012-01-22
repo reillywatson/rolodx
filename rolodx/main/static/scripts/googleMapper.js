@@ -21,6 +21,10 @@ GoogleMapper.prototype = {
 	
 	selected : 0,
 	
+	container : null,
+	
+	map : null,
+	
 	init : function( data ) {
 		this.options = {
 			center: this.center,
@@ -38,8 +42,6 @@ GoogleMapper.prototype = {
 		if (!data.address_latitude) {
 			return;
 		}
-		var imageOn = "../static/images/marker_on.png";
-		var imageOff = "../static/images/marker_off.png";
 		
 		var infoWindowContentTemplate  = '';
 		infoWindowContentTemplate += '<div id="map_bubble_content">';
@@ -65,14 +67,16 @@ GoogleMapper.prototype = {
 		this.markers.push(marker);
 	},
 	
-	render : function( parent ) {
-		var map = new google.maps.Map(document.getElementById(parent), this.options);
+	render : function( container ) {
+		this.container = document.getElementById(container);
+		this.map = new google.maps.Map(this.container, this.options);
+		
 		var bounds = new google.maps.LatLngBounds();
 		var that = this;
-			
+		
 		for (var i=0; i< this.markers.length; i++) {
 			var marker = this.markers[i];
-			marker.setMap(map);
+			marker.setMap(this.map);
 			bounds.extend(marker.position);
 			// I'm gonna be tricky, here.
 			//	I'll keep a reference to the current GoogleMapper object in 'that'
@@ -80,36 +84,51 @@ GoogleMapper.prototype = {
 			// 	I can't use "marker" because that's gonna be whatever the last value of 'marker' was.
 			google.maps.event.addListener(marker, 'click', function() {
 				that.infoWindow.setContent(this.content);
-				that.infoWindow.open(map,this);
+				that.infoWindow.open(this.map,this);
 			});
 		}
 		
 		// Set a reasonable zoom level, if fit bounds finds a single entry
 		// Has to happen like this, because fitBounds is async, so we don't know the zoom level right away
-		google.maps.event.addListener(map, 'zoom_changed', function() {
-			zoomChangeBoundsListener = google.maps.event.addListener(map, 'bounds_changed', function(event) 
+		google.maps.event.addListener(this.map, 'zoom_changed', function() {
+			zoomChangeBoundsListener = google.maps.event.addListener(that.map, 'bounds_changed', function(event) 
 			{
 				if (this.getZoom() > that.MIN_DEFAULT_ZOOM_LVL) {
 					this.setZoom(that.MIN_DEFAULT_ZOOM_LVL);
 				}
 
 				// Make sure this only happens on the initial page load
-				google.maps.event.clearListeners(map, 'zoom_changed');
-				google.maps.event.clearListeners(map, 'bounds_changed');
+				google.maps.event.clearListeners(that.map, 'zoom_changed');
+				google.maps.event.clearListeners(that.map, 'bounds_changed');
 			});
 		});
 		
 		if (this.markers.length > 0) {
-			map.fitBounds(bounds)
+			this.map.fitBounds(bounds)
 		}
 	},
 	
 	setSelected : function (selection) {
+		if (selection > this.markers.length) return;
+		
 		// Unset the previously selected marker
 		this.markers[this.selected].setIcon(this.IMAGE_OFF);
 		
 		// Set the new marker
 		this.selected = selection;
 		this.markers[selection].setIcon(this.IMAGE_ON);
+	},
+	
+	setExpandTrigger : function( id ) {
+		var trigger = document.getElementById(id);
+		var that = this;
+		trigger.onclick = function() {
+			var oldClass = that.container.className;
+			that.container.className = oldClass == "map_canvas"? "map_canvas_full" : "map_canvas";
+			var center = that.map.getCenter();
+			
+			google.maps.event.trigger(that.map, "resize");
+			that.map.setCenter(center);
+		}
 	}
 }

@@ -4,6 +4,11 @@
 	border: 1px solid;
 }
 
+.map_canvas_full{
+    width: 850px;
+	border: 1px solid;
+}
+
 .map_bubble_rating {
 	overflow: auto;
 	float: left;
