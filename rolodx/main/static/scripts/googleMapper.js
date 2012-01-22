@@ -4,6 +4,10 @@ GoogleMapper = function( data ) {
 
 GoogleMapper.prototype = {
 	
+	IMAGE_ON : "../static/images/marker_on.png",
+	
+	IMAGE_OFF: "../static/images/marker_off.png",
+	
 	// Default map location to Toronto
 	center : new google.maps.LatLng(43.716589,-79.340686),
 	
@@ -53,7 +57,7 @@ GoogleMapper.prototype = {
 			position: new google.maps.LatLng(data.address_latitude, data.address_longitude),
 			title: data.name,
 			content: infoWindowContent,
-			icon: index == this.selected? imageOn : imageOff
+			icon: index == this.selected? this.IMAGE_ON : this.IMAGE_OFF
 		});
 		
 		this.markers.push(marker);
@@ -80,14 +84,11 @@ GoogleMapper.prototype = {
 	},
 	
 	setSelected : function (selection) {
-		var imageOn = "../static/images/marker_on.png";
-		var imageOff = "../static/images/marker_off.png";
-		
 		// Unset the previously selected marker
-		this.markers[this.selected].setIcon(imageOff);
+		this.markers[this.selected].setIcon(this.IMAGE_OFF);
 		
 		// Set the new marker
 		this.selected = selection;
-		this.markers[selection].setIcon(imageOn);
+		this.markers[selection].setIcon(this.IMAGE_ON);
 	}
 }
