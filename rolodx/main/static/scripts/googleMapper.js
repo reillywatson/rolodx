@@ -8,6 +8,8 @@ GoogleMapper.prototype = {
 	
 	IMAGE_OFF: "../static/images/marker_off.png",
 	
+	MIN_DEFAULT_ZOOM_LVL: 14,
+	
 	// Default map location to Toronto
 	center : new google.maps.LatLng(43.716589,-79.340686),
 	
@@ -66,6 +68,8 @@ GoogleMapper.prototype = {
 	render : function( parent ) {
 		var map = new google.maps.Map(document.getElementById(parent), this.options);
 		var bounds = new google.maps.LatLngBounds();
+		var that = this;
+			
 		for (var i=0; i< this.markers.length; i++) {
 			var marker = this.markers[i];
 			marker.setMap(map);
@@ -74,12 +78,27 @@ GoogleMapper.prototype = {
 			//	I'll keep a reference to the current GoogleMapper object in 'that'
 			//	When I'm inside my "clicked" function, I'll get the global infoWindow from 'that', and my data from 'this' (which is the current marker clicked)
 			// 	I can't use "marker" because that's gonna be whatever the last value of 'marker' was.
-			var that = this;
 			google.maps.event.addListener(marker, 'click', function() {
 				that.infoWindow.setContent(this.content);
 				that.infoWindow.open(map,this);
 			});
 		}
+		
+		// Set a reasonable zoom level, if fit bounds finds a single entry
+		// Has to happen like this, because fitBounds is async, so we don't know the zoom level right away
+		google.maps.event.addListener(map, 'zoom_changed', function() {
+			zoomChangeBoundsListener = google.maps.event.addListener(map, 'bounds_changed', function(event) 
+			{
+				if (this.getZoom() > that.MIN_DEFAULT_ZOOM_LVL) {
+					this.setZoom(that.MIN_DEFAULT_ZOOM_LVL);
+				}
+
+				// Make sure this only happens on the initial page load
+				google.maps.event.clearListeners(map, 'zoom_changed');
+				google.maps.event.clearListeners(map, 'bounds_changed');
+			});
+		});
+		
 		if (this.markers.length > 0) {
 			map.fitBounds(bounds)
 		}
