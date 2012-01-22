@@ -4,6 +4,7 @@ from models import Category, Professional
 from ui_models import SearchPageModel, ItemPageModel
 from controllers.search_controller import SearchController
 from django.core.serializers import serialize
+import decimal
 
 def home(request):
 	return render_to_response('home.html', context_instance=RequestContext(request))
@@ -12,7 +13,13 @@ def clamp(minval, n, maxval):
 	return max(minval, min(n, maxval))
 
 def search(request):
-	pagedata = SearchController().search(request.GET['q'], int(request.GET.get('p','1')), int(request.GET.get('n','7')))
+	pagedata = SearchController().search(
+		request.GET['q'],
+		decimal.Decimal(request.GET.get('lat', '1000')),
+		decimal.Decimal(request.GET.get('lng', '1000')),
+		decimal.Decimal(request.GET.get('radius', '2')),
+		int(request.GET.get('p','1')),
+		int(request.GET.get('n','7')))
 	searchModel = SearchPageModel([a.object for a in pagedata.object_list], pagedata, request.GET['q']).json
 	return render_to_response('search.html', {'results' : searchModel}, context_instance=RequestContext(request))
 
@@ -36,5 +43,3 @@ def display_categories(request, categories):
 		return render_to_response('category.html', dictionary, context_instance=RequestContext(request))
 	else:
 		return render_to_response('category.html', {'error_message':'No results found'}, context_instance=RequestContext(request))
-
-	
