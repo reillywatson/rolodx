@@ -3,6 +3,8 @@
 	<head>
 		<title>Rolodx. Find and rate professional services near you.</title>
 		<link href="{{ STATIC_URL }}styles/home.css" media="screen" rel="stylesheet" type="text/css" />
+		<script language="JavaScript" src="http://j.maxmind.com/app/geoip.js"></script>
+
 	</head>
 	<body>
 		<div class="background">
@@ -21,9 +23,16 @@
 			<div class="searchboxandbutton">
 				<form action="/search" method="GET">
 					<input type="text" name="q" class="searchbox" value="josh"></input>
+					<input type="text" hidden="true" id="hdnlocation" name="location"></input>
+					<input type="text" hidden="true" id="hdnlat" name="lat"></input>
+					<input type="text" hidden="true" id="hdnlng" name="lng"></input>
 					<input type="submit" value="" class="searchbutton"></input>
 				</form>
 			</div>
+			<!-- TODO: retrieve these on the server side, once we buy a GeoIP database --> 
+			<script language="JavaScript">document.getElementById('hdnlocation').value = geoip_city() + ", " + geoip_region();</script>
+			<script language="JavaScript">document.getElementById('hdnlat').value = geoip_latitude();</script>
+			<script language="JavaScript">document.getElementById('hdnlng').value = geoip_longitude();</script>
 			<div class="description">Find and rate professional services near you.</div>
 		</div>
 	
