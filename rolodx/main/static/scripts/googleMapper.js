@@ -109,7 +109,7 @@ GoogleMapper.prototype = {
 	},
 	
 	setSelected : function (selection) {
-		if (selection > this.markers.length) return;
+		if (selection >= this.markers.length) return;
 		
 		// Unset the previously selected marker
 		this.markers[this.selected].setIcon(this.IMAGE_OFF);
