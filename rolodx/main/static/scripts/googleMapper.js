@@ -80,7 +80,9 @@ GoogleMapper.prototype = {
 				that.infoWindow.open(map,this);
 			});
 		}
-		map.fitBounds(bounds)
+		if (this.markers.length > 0) {
+			map.fitBounds(bounds)
+		}
 	},
 	
 	setSelected : function (selection) {
