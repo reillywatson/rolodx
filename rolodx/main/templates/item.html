@@ -9,10 +9,10 @@
 	<script type="text/javascript">
 		var itemData = {{results.itemData|safe}};
 		var reviewData = {{results.reviews|safe}};
-		var currentPage = {{results.currentPage|safe}};
-		var numPages = {{results.numPages|safe}};
+		var paging = {{results.paging|safe}};
 		
 		var item = new Item(itemData[0].fields);
+		var reviewPaginator = new Paginator(paging);
 		var googleMapper = new GoogleMapper();
 		googleMapper.addMarker(itemData[0].fields, 0);
 		
@@ -30,10 +30,13 @@
 			googleMapper.render("map_canvas");
 			
 			// Render reviews
-			var parentDocument = document.getElementById('item_reviews');
+			var parentElementReviews = document.getElementById('item_reviews');
 			for (var i=0; i<reviews.length; i++) {
-				reviews[i].render(parentDocument);
+				reviews[i].render(parentElementReviews);
 			}
+			
+			reviewPaginator.render('item_reviews_paging');
+			
 		}
 	</script>
 {% endblock %}
@@ -79,5 +82,9 @@
 		</div>
 		
 		<div id="item_reviews" class="item_reviews"></div>
+		
+		<div id="item_reviews_paging">
+			
+		</div>
 	</div>
 {% endblock %}

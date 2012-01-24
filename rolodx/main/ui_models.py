@@ -22,5 +22,6 @@ class ItemPageModel():
 		page = getpage(paginator, page)
 		serializedItem = serialize('json', item, fields=('name','occupation','averageRating','numRatings','street_address','website','email','description', 'address_latitude', 'address_longitude'))
 		serializedReviews = serialize('json', page.object_list,  fields=('date','karma','rating','text', 'userDisplayName'))
+		paging = {"currentPage": page.number, "numPages" : paginator.num_pages}
 		
-		self.json = {"itemData" : serializedItem, "reviews" : serializedReviews, "currentPage" : page.number, "numPages" : paginator.num_pages}
+		self.json = {"itemData" : serializedItem, "reviews" : serializedReviews, "paging" : paging}

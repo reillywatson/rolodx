@@ -175,3 +175,9 @@
 	clear: left;
     margin-left: 20px;
 }
+
+#item_reviews_paging {
+    border-top: 1px dotted;
+    color: black;
+    font-size: 15px;
+}

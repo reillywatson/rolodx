@@ -111,5 +111,48 @@ Review.prototype = {
 	toString : function() {
 		return "author: " +this.author + " rating " + this.rating + " text " + this.text; 
 	}
-	
 };
+
+Paginator = function( data ) {
+	this.init(data);
+}
+
+Paginator.prototype = {
+	NO_REVIEWS_YET : "No Reviews Yet",
+
+	PAGE : "Page {page} of {numPages}",
+	
+	currentPage : 1,
+	
+	numPages : 1,
+	
+	constructor : Paginator,
+	
+	template : "",
+	
+	init : function( data ) {
+		this.currentPage = data.currentPage;
+		this.numPages = data.numPages;
+		
+		if (this.currentPage > 1) {
+			this.template += "<a href='?p=1'>&lt;&lt;</a>&nbsp;"
+			this.template += "<a href='?p=" + (this.currentPage-1) + "'>&lt;</a>"
+		}
+		
+		if (this.currentPage == 1 && this.numPages == 1) {
+			this.template += "<span> " + this.NO_REVIEWS_YET + " </span>"
+		} else {
+			this.template += "&nbsp;<span> " + this.PAGE.replace(/{page}/,this.currentPage).replace(/{numPages}/,this.numPages) + "</span>&nbsp;"
+		}
+		
+		if (this.currentPage < this.numPages) {
+			this.template += "<a href='?p=" + (this.currentPage+1) + "'>&gt;</a>&nbsp;"
+			this.template += "<a href='?p=" + this.numPages + "'>&gt;&gt;</a>"
+		}
+	},
+	
+	render : function( elementId ) {
+		parent = document.getElementById(elementId);
+		parent.innerHTML += this.template;
+	}
+}
