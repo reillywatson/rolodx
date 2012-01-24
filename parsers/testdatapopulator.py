@@ -108,7 +108,7 @@ class TestDataPopulator:
 					karma =1)
 		josh_r9 = Review (
 					user = User.objects.get(pk=1),
-					userDisplayName = "Extatic Robert",
+					userDisplayName = "Ecstatic Robert",
 					professional = josh,
 					text = "Great",
 					rating = "4.5",
