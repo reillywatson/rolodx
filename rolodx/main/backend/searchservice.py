@@ -1,6 +1,6 @@
 import haystack
 from haystack.query import SearchQuerySet
-from main.ui_models import SearchPageModel
+from ui_models import SearchPageModel
 
 class SearchService:
 	

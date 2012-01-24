@@ -1,7 +1,7 @@
 __author__ = 'Josh'
 
 from main.models import Professional, Review
-from main.ui_models import ItemPageModel
+from ui_models import ItemPageModel
 
 class ProfessionalService:
 	
