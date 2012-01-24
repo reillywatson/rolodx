@@ -135,19 +135,19 @@ Paginator.prototype = {
 		this.numPages = data.numPages;
 		
 		if (this.currentPage > 1) {
-			this.template += "<a href='?p=1'>&lt;&lt;</a>&nbsp;"
-			this.template += "<a href='?p=" + (this.currentPage-1) + "'>&lt;</a>"
+			this.template += "<a class='pager_black' href='?p=1'>&lt;&lt;</a>"
+			this.template += "<a class='pager_black' href='?p=" + (this.currentPage-1) + "'>&lt;</a>"
 		}
 		
 		if (this.currentPage == 1 && this.numPages == 1) {
 			this.template += "<span> " + this.NO_REVIEWS_YET + " </span>"
 		} else {
-			this.template += "&nbsp;<span> " + this.PAGE.replace(/{page}/,this.currentPage).replace(/{numPages}/,this.numPages) + "</span>&nbsp;"
+			this.template += "<span> " + this.PAGE.replace(/{page}/,this.currentPage).replace(/{numPages}/,this.numPages) + "</span>"
 		}
 		
 		if (this.currentPage < this.numPages) {
-			this.template += "<a href='?p=" + (this.currentPage+1) + "'>&gt;</a>&nbsp;"
-			this.template += "<a href='?p=" + this.numPages + "'>&gt;&gt;</a>"
+			this.template += "<a class='pager_black' href='?p=" + (this.currentPage+1) + "'>&gt;</a>"
+			this.template += "<a class='pager_black' href='?p=" + this.numPages + "'>&gt;&gt;</a>"
 		}
 	},
 	

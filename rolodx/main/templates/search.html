@@ -8,6 +8,11 @@
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/googleMapper.js"></script>
 	<script type="text/javascript">
 		var results = {{results.searchResults|safe}};
+		var paginatorData = {};
+		paginatorData.paging = {{results.paging|safe}};
+		paginatorData.query = "{{results.searchquery|safe}}";
+		
+		var searchPaginator = new SearchPaginator(paginatorData);
 		var googleMapper = new GoogleMapper();
 		var searchResults = [];
 		for (var i=0; i<results.length; i++) {
@@ -18,38 +23,23 @@
 			googleMapper.addMarker(data, i);
 		}
 		
-		window.onload = function () {		
+		window.onload = function () {
 			googleMapper.render("map_canvas");
 			googleMapper.setExpandTrigger("expand_map");
-	
+
 			var leftParent = document.getElementById('left');
 			for (var i=0 ; i<searchResults.length; i++) {
 				searchResults[i].render( leftParent );
 				searchResults[i].addMouseOver( i, googleMapper );
 			}
+			
+			searchPaginator.render('search_pagination');
 		}
 	</script>
 {% endblock %}
 
 {% block pagination %}
-<span class="pagination">
-	<span class="step-links">
-		
-		{% if results.pagedata.has_previous %}
-			<a class="pager" href="?q={{ results.searchquery }}&n={{ results.pagedata.paginator.per_page }}&p=1">&lt;&lt;</a>
-			<a class="pager" href="?q={{ results.searchquery }}&n={{ results.pagedata.paginator.per_page }}&p={{ results.pagedata.previous_page_number }}">&lt;</a>
-		{% endif %}
-
-		<span class="current">
-			Page {{ results.pagedata.number }} of {{ results.pagedata.paginator.num_pages }}
-		</span>
-
-		{% if results.pagedata.has_next %}
-			<a class="pager" href="?q={{ results.searchquery }}&n={{ results.pagedata.paginator.per_page }}&p={{ results.pagedata.next_page_number }}">&gt;</a>
-			<a class="pager" href="?q={{ results.searchquery }}&n={{ results.pagedata.paginator.per_page }}&p={{ results.pagedata.paginator.num_pages }}">&gt;&gt;</a>
-		{% endif %}
-	</span>
-</span>
+<span id="search_pagination"></span>
 {% endblock %}
 
 

@@ -131,8 +131,14 @@ body { margin: 0; padding: 0; }
 	padding: 5px 0px 0px 10px;
 }
 
-.pager {
+.pager_white{
 	color: #FFF;
+	margin: 0 3px;
+}
+
+.pager_black {
+	color: #000;
+	margin: 0 3px;
 }
 
 #location_search {

@@ -1,32 +1,44 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from models import Category, Professional, Review
-from ui_models import SearchPageModel, ItemPageModel
-from controllers.search_controller import SearchController
+from models import Category
+from backend.professionalservice import ProfessionalService
+from backend.searchservice import SearchService
 import decimal
 
 def home(request):
 	return render_to_response('home.html', context_instance=RequestContext(request))
 
 def search(request):
-	pagedata = SearchController().search(
-		request.GET['q'],
-		decimal.Decimal(request.GET.get('lat', '1000')),
-		decimal.Decimal(request.GET.get('lng', '1000')),
-		decimal.Decimal(request.GET.get('radius', '2')),
-		int(request.GET.get('p','1')),
-		int(request.GET.get('n','7')))
-	searchModel = SearchPageModel([a.object for a in pagedata.object_list], pagedata, request.GET['q']).json
-	return render_to_response('search.html', {'results' : searchModel}, context_instance=RequestContext(request))
+	# Get request parameters
+	query = request.GET['q'] 
+	clientLatitude = decimal.Decimal(request.GET.get('lat', '1000'))
+	clientLongitude = decimal.Decimal(request.GET.get('lng', '1000'))
+	searchRadius = decimal.Decimal(request.GET.get('radius', '2'))
+	currentPage = int(request.GET.get('p','1'))
+	itemsPerPage = int(request.GET.get('n','7')) #TODO: This should probably not be here. We don't want users to control our pagination.
+	
+	# Get data from backend, based on request
+	svc = SearchService()
+	model = svc.search(query, clientLatitude, clientLongitude, searchRadius, currentPage, itemsPerPage)
+	
+	# Return response to the client
+	clientData = {"results" : model.json}
+	return render_to_response('search.html', clientData, context_instance=RequestContext(request))
+
 
 def item(request, itemId):
+	# Get request parameters
+	professionalId = int(itemId)
 	currentPage = int(request.GET.get('p','1'))
-	itemsPerPage = int(request.GET.get('n','7'))
+	itemsPerPage = int(request.GET.get('n','7')) #TODO: This should probably not be here. We don't want users to control our pagination.
 	
-	items = Professional.objects.filter(pk=int(itemId))
-	reviews = Review.objects.filter(professional__pk=int(itemId))
-	itemModel = ItemPageModel(items, reviews, itemsPerPage, currentPage).json
-	return render_to_response('item.html', {"results" : itemModel}, context_instance=RequestContext(request))
+	# Get data from backend, based on request
+	svc = ProfessionalService()
+	model = svc.getItemPageData(professionalId, currentPage, itemsPerPage)
+	
+	# Return response to the client
+	clientData = {"results" : model.json}
+	return render_to_response('item.html', clientData, context_instance=RequestContext(request))
 
 
 # TODO: The following will need to be revisited when we work on categories

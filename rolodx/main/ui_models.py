@@ -10,18 +10,26 @@ def getpage(paginator, page):
 		results = paginator.page(paginator.num_pages)
 	return results
 
+# Right now, these model classes assume they always return JSON data.
+# But it's not hard to change, if we change our minds.
 class SearchPageModel():
-	def __init__(self, searchResults, pageData, searchQuery):
-		serializedResults = serialize('json', searchResults, fields=('name','occupation','averageRating','description', 'numRatings', 'address_latitude', 'address_longitude'))
-		self.json = {'searchResults' : serializedResults, 'pagedata' : pageData, 'searchquery' : searchQuery}
+	def __init__(self, searchResults, itemsPerPage, currentPage, searchQuery):
+		paginator = Paginator(searchResults, itemsPerPage)
+		page = getpage(paginator, currentPage)
+		
+		serializedResults = serialize('json', page.object_list, fields=('name','occupation','averageRating','description', 'numRatings', 'address_latitude', 'address_longitude'))
+		serializedPaging = {"currentPage": page.number, "numPages" : paginator.num_pages}
+		
+		self.json = {'searchResults' : serializedResults, 'paging' : serializedPaging, 'searchquery' : searchQuery}
 
 
 class ItemPageModel():
-	def __init__(self, item, reviews, itemsPerPage, page):
+	def __init__(self, item, reviews, itemsPerPage, pageNum):
 		paginator = Paginator(reviews, itemsPerPage)
-		page = getpage(paginator, page)
+		page = getpage(paginator, pageNum)
+		
 		serializedItem = serialize('json', item, fields=('name','occupation','averageRating','numRatings','street_address','website','email','description', 'address_latitude', 'address_longitude'))
 		serializedReviews = serialize('json', page.object_list,  fields=('date','karma','rating','text', 'userDisplayName'))
-		paging = {"currentPage": page.number, "numPages" : paginator.num_pages}
+		serializedPaging = {"currentPage": page.number, "numPages" : paginator.num_pages}
 		
-		self.json = {"itemData" : serializedItem, "reviews" : serializedReviews, "paging" : paging}
+		self.json = {"itemData" : serializedItem, "reviews" : serializedReviews, "paging" : serializedPaging}

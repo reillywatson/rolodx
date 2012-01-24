@@ -70,4 +70,45 @@ SearchResult.prototype = {
 		this.element.onmouseover = function(event) { mapper.setSelected(i); };
 	}
 }
+
+SearchPaginator = function( data ) {
+	this.init(data)
+}
+
+SearchPaginator.prototype = {
+	PAGE : "Page {page} of {numPages}",
+	
+	currentPage : 1,
+	
+	numPages : 1,
+	
+	query : "",
+	
+	template : "",
+	
+	constructor : SearchPaginator,
+	
+	init : function( data ) {
+		this.currentPage = data.paging.currentPage;
+		this.numPages = data.paging.numPages;
+		this.query = data.query;
+		
+		if (this.currentPage > 1) {
+			this.template += "<a class='pager_white' href='?q="+this.query+"&p=1'>&lt;&lt;</a>"
+			this.template += "<a class='pager_white' href='?q="+this.query+"&p=" + (this.currentPage-1) + "'>&lt;</a>"
+		}
+		
+		this.template += "&nbsp;<span> " + this.PAGE.replace(/{page}/,this.currentPage).replace(/{numPages}/,this.numPages) + "</span>&nbsp;"
+		
+		if (this.currentPage < this.numPages) {
+			this.template += "<a class='pager_white' href='?q="+this.query+"&p=" + (this.currentPage+1) + "'>&gt;</a>"
+			this.template += "<a class='pager_white' href='?q="+this.query+"&p=" + (this.numPages) + "'>&gt;&gt;</a>"
+		}
+	},
+	
+	render : function( elementId ) {
+		parent = document.getElementById(elementId);
+		parent.innerHTML += this.template;
+	}
+}
 	
