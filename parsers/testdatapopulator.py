@@ -1,5 +1,5 @@
-from rolodx.main.models import Professional, Category
-
+from main.models import Professional, Review, Category, User
+from datetime import datetime
 
 class TestDataPopulator:
 	def populate_test_categories(self):
@@ -33,6 +33,105 @@ class TestDataPopulator:
 		homeCleaning.save()
 		officeCleaning = Category(name="Office", parent=cleaning)
 		officeCleaning.save()
+		
+	def populate_test_reviews(self):
+		robert = User(
+				name="Robert",
+				external_id=1,
+				email="spam@me.com")
+		robert.save()
+		
+		josh = Professional.objects.get(pk=1)
+		josh_r1 = Review (
+					user = User.objects.get(pk=1),
+					userDisplayName = "Raging Robert",
+					professional = josh,
+					text = "I hate this guy",
+					rating = "0.5",
+					date = datetime.utcnow(),
+					karma =1)
+		josh_r2 = Review (
+					user = User.objects.get(pk=1),
+					userDisplayName = "Angry Robert",
+					professional = josh,
+					text = "Terrible",
+					rating = "1",
+					date = datetime.utcnow(),
+					karma =1)
+		josh_r3 = Review (
+					user = User.objects.get(pk=1),
+					userDisplayName = "Mad Robert",
+					professional = josh,
+					text = "Very bad",
+					rating = "1.5",
+					date = datetime.utcnow(),
+					karma =1)
+		josh_r4 = Review (
+					user = User.objects.get(pk=1),
+					userDisplayName = "Disappointed Robert",
+					professional = josh,
+					text = "Bad",
+					rating = "2",
+					date = datetime.utcnow(),
+					karma =1)
+		josh_r5 = Review (
+					user = User.objects.get(pk=1),
+					userDisplayName = "Unimpressed Robert",
+					professional = josh,
+					text = "Meh",
+					rating = "2.5",
+					date = datetime.utcnow(),
+					karma =1)
+		josh_r6 = Review (
+					user = User.objects.get(pk=1),
+					userDisplayName = "Placated Robert",
+					professional = josh,
+					text = "Not bad",
+					rating = "3",
+					date = datetime.utcnow(),
+					karma =1)
+		josh_r7 = Review (
+					user = User.objects.get(pk=1),
+					userDisplayName = "Pleased Robert",
+					professional = josh,
+					text = "Okay",
+					rating = "3.5",
+					date = datetime.utcnow(),
+					karma =1)
+		josh_r8 = Review (
+					user = User.objects.get(pk=1),
+					userDisplayName = "Happy Robert",
+					professional = josh,
+					text = "Good",
+					rating = "4",
+					date = datetime.utcnow(),
+					karma =1)
+		josh_r9 = Review (
+					user = User.objects.get(pk=1),
+					userDisplayName = "Extatic Robert",
+					professional = josh,
+					text = "Great",
+					rating = "4.5",
+					date = datetime.utcnow(),
+					karma =1)
+		josh_r10 = Review (
+					user = User.objects.get(pk=1),
+					userDisplayName = "Blown-Away Robert",
+					professional = josh,
+					text = "ZOMGAMAZING!!",
+					rating = "5",
+					date = datetime.utcnow(),
+					karma =1)
+		josh_r1.save()
+		josh_r2.save()
+		josh_r3.save()
+		josh_r4.save()
+		josh_r5.save()
+		josh_r6.save()
+		josh_r7.save()
+		josh_r8.save()
+		josh_r9.save()
+		josh_r10.save()
 
 	def populate_test_professionals(self):
 		josh = Professional(
@@ -86,3 +185,5 @@ class TestDataPopulator:
 		)
 		helen.save()
 
+populator = TestDataPopulator()
+populator.populate_test_reviews()

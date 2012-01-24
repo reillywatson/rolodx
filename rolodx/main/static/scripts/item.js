@@ -87,7 +87,7 @@ Review.prototype = {
 			return (rounded == 0 ) ? "0_5" : rounded.toString().replace(/\./,'_');
 		}
 		this.rating = starsNumToString(data.rating);
-		this.author = data.author;
+		this.author = data.userDisplayName;
 		this.text = data.text;
 		
         var template = "";

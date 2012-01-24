@@ -8,29 +8,19 @@
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/googleMapper.js"></script>
 	<script type="text/javascript">
 		var itemData = {{results.itemData|safe}};
+		var reviewData = {{results.reviews|safe}};
+		var currentPage = {{results.currentPage|safe}};
+		var numPages = {{results.numPages|safe}};
+		
 		var item = new Item(itemData[0].fields);
 		var googleMapper = new GoogleMapper();
 		googleMapper.addMarker(itemData[0].fields, 0);
-			
-		var reviewData0 = {"author":"Someone useless", 
-							"text" : "I've seen better. Or have I. It's hard to say, really. What was the questions again? Either way. I strongly suggest you make up your own mind about how useful he is.",
-							"rating" : 3};
-
-		var reviewData1 = {"author":"One Angry Dude", 
-							"text" : "This guy SUCKS! I hate him soooo much.",
-							"rating" : 0.5};
-
-		var reviewData2 = {"author":"Lurker", 
-							"text" : "",
-							"rating" : 4.5};
-							
-		var reviewData3 = {"author":"Javascript is SWEET!", 
-							"text" : "Dude I totally added this comment with javascript. I'm so frigging awesome!",
-							"rating" : 5};
-		var reviewData = [reviewData0, reviewData1, reviewData2, reviewData3];
+		
 		var reviews = [];
 		for (var i=0; i<reviewData.length; i++) {
-			reviews.push(new Review(reviewData[i]));
+			var review = new Review(reviewData[i].fields);
+			review.id = reviewData[i].pk;
+			reviews.push(review);
 		}
 		
 		window.onload = function () {
