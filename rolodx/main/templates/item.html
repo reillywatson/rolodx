@@ -11,10 +11,12 @@
 		var reviewData = {{results.reviews|safe}};
 		var paging = {{results.paging|safe}};
 		
-		var item = new Item(itemData[0].fields);
+		var itemFields = itemData[0].fields;
+		itemFields.id = itemData[0].pk;
+		var item = new Item(itemFields);
 		var reviewPaginator = new Paginator(paging);
 		var googleMapper = new GoogleMapper();
-		googleMapper.addMarker(itemData[0].fields, 0);
+		googleMapper.addMarker(itemFields, 0);
 		
 		var reviews = [];
 		for (var i=0; i<reviewData.length; i++) {

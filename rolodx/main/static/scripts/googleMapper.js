@@ -44,16 +44,22 @@ GoogleMapper.prototype = {
 		}
 		
 		var infoWindowContentTemplate  = '';
-		infoWindowContentTemplate += '<div id="map_bubble_content">';
-		infoWindowContentTemplate += '	<div class="map_bubble_name">{name}</div>';
+		infoWindowContentTemplate += '<a href="/pro/{id}"';
+		infoWindowContentTemplate += '	<div id="map_bubble_content">';
+		infoWindowContentTemplate += '		<div class="map_bubble_name">{name}</div>';
 		if (data.averageRating != 0) {
-		infoWindowContentTemplate += '	<div class="map_bubble_rating">';
-		infoWindowContentTemplate += '		<div class="rating_stars_{stars}"></div>';
-		infoWindowContentTemplate += '		<div class="map_bubble_num_ratings">({numRatings})</div>';
-		infoWindowContentTemplate += '	</div>';
+		infoWindowContentTemplate += '		<div class="map_bubble_rating">';
+		infoWindowContentTemplate += '			<div class="rating_stars_{stars}"></div>';
+		infoWindowContentTemplate += '			<div class="map_bubble_num_ratings">({numRatings})</div>';
+		infoWindowContentTemplate += '		</div>';
 		}
-		infoWindowContentTemplate += '</div>';
-		var infoWindowContent = infoWindowContentTemplate.replace(/{name}/, data.name).replace(/{stars}/, data.averageRating).replace(/{numRatings}/,data.numRatings);
+		infoWindowContentTemplate += '	</div>';
+		infoWindowContentTemplate += '</a>';
+		var infoWindowContent = infoWindowContentTemplate.
+				replace(/{id}/, data.id).
+				replace(/{name}/, data.name).
+				replace(/{stars}/, data.averageRating).
+				replace(/{numRatings}/,data.numRatings);
 
 		// NOTE: 'content' isn't an existing attribute. But it'll be added for me, and it'll hold the infoWindow content for later. 
 		// This is so that I can use a single infoWindow object, instead of n (which is easier and faster).
