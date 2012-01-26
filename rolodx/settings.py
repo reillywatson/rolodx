@@ -131,7 +131,7 @@ INSTALLED_APPS = (
 # configuration for Haystack
 HAYSTACK_SITECONF = 'main.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'solr'
-HAYSTACK_SOLR_URL = 'http://localhost:8983/solr'
+HAYSTACK_SOLR_URL = 'http://46.166.136.236:8080/solr/TestCollectionRdx'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
