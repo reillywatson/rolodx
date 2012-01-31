@@ -13,13 +13,12 @@ def getpage(paginator, page):
 # Right now, these model classes assume they always return JSON data.
 # But it's not hard to change, if we change our minds.
 class SearchPageModel():
-	def __init__(self, searchResults, itemsPerPage, currentPage, searchQuery):
-		paginator = Paginator(searchResults, itemsPerPage)
-		page = getpage(paginator, currentPage)
-		
-		serializedResults = serialize('json', page.object_list, fields=('name','occupation','averageRating','description', 'numRatings', 'address_latitude', 'address_longitude'))
-		serializedPaging = {"currentPage": page.number, "numPages" : paginator.num_pages}
-		
+	def __init__(self, searchResults, itemsPerPage, currentPage, totalResults, searchQuery):
+
+		numPages = totalResults / itemsPerPage
+		serializedResults = serialize('json', searchResults, fields=('name','occupation','averageRating','description', 'numRatings', 'address_latitude', 'address_longitude'))
+		serializedPaging = {"currentPage": currentPage, "numPages" : numPages}
+
 		self.json = {'searchResults' : serializedResults, 'paging' : serializedPaging, 'searchquery' : searchQuery}
 
 

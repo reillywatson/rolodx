@@ -11,4 +11,14 @@ class ProfessionalIndex(SearchIndex):
 	address_latitude = DecimalField(model_attr='address_latitude', null=True)
 	address_longitude = DecimalField(model_attr='address_longitude', null=True)
 
+	def prepare(self, object):
+		self.prepared_data = super(ProfessionalIndex, self).prepare(object)
+
+		# Append each category name to field 'text'
+		for category in object.categories.all():
+			if category is not None and category.name is not None:
+				self.prepared_data['text'] += ' %s' % category.name
+
+		return self.prepared_data
+
 site.register(Professional, ProfessionalIndex)

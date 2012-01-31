@@ -5,7 +5,13 @@ from ui_models import SearchPageModel
 class SearchService:
 	
 	def search(self, text, lat, lng, radius, currentPage, itemsPerPage):
-		searchResults = SearchQuerySet().auto_query(text)
+
+		# By specifying the exact range of items we want with start and end, we only
+		# pull what we need from Solr, instead of getting all items.
+		start = currentPage*itemsPerPage
+		end = start+itemsPerPage;
+		searchResults = SearchQuerySet().auto_query(text)[start:end]
+		totalResults = SearchQuerySet().auto_query(text).count()
 		if -90 <= lat <= 90 and -180 <= lng <= 180:
 			minlat = lat - radius
 			minlng = lng - radius
@@ -22,4 +28,4 @@ class SearchService:
 			[a for a in searchResults]
 
 		searchObjects = [a.object for a in searchResults]
-		return SearchPageModel(searchObjects, itemsPerPage, currentPage, text)
+		return SearchPageModel(searchObjects, itemsPerPage, currentPage, totalResults, text)
