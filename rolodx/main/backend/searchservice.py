@@ -20,7 +20,9 @@ class SearchService:
 		start = (currentPage-1)*itemsPerPage
 		end = start+itemsPerPage
 		searchResultsQuery = SearchQuerySet().auto_query(text)
-		self.ApplyLocationFiltering(lat, lng, radius, searchResultsQuery)
+
+		if not lat is None and not lng is None:
+			self.ApplyLocationFiltering(lat, lng, radius, searchResultsQuery)
 
 		searchResults = searchResultsQuery[start:end]
 		totalResults = searchResultsQuery.count()

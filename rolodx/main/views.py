@@ -10,9 +10,11 @@ def home(request):
 
 def search(request):
 	# Get request parameters
-	query = request.GET['q'] 
-	clientLatitude = decimal.Decimal(request.GET.get('lat', '1000'))
-	clientLongitude = decimal.Decimal(request.GET.get('lng', '1000'))
+	query = request.GET['q']
+	lat = request.GET.get('lat', '1000')
+	long = request.GET.get('lng', '1000')
+	clientLatitude = None if lat == u'' else decimal.Decimal(lat)
+	clientLongitude = None if lat == u'' else decimal.Decimal(long)
 	searchRadius = decimal.Decimal(request.GET.get('radius', '2'))
 	currentPage = int(request.GET.get('p','1'))
 	itemsPerPage = int(request.GET.get('n','7')) #TODO: This should probably not be here. We don't want users to control our pagination.
