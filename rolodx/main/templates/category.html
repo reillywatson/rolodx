@@ -1,14 +1,64 @@
 {% extends "onecolumnbase.html" %}
 
-{% block content %}
-	<br/>
-	num results: {{ num_results }}
-	<br/>
-	{% for category in categories %}
-	<a href="/category/{{ category.name }}">{{ category.name }}</a>
-	<br/>
-	{% endfor %}
+{% block head %}
+<link rel="stylesheet" href="{{ STATIC_URL }}styles/search.css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}styles/map.css" />
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAlLwEDIyHgeeg30BZpdAdsXumvBxbWXOA&sensor=true"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}scripts/search.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}scripts/googleMapper.js"></script>
+<script type="text/javascript">
+    var results = {{results.searchResults|safe}};
+    var paginatorData = {};
+    paginatorData.paging = {{results.paging|safe}};
+    paginatorData.query = "{{results.searchquery|safe}}";
 
-	TODO: Get and populate Professionals that fit this Category?<br/>
-	TODO: Change this into a generic search page, list Category matches and professional matches?
+    var searchPaginator = new SearchPaginator(paginatorData);
+    var googleMapper = new GoogleMapper();
+    var searchResults = [];
+    for (var i=0; i<results.length; i++) {
+        var data = results[i].fields;
+        data.id = results[i].pk;
+        searchResults.push(new SearchResult(data));
+
+        googleMapper.addMarker(data, i);
+    }
+
+    window.onload = function () {
+        googleMapper.render("map_canvas");
+        googleMapper.setExpandTrigger("expand_map");
+
+        var leftParent = document.getElementById('left');
+        for (var i=0 ; i<searchResults.length; i++) {
+            searchResults[i].render( leftParent );
+            searchResults[i].addMouseOver( i, googleMapper );
+        }
+
+        searchPaginator.render('search_pagination');
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+    Category Name: 
+    <a href="/category/{{ category.name }}">{{ category.name }}</a>
+    <br/>
+    Subcategories:
+        <ul>
+            {% for subcat in subcategoryNames %}
+            <li>
+            <a href="/category/{{ subcat }}">{{ subcat }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+    Professional Matches:
+<div class="search_container">
+    <div id="map_canvas" class="map_canvas"></div>
+    <div id="left"></div>
+    <div id="expand_map">Expand Map...</div>
+</div>
+{% endblock %}
+
+{% block pagination %}
+<span id="search_pagination"></span>
 {% endblock %}

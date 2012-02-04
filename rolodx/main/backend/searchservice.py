@@ -35,4 +35,12 @@ class SearchService:
 			[a for a in searchResults]
 
 		searchObjects = [a.object for a in searchResults]
-		return SearchPageModel(searchObjects, itemsPerPage, currentPage, totalResults, text)
+		return SearchResult(searchObjects, itemsPerPage, currentPage, totalResults, text)
+
+class SearchResult:
+	def __init__(self, searchObjects, itemsPerPage, currentPage, totalResults, text):
+		self.searchObjects = searchObjects
+		self.itemsPerPage = itemsPerPage
+		self.currentPage = currentPage
+		self.totalResults = totalResults
+		self.text = text
