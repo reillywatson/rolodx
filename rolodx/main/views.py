@@ -74,8 +74,11 @@ def display_categories(request, categories, searchResult):
 	# We should only have one matching category name ...
 	if len(categories) > 0:
 		category = categories[0]
-		# TODO: Subcategories
-		subcategoryNames = ['Subcategory1', 'Subcategory2', 'Subcategory3']
+
+		subcategoryNames = []
+		for subcategory in category.children.all():
+			subcategoryNames.append(subcategory.name)
+
 		dictionary = {
 			'category':category,
 			'subcategoryNames':subcategoryNames,
