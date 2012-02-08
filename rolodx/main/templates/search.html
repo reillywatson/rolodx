@@ -36,6 +36,7 @@
 			searchPaginator.render('search_pagination');
 		}
 	</script>
+	{% block search_head %}{% endblock %}
 {% endblock %}
 
 {% block pagination %}
@@ -45,6 +46,7 @@
 
 {% block content %}
 <div class="search_container">
+	{% block subcategories %}{% endblock %}
 	<div id="map_canvas" class="map_canvas"></div>
 	<div id="left"></div>
 	<div id="expand_map">Expand Map...</div>

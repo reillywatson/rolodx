@@ -54,8 +54,6 @@ def item(request, itemId):
 	clientData = {"results" : model.json}
 	return render_to_response('item.html', clientData, context_instance=RequestContext(request))
 
-
-# TODO: The following will need to be revisited when we work on categories
 def search_category(request):
 	categories = Category.objects.filter(name__contains=request.POST['category'])
 	return display_categories(request, categories)
@@ -72,6 +70,10 @@ def category(request, category_name):
 def display_categories(request, categories, searchResult):
 	model = SearchPageModel(searchResult.searchObjects, searchResult.itemsPerPage, searchResult.currentPage, searchResult.totalResults, searchResult.text)
 	# We should only have one matching category name ...
+	
+	print "-----------------------"
+	print categories
+	
 	if len(categories) > 0:
 		category = categories[0]
 
