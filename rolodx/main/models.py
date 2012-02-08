@@ -14,7 +14,8 @@ class Service(models.Model):
 		return self.description
 
 class Category(models.Model):
-	parent = models.ForeignKey('self', blank=True, null=True)
+	parent = models.ForeignKey('self', blank=True, null=True, related_name='p')
+	children = models.ManyToManyField('self', blank=True, null=True, symmetrical=False, related_name='c')
 	name = models.CharField(max_length=200)
 	occupation = models.CharField(max_length=200)
 	def __unicode__(self):
