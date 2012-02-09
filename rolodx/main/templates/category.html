@@ -1,19 +1,26 @@
 {% extends "search.html" %}
 
 {% block search_head %}
-	<link rel="stylesheet" href="{{ STATIC_URL }}styles/categories.css" /> 
+	<link rel="stylesheet" href="{{ STATIC_URL }}styles/categories.css" />
+	<script type="text/javascript" src="{{ STATIC_URL }}scripts/categories.js"></script>
 	<script type="text/javascript">
-		var subcategories = ["Doctor", "Dentist", "Therapist", "Optometrist", "Personal Trainer"];
+		var subcategoryData = ["Doctor", "Dentist", "Therapist", "Optometrist", "Personal Trainer"];
+		var subcategories = Category.initializeSet(subcategoryData);
+		
+		var onBeforeCategoriesLoad = window.onload;
+		window.onload = function () {
+			onBeforeCategoriesLoad();
+
+			for (var i=0; i<subcategories.length; i++) {
+				var subcategory = subcategories[i];
+				subcategory.render( document.getElementById("subcategories") );
+			}
+		}
 	</script>
 {% endblock %}
 	
 {% block subcategories %}
 	<div id="subcategories">
 		<div class="subcategories_header">Sub-categories...</div>
-		<a href="/category/doctor"><div class="subcategories_item">Doctor</div></a>
-		<a href="/category/doctor"><div class="subcategories_item">Dentist</div></a>
-		<a href="/category/doctor"><div class="subcategories_item">Therapist</div></a>
-		<a href="/category/doctor"><div class="subcategories_item">Optometrist</div></a>
-		<a href="/category/doctor"><div class="subcategories_item">Personal Trainer</div></a>
 	</div>
 {% endblock %}
