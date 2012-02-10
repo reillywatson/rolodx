@@ -1,9 +1,9 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from main.backend.ui_models import SearchPageModel
-from models import Category
+from main.backend.ui_models import SearchPageModel, CategoryPageModel
 from backend.professionalservice import ProfessionalService
 from backend.searchservice import SearchService
+from backend.categoryservice import CategoryService
 import decimal
 
 def home(request):
@@ -14,9 +14,9 @@ def getQuerystringParameters(request):
 	# Get request parameters
 	query = request.GET.get('q', None)
 	lat = request.GET.get('lat', '1000')
-	long = request.GET.get('lng', '1000')
+	lng = request.GET.get('lng', '1000')
 	clientLatitude = None if lat == u'' else decimal.Decimal(lat)
-	clientLongitude = None if lat == u'' else decimal.Decimal(long)
+	clientLongitude = None if lat == u'' else decimal.Decimal(lng)
 	searchRadius = decimal.Decimal(request.GET.get('radius', '2'))
 	currentPage = int(request.GET.get('p', '1'))
 	itemsPerPage = int(request.GET.get('n',
@@ -54,38 +54,19 @@ def item(request, itemId):
 	clientData = {"results" : model.json}
 	return render_to_response('item.html', clientData, context_instance=RequestContext(request))
 
-def search_category(request):
-	categories = Category.objects.filter(name__contains=request.POST['category'])
-	return display_categories(request, categories)
-
 def category(request, category_name):
-	#Get the matching category from the database
-	categories = Category.objects.filter(name__iexact=category_name)
 	#Get any matching professionals from search
 	params = getQuerystringParameters(request)
 	params['query'] = category_name #Set query here, instead of using 'q' from a querystring.
-	searchResult = SearchService().search(params['query'], params['lat'], params['long'], params['searchRadius'], params['currentPage'], params['itemsPerPage'])
-	return display_categories(request, categories, searchResult)
-
-def display_categories(request, categories, searchResult):
-	model = SearchPageModel(searchResult.searchObjects, searchResult.itemsPerPage, searchResult.currentPage, searchResult.totalResults, searchResult.text)
-	# We should only have one matching category name ...
 	
-	print "-----------------------"
-	print categories
+	svc = CategoryService()
+	categoryResults = svc.loadCategory(params['query'], params['lat'], params['long'], params['searchRadius'], params['currentPage'], params['itemsPerPage'])
+	
+	categories = categoryResults.categories
+	searchResult = categoryResults.searchResult
 	
 	if len(categories) > 0:
-		category = categories[0]
-
-		subcategoryNames = []
-		for subcategory in category.children.all():
-			subcategoryNames.append(subcategory.name)
-
-		dictionary = {
-			'category':category,
-			'subcategoryNames':subcategoryNames,
-			'results':model.json
-		}
-		return render_to_response('category.html', dictionary, context_instance=RequestContext(request))
+		model = CategoryPageModel(searchResult, categories)
+		return render_to_response('category.html', model.json, context_instance=RequestContext(request))
 	else:
 		return render_to_response('category.html', {'error_message':'No results found'}, context_instance=RequestContext(request))

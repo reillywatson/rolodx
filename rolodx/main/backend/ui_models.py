@@ -32,3 +32,22 @@ class ItemPageModel():
 		serializedPaging = {"currentPage": page.number, "numPages" : paginator.num_pages}
 		
 		self.json = {"itemData" : serializedItem, "reviews" : serializedReviews, "paging" : serializedPaging}
+
+class CategoryPageModel():
+	def __init__(self, categories, searchResult):
+		# We should only have one matching category name ...
+		print "-----------------------"
+		print categories
+		category = categories[0]
+		
+		searchModel = SearchPageModel(searchResult.searchObjects, searchResult.itemsPerPage, searchResult.currentPage, searchResult.totalResults, searchResult.text)
+
+		subcategoryNames = []
+		for subcategory in category.children.all():
+			subcategoryNames.append(subcategory.name)
+
+		self.json = {
+			'category':serialize('json', category),
+			'subcategoryNames':serialize('json', subcategoryNames),
+			'results':searchModel .json
+		}
