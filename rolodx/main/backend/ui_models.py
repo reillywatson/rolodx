@@ -16,7 +16,7 @@ def getpage(paginator, page):
 class SearchPageModel():
 	def __init__(self, searchResults, itemsPerPage, currentPage, totalResults, searchQuery):
 
-		numPages = totalResults / itemsPerPage
+		numPages = max(totalResults / itemsPerPage, 1)
 		serializedResults = serialize('json', searchResults, fields=('name','occupation','averageRating','description', 'numRatings', 'address_latitude', 'address_longitude'))
 		serializedPaging = {"currentPage": currentPage, "numPages" : numPages}
 
