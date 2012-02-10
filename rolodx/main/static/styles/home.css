@@ -101,3 +101,51 @@
 	height: 192px;
 	margin-top: -70px;
 }
+
+.categories {
+    bottom: 0;
+    height: 120px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    width: 500px;
+}
+
+.category {
+    background-repeat: no-repeat;
+    float: left;
+    height: 40px;
+    margin: 0 10px 40px 20px;
+    width: 50px;
+}
+
+.c1 {
+	background-image: url("../images/placeholders/sprites.png");
+	background-position: 0 -77px;
+}
+
+.c2 {
+	background-image: url("../images/placeholders/sprites.png");
+	background-position: 0 -118px; 
+}
+
+.c3 {
+	background-image: url("../images/placeholders/sprites.png");
+	background-position: 0 -162px;
+}
+
+.c4 {
+	background-image: url("../images/placeholders/sprites.png");
+	background-position: 0 -205px; 
+}
+
+.c5{
+	background-image: url("../images/placeholders/sprites.png");
+	background-position: 0 -245px;
+}
+
+.more_categories{
+	background-image: url("../images/more_categories.png");
+}
+
