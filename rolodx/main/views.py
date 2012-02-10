@@ -66,7 +66,7 @@ def category(request, category_name):
 	searchResult = categoryResults.searchResult
 	
 	if len(categories) > 0:
-		model = CategoryPageModel(searchResult, categories)
+		model = CategoryPageModel(categories, searchResult)
 		return render_to_response('category.html', model.json, context_instance=RequestContext(request))
 	else:
 		return render_to_response('category.html', {'error_message':'No results found'}, context_instance=RequestContext(request))

@@ -1,3 +1,4 @@
+import json
 from django.core.serializers import serialize
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -47,7 +48,7 @@ class CategoryPageModel():
 			subcategoryNames.append(subcategory.name)
 
 		self.json = {
-			'category':serialize('json', category),
-			'subcategoryNames':serialize('json', subcategoryNames),
+			'category':serialize('json', [category], fields=("name")),
+			'subcategoryNames':json.dumps(subcategoryNames),
 			'results':searchModel .json
 		}

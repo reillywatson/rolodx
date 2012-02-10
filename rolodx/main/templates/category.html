@@ -4,7 +4,8 @@
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/categories.css" />
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/categories.js"></script>
 	<script type="text/javascript">
-		var subcategoryData = ["Doctor", "Dentist", "Therapist", "Optometrist", "Personal Trainer"];
+		var category = {{category|safe}};
+		var subcategoryData = {{subcategoryNames|safe}};
 		var subcategories = Category.initializeSet(subcategoryData);
 		
 		var onBeforeCategoriesLoad = window.onload;
