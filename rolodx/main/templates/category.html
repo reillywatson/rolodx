@@ -16,10 +16,16 @@
 				var subcategory = subcategories[i];
 				subcategory.render( document.getElementById("subcategories") );
 			}
+
+			document.getElementById("breadcrumb").textContent = category[0].fields.name;
 		}
 	</script>
 {% endblock %}
-	
+
+{% block breadcrumb %}
+	<span id="breadcrumb"></span>
+{% endblock %}
+
 {% block subcategories %}
 	<div id="subcategories">
 		<div class="subcategories_header">Sub-categories...</div>
