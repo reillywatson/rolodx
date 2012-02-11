@@ -1,7 +1,5 @@
-from haystack.indexes import *
-from haystack import site
+from haystack import indexes
 from main.models import Professional, Category, Service
-import decimal
 
 # Adds category's name and all parents names to a list of category name strings
 def PopulateCategoryListRecursive(category, categoryList):
@@ -13,11 +11,13 @@ def PopulateCategoryListRecursive(category, categoryList):
 # NOTE: Haystack doesn't currently recognize the tdouble field in the schemas
 # it generates, and we're using it for lat/long data.
 # So if you're modifying this, you may need to edit schema.xml by hand.
-class ProfessionalIndex(SearchIndex):
-	text = CharField(document=True, use_template=True)
-	address_latitude = DecimalField(model_attr='address_latitude', null=True)
-	address_longitude = DecimalField(model_attr='address_longitude', null=True)
+class ProfessionalIndex(indexes.SearchIndex, indexes.Indexable):
+	text = indexes.CharField(document=True, use_template=True)
+	address_latitude = indexes.DecimalField(model_attr='address_latitude', null=True)
+	address_longitude = indexes.DecimalField(model_attr='address_longitude', null=True)
 
+	def get_model(self):
+		return Professional
 	def prepare(self, object):
 		self.prepared_data = super(ProfessionalIndex, self).prepare(object)
 
@@ -30,5 +30,3 @@ class ProfessionalIndex(SearchIndex):
 			self.prepared_data['text'] += ' %s' % cat
 
 		return self.prepared_data
-
-site.register(Professional, ProfessionalIndex)

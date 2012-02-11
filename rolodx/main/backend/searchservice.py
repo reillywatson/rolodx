@@ -28,11 +28,6 @@ class SearchService:
 		totalResults = searchResultsQuery.count()
 		print [(a.address_latitude, a.address_longitude) for a in searchResults[:itemsPerPage]]
 		print [(a.object.address_latitude, a.object.address_longitude) for a in searchResults[:itemsPerPage]]
-		# HACK: iterate over the search results in order for pagination to
-		# work.  This can be removed when we have SOLR set up, this is a 
-		# bug in Haystack's simple backend (see https://github.com/toastdriven/django-haystack/issues/320)
-		if haystack.backend.__name__ == 'haystack.backends.simple_backend':
-			[a for a in searchResults]
 
 		searchObjects = [a.object for a in searchResults]
 		return SearchResult(searchObjects, itemsPerPage, currentPage, totalResults, text)
