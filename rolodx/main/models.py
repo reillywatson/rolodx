@@ -1,4 +1,5 @@
 from django.db import models
+from haystack.utils.geo import Point
 
 # to consider: should Users just be Pros?
 #	WRT Professionals and Users, perhaps a Professional can inherit from a User?
@@ -42,6 +43,10 @@ class Professional(models.Model):
 	eveningPhone = models.CharField(max_length=50, blank=True, null=True)
 	address_latitude = models.DecimalField(max_digits=11, decimal_places=8, blank=True, null=True)
 	address_longitude = models.DecimalField(max_digits=11, decimal_places=8, blank=True, null=True)
+	def get_location(self):
+		if self.address_latitude != None and self.address_longitude != None:
+			return Point(self.address_longitude, self.address_latitude)
+		return None
 	#icon?
 
 	# A Professional may offer multiple services. 

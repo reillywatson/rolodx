@@ -3,7 +3,7 @@ Django==1.3.1
 argparse==1.2.1
 certifi==0.0.6
 distribute==0.6.10
--e git+https://github.com/reillywatson/django-haystack.git@ad2a3c14dca806838634ffc31049d29e50a34ed9#egg=django_haystack-2.0.0_beta-py2.6-dev
+-e git+https://github.com/reillywatson/django-haystack.git@96856029a218e5d96ce9b34fd7f47246d52fae34#egg=django_haystack-2.0.0_beta-py2.6-dev
 docutils==0.8.1
 geopy==0.94.1
 ipython==0.12

@@ -1,3 +1,5 @@
 {{ object.name }}
+{% if object.description %}
 {{ object.description }}
+{% endif %}
 {{ object.occupation }}
