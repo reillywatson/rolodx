@@ -92,17 +92,19 @@ SearchPaginator.prototype = {
 		this.currentPage = data.paging.currentPage;
 		this.numPages = data.paging.numPages;
 		this.query = data.query;
+		var currentUrl = document.location.href;
+		currentUrl = currentUrl.replace('&p='+data.paging.currentPage, '')
 		
 		if (this.currentPage > 1) {
-			this.template += "<a class='pager_white' href='?q="+this.query+"&p=1'>&lt;&lt;</a>"
-			this.template += "<a class='pager_white' href='?q="+this.query+"&p=" + (this.currentPage-1) + "'>&lt;</a>"
+			this.template += "<a class='pager_white' href='"+currentUrl+"&p=1'>&lt;&lt;</a>"
+			this.template += "<a class='pager_white' href='"+currentUrl+"&p=" + (this.currentPage-1) + "'>&lt;</a>"
 		}
 		
 		this.template += "&nbsp;<span> " + this.PAGE.replace(/{page}/,this.currentPage).replace(/{numPages}/,this.numPages) + "</span>&nbsp;"
 		
 		if (this.currentPage < this.numPages) {
-			this.template += "<a class='pager_white' href='?q="+this.query+"&p=" + (this.currentPage+1) + "'>&gt;</a>"
-			this.template += "<a class='pager_white' href='?q="+this.query+"&p=" + (this.numPages) + "'>&gt;&gt;</a>"
+			this.template += "<a class='pager_white' href='"+currentUrl+"&p=" + (this.currentPage+1) + "'>&gt;</a>"
+			this.template += "<a class='pager_white' href='"+currentUrl+"&p=" + (this.numPages) + "'>&gt;&gt;</a>"
 		}
 	},
 	
