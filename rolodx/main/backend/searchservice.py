@@ -9,16 +9,16 @@ class Order:
 class SearchService:
 	
 	def ApplyLocationFiltering(self, lat, lng, radius, searchResultsQuery, ordering):
+		query = searchResultsQuery
 		if -90 <= lat <= 90 and -180 <= lng <= 180:
 			topLeft = Point(lng-radius,lat-radius)
 			bottomRight = Point(lng+radius,lat+radius)
-			
+			query = searchResultsQuery.within('location', topLeft, bottomRight).distance('location', Point(lng,lat))
 		if ordering == Order.RATING:
-			sqs = searchResultsQuery.within('location', topLeft, bottomRight).distance('location', Point(lng,lat)).order_by('-averageRating')
+			query = query.order_by('-averageRating')
 		else:
-			sqs = searchResultsQuery.within('location', topLeft, bottomRight).distance('location', Point(lng,lat)).order_by('distance')
-		
-		return sqs
+			query = query.within('location', topLeft, bottomRight).distance('location', Point(lng,lat)).order_by('distance')
+		return query
 
 	def search(self, text, lat, lng, radius, currentPage, itemsPerPage, ordering=Order.RATING):
 		# By specifying the exact range of items we want with start and end, we only
