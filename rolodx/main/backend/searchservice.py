@@ -8,6 +8,8 @@ class Order:
 
 class SearchService:
 	def search(self, text, lat, lng, radius, currentPage, itemsPerPage, ordering=Order.RATING):
+		print 'searching!'
+		print (lat,lng,radius)
 		# By specifying the exact range of items we want with start and end, we only
 		# pull what we need from Solr, instead of getting all items.
 		start = (currentPage-1)*itemsPerPage
@@ -19,10 +21,10 @@ class SearchService:
 			topLeft = Point(lng-radius,lat-radius)
 			bottomRight = Point(lng+radius,lat+radius)
 			query = query.within('location', topLeft, bottomRight).distance('location', Point(lng,lat))
+			if ordering == Order.DISTANCE:
+				query = query.order_by('distance')
 		if ordering == Order.RATING:
 			query = query.order_by('-averageRating')
-		else:
-			query = query.within('location', topLeft, bottomRight).distance('location', Point(lng,lat)).order_by('distance')
 		
 		# Paginate Results
 		searchResults = query[start:end]

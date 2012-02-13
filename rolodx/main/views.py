@@ -4,7 +4,8 @@ from main.backend.ui_models import SearchPageModel, CategoryPageModel
 from backend.professionalservice import ProfessionalService
 from backend.searchservice import SearchService
 from backend.categoryservice import CategoryService
-import decimal
+import backend.geo
+from django.conf import settings
 
 def home(request):
 	return render_to_response('home.html', context_instance=RequestContext(request))
@@ -13,11 +14,13 @@ def home(request):
 def getQuerystringParameters(request):
 	# Get request parameters
 	query = request.GET.get('q', None)
-	lat = request.GET.get('lat', '1000')
-	lng = request.GET.get('lng', '1000')
-	clientLatitude = None if lat == u'' else decimal.Decimal(lat)
-	clientLongitude = None if lat == u'' else decimal.Decimal(lng)
-	searchRadius = decimal.Decimal(request.GET.get('radius', '2'))
+	clientLatitude = None
+	clientLongitude = None
+	latLong = backend.geo.lookup(request.META['REMOTE_ADDR'])
+	if latLong != None:
+		clientLatitude = latLong[0]
+		clientLongitude = latLong[1]
+	searchRadius = float(request.GET.get('radius', '2'))
 	currentPage = int(request.GET.get('p', '1'))
 	itemsPerPage = int(request.GET.get('n',
 									   '7')) #TODO: This should probably not be here. We don't want users to control our pagination.
