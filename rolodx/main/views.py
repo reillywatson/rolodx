@@ -20,7 +20,7 @@ def getQuerystringParameters(request):
 	if latLong != None:
 		clientLatitude = latLong[0]
 		clientLongitude = latLong[1]
-	searchRadius = float(request.GET.get('radius', '2'))
+	searchRadius = float(request.GET.get('radius', '.2'))
 	currentPage = int(request.GET.get('p', '1'))
 	itemsPerPage = int(request.GET.get('n',
 									   '7')) #TODO: This should probably not be here. We don't want users to control our pagination.
