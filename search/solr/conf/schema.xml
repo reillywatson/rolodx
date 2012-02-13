@@ -150,6 +150,8 @@
 
     <field name="location" type="location" indexed="true" stored="true" multiValued="false" />
 
+    <field name="averageRating" type="text_en" indexed="true" stored="true" multiValued="false" />
+
   </fields>
 
   <!-- field to use to determine and enforce document uniqueness. -->
@@ -162,3 +164,4 @@
   <solrQueryParser defaultOperator="AND"/>
 </schema>
 
+ 

@@ -8,12 +8,10 @@ def categoryListRecursive(category):
 		categories.extend(categoryListRecursive(category.parent))
 	return categories
 
-# NOTE: Haystack doesn't currently recognize the tdouble field in the schemas
-# it generates, and we're using it for lat/long data.
-# So if you're modifying this, you may need to edit schema.xml by hand.
 class ProfessionalIndex(indexes.SearchIndex, indexes.Indexable):
 	text = indexes.CharField(document=True, use_template=True)
 	location = indexes.LocationField(model_attr='get_location', null=True)
+	averageRating = indexes.DecimalField(model_attr='averageRating', null=True)
 
 	def get_model(self):
 		return Professional
