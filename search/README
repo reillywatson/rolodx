@@ -1,0 +1,7 @@
+
+Editing solr configs:
+
+When editing solr configs, always edit the files in rolodx/search/solr/*.
+If the files are edited irectly in apache-solr-3.5.0 the changes will
+be discarded since running ./startSolrServer.sh will copy/sync the 
+configs into apache-solr-3.5.0 before running the server.
