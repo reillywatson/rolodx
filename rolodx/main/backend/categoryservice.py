@@ -10,7 +10,6 @@ class CategoryService:
 			categories = []
 		else:
 			categories = Category.objects.filter(name__iexact=category)
-			categories[0].children = Category.objects.filter(parent__exact=categories[0].pk)
 
 		# Get matching professionals
 		svc = SearchService()

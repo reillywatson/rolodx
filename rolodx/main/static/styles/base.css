@@ -115,9 +115,20 @@ a {text-decoration: none; color: #000;}
 	margin-left: 10px;
 }
 
-.results_sort {
-    background-image: url("../images/results_sort.png");
+.results_sort_location {
+    background-image: url("../images/results_sort_location.png");
     background-repeat: no-repeat;
+	cursor: pointer;
+    float: left;
+    height: 39px;    
+	margin-left: 10px;
+    width: 145px;
+}
+
+.results_sort_rating {
+    background-image: url("../images/results_sort_rating.png");
+    background-repeat: no-repeat;
+	cursor: pointer;
     float: left;
     height: 39px;    
 	margin-left: 10px;
@@ -144,9 +155,9 @@ a {text-decoration: none; color: #000;}
 #location_search {
 	float: right;
 	color: #FFF;
+	cursor: pointer;
 	font-size: 20px;
 	padding: 5px 10px 0px 0px;
-	
 }
 
 /** ================			CATEGORIES			=================== **/

@@ -3,6 +3,33 @@
 <head>
 	<title>Rolodx. Find and rate professional services near you.</title>
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/base.css" />
+	<script type="text/javascript">
+		var baseData = {{results.baseData|safe}};
+		var baseQuery = "{{results.searchquery|safe}}";
+		
+		window.onload = function() {
+			var locationToggle = document.getElementById("locationToggle");
+			locationToggle.innerHTML = baseData.locationBased == 1? "ON" : "OFF";
+			locationToggle.onclick = function(event) {
+				if (baseData.locationBased == 1) {
+					document.location.href = '?q='+baseQuery+'&useLocation=0'+'&sort=1';
+				} else {
+					document.location.href = '?q='+baseQuery+'&useLocation=1'+'&sort=2';
+				}
+			};
+			
+			var resultsSort = document.getElementById("resultsSort");
+			resultsSort.className = baseData.sort == 1? "results_sort_rating" : "results_sort_location";
+			resultsSort.onclick = function(event) {
+				if (baseData.locationBased == 1 && baseData.sort == 1) {
+					document.location.href = '?q='+baseQuery+'&useLocation='+baseData.locationBased+'&sort=2';
+				} else {
+					document.location.href = '?q='+baseQuery+'&useLocation='+baseData.locationBased+'&sort=1';
+				}
+			};
+		}
+		
+	</script>
 	{% block head %}{% endblock %}
 </head>
 
@@ -27,9 +54,9 @@
 		<div class="inner">
 			<div class="content_top">
 				<span class="map_toggle"></span>
-				<span class="results_sort"></span>
+				<span class="results_sort_rating" id="resultsSort"></span>
 				<span id="category_breadcrumb">{% block breadcrumb %}{% endblock %}{% block pagination %} {% endblock %}</span>
-				<span id="location_search">Location-Based Search: ON</span>
+				<span id="location_search">Location-Based Search: <span id="locationToggle">ON</span></span>
 			</div>
 		
 			<div class="categories">

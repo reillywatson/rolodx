@@ -11,18 +11,6 @@ def getpage(paginator, page):
 		results = paginator.page(paginator.num_pages)
 	return results
 
-# Right now, these model classes assume they always return JSON data.
-# But it's not hard to change, if we change our minds.
-class SearchPageModel():
-	def __init__(self, searchResults, itemsPerPage, currentPage, totalResults, searchQuery):
-
-		numPages = max(totalResults / itemsPerPage, 1)
-		serializedResults = serialize('json', searchResults, fields=('name','occupation','averageRating','description', 'numRatings', 'address_latitude', 'address_longitude'))
-		serializedPaging = {"currentPage": currentPage, "numPages" : numPages}
-
-		self.json = {'searchResults' : serializedResults, 'paging' : serializedPaging, 'searchquery' : searchQuery}
-
-
 class ItemPageModel():
 	def __init__(self, item, reviews, itemsPerPage, pageNum):
 		paginator = Paginator(reviews, itemsPerPage)
@@ -34,21 +22,41 @@ class ItemPageModel():
 		
 		self.json = {"itemData" : serializedItem, "reviews" : serializedReviews, "paging" : serializedPaging}
 
+class BaseModel(object):
+	def __init__(self, loc, s):
+		self.useLocation = loc
+		self.sort = s
+		
+	def json(self):
+		return {'baseData' : json.dumps({'locationBased' : self.useLocation, 'sort' : self.sort}) }
+
+# Right now, these model classes assume they always return JSON data.
+# But it's not hard to change, if we change our minds.
+class SearchPageModel(BaseModel):
+	def __init__(self, useLocation, sort, searchResults, itemsPerPage, currentPage, totalResults, searchQuery):
+		super(SearchPageModel, self).__init__(useLocation, sort)
+		numPages = max(totalResults / itemsPerPage, 1)
+		serializedResults = serialize('json', searchResults, fields=('name','occupation','averageRating','description', 'numRatings', 'address_latitude', 'address_longitude'))
+		serializedPaging = {"currentPage": currentPage, "numPages" : numPages}
+
+		result = {'searchResults' : serializedResults, 'paging' : serializedPaging, 'searchquery' : searchQuery}
+		self.json = dict(super(SearchPageModel,self).json(), **result)
+
 class CategoryPageModel():
-	def __init__(self, categories, searchResult):
+	def __init__(self, useLocation, sort, categories, searchResult):
 		# We should only have one matching category name ...
 		print "-----------------------"
 		print categories
 		category = categories[0]
 		
-		searchModel = SearchPageModel(searchResult.searchObjects, searchResult.itemsPerPage, searchResult.currentPage, searchResult.totalResults, searchResult.text)
+		searchModel = SearchPageModel(useLocation, sort, searchResult.searchObjects, searchResult.itemsPerPage, searchResult.currentPage, searchResult.totalResults, searchResult.text)
 
 		subcategoryNames = []
 		for subcategory in category.children.all():
 			subcategoryNames.append(subcategory.name)
-
+		
 		self.json = {
 			'category':serialize('json', [category], fields=("name")),
 			'subcategoryNames':json.dumps(subcategoryNames),
-			'results':searchModel .json
+			'results':searchModel.json
 		}

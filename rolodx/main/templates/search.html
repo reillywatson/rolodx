@@ -23,7 +23,10 @@
 			googleMapper.addMarker(data, i);
 		}
 		
+		var onBeforeSearchLoad = window.onload;
 		window.onload = function () {
+			onBeforeSearchLoad();
+			
 			googleMapper.render("map_canvas");
 			googleMapper.setExpandTrigger("expand_map");
 

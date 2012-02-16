@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from main.backend.ui_models import SearchPageModel, CategoryPageModel
 from backend.professionalservice import ProfessionalService
-from backend.searchservice import SearchService
+from backend.searchservice import SearchService, Order
 from backend.categoryservice import CategoryService
 import backend.geo
 from django.conf import settings
@@ -14,12 +14,22 @@ def home(request):
 def getQuerystringParameters(request):
 	# Get request parameters
 	query = request.GET.get('q', None)
+	useLocation = request.GET.get('useLocation', "1");
+	sort = request.GET.get('sort', 1);
 	clientLatitude = None
 	clientLongitude = None
-	latLong = backend.geo.lookup(request.META['REMOTE_ADDR'])
-	if latLong != None:
-		clientLatitude = latLong[0]
-		clientLongitude = latLong[1]
+
+	print "_______________"
+	print useLocation
+
+	latLong = None;
+	if useLocation == "1":
+		print "USING LOCATION"
+		latLong = backend.geo.lookup(request.META['REMOTE_ADDR'])
+		if latLong != None:
+			clientLatitude = latLong[0]
+			clientLongitude = latLong[1]
+			
 	searchRadius = float(request.GET.get('radius', '.2'))
 	currentPage = int(request.GET.get('p', '1'))
 	itemsPerPage = int(request.GET.get('n',
@@ -30,13 +40,18 @@ def getQuerystringParameters(request):
 		'currentPage' : currentPage,
 		'itemsPerPage' : itemsPerPage,
 		'query' : query,
-		'searchRadius' : searchRadius
+		'searchRadius' : searchRadius,
+		'useLocation' : useLocation,
+		'sort' : sort
 	}
 
 def search(request):
 	params = getQuerystringParameters(request)
-	searchResult = SearchService().search(params['query'], params['lat'], params['long'], params['searchRadius'], params['currentPage'], params['itemsPerPage'])
-	model = SearchPageModel(searchResult.searchObjects, searchResult.itemsPerPage, searchResult.currentPage, searchResult.totalResults, searchResult.text)
+	ordering = Order.RATING
+	if params['sort'] == "2":
+		ordering = Order.DISTANCE
+	searchResult = SearchService().search(params['query'], params['lat'], params['long'], params['searchRadius'], params['currentPage'], params['itemsPerPage'], ordering)
+	model = SearchPageModel(params["useLocation"], params["sort"], searchResult.searchObjects, searchResult.itemsPerPage, searchResult.currentPage, searchResult.totalResults, searchResult.text)
 
 	# Return response to the client
 	clientData = {"results" : model.json}
@@ -55,6 +70,8 @@ def item(request, itemId):
 	
 	# Return response to the client
 	clientData = {"results" : model.json}
+	print "================================"
+	print clientData
 	return render_to_response('item.html', clientData, context_instance=RequestContext(request))
 
 def category(request, category_name):
@@ -69,7 +86,9 @@ def category(request, category_name):
 	searchResult = categoryResults.searchResult
 	
 	if len(categories) > 0:
-		model = CategoryPageModel(categories, searchResult)
+		model = CategoryPageModel(params["useLocation"], params["sort"], categories, searchResult)
+		print "--------------------" 
+		print model.json
 		return render_to_response('category.html', model.json, context_instance=RequestContext(request))
 	else:
 		return render_to_response('category.html', {'error_message':'No results found'}, context_instance=RequestContext(request))
