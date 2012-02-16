@@ -2,16 +2,36 @@ import re
 from pageretriever import PageRetriever
 import json
 
+# Get or create a Category in the database, specifying an optional parent
+def get_or_create_category(categoryName, parent=None):
+	from rolodx.main.models import Category
+	categoryMatches = Category.objects.filter(name__iexact=categoryName).all()
+	if len(categoryMatches) >= 1:
+		return categoryMatches[0]
+	else:
+		newCategory = Category(name=categoryName, occupation=categoryName)
+		if parent is not None:
+			newCategory.parent = parent
+			newCategory.save()
+			parent.children.add(newCategory)
+			parent.save()
+		else:
+			newCategory.save()
+
+		return newCategory
+
 def populate_doctors():
 	import os
 	import json
 	from rolodx.main.models import Professional, Category
 	from django.db import transaction
 	with transaction.commit_on_success():
-		rootCat = Category(name='Doctors', occupation='Doctor')
+		# Doctor is a subcategory of top level category Health
+		rootCat = get_or_create_category('Doctor')
 		rootCat.save()
 		# you'll probably need to change this!
-		base = '/home/reilly/rolodx/parsers/doctors'
+		#base = '/home/reilly/rolodx/parsers/doctors'
+		base = 'C:/development/rolodx/parsers/doctors'
 		files = sorted(os.listdir(base))
 		for file in files:
 			doctors = json.loads(open(base+'/'+file).read())
@@ -27,9 +47,9 @@ def populate_doctors():
 					averageRating = 0,
 					numRatings = 0)
 				pro.save()
-				if doc['category'] != 'None':
-					category = Category(parent=rootCat, name = doc['category'], occupation = doc['category'])
-					category.save()
+				categoryName = doc['category']
+				if categoryName != 'None':
+					category = get_or_create_category(categoryName, rootCat)
 					pro.categories.add(category)
 					pro.save()
 	print 'success!'
