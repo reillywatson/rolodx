@@ -29,6 +29,10 @@
 			
 			googleMapper.render("map_canvas");
 			googleMapper.setExpandTrigger("expand_map");
+			googleMapper.addZoomListener( function(radius) {
+				// TODO: re-request from server, adding 'radius' as one of the parameters
+				//document.location.href = '?q='+baseQuery+'&useLocation=0'+'&sort=1';
+			});
 
 			var leftParent = document.getElementById('left');
 			for (var i=0 ; i<searchResults.length; i++) {
