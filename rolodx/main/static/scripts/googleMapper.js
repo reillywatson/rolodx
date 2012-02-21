@@ -111,26 +111,28 @@ GoogleMapper.prototype = {
 	},
 	
 	addZoomListener : function( fn ) {
-		this.externalZoomListener = fn;
-		google.maps.event.addListener( this.map, 'zoom_changed', function() {
-			var bounds = this.getBounds();
-			var center = bounds.getCenter();
-			var ne = bounds.getNorthEast();
+		var that = this;
+		google.maps.event.addListenerOnce( this.map, 'idle', function() {
+			google.maps.event.addListener( that.map, 'zoom_changed', function() {
+				var bounds = this.getBounds();
+				var center = bounds.getCenter();
+				var ne = bounds.getNorthEast();
 
-			// r = radius of the earth in statute miles
-			var r = 3963.0;  
+				// r = radius of the earth in statute miles
+				var r = 3963.0;  
 
-			// Convert lat or lng from decimal degrees into radians (divide by 57.2958)
-			var lat1 = center.lat() / 57.2958; 
-			var lon1 = center.lng() / 57.2958;
-			var lat2 = ne.lat() / 57.2958;
-			var lon2 = ne.lng() / 57.2958;
+				// Convert lat or lng from decimal degrees into radians (divide by 57.2958)
+				var lat1 = center.lat() / 57.2958; 
+				var lon1 = center.lng() / 57.2958;
+				var lat2 = ne.lat() / 57.2958;
+				var lon2 = ne.lng() / 57.2958;
 
-			// distance = circle radius from center to Northeast corner of bounds
-			var dis = r * Math.acos(Math.sin(lat1) * Math.sin(lat2) + 
-			  Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1));
-		
-			fn( dis );
+				// distance = circle radius from center to Northeast corner of bounds
+				var dis = r * Math.acos(Math.sin(lat1) * Math.sin(lat2) + 
+				  Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1));
+			
+				fn( dis );
+			});
 		});
 	},
 	

@@ -26,14 +26,17 @@
 		var onBeforeSearchLoad = window.onload;
 		window.onload = function () {
 			onBeforeSearchLoad();
-			
-			googleMapper.render("map_canvas");
+						
+			googleMapper.render("map_canvas", match);
 			googleMapper.setExpandTrigger("expand_map");
+			
 			googleMapper.addZoomListener( function(radius) {
-				// TODO: re-request from server, adding 'radius' as one of the parameters
-				//document.location.href = '?q='+baseQuery+'&useLocation=0'+'&sort=1';
+				// TODO: Request radius specific data
+				// var re = new RegExp("&radius=\\d*\\.\\d+", "g");
+				// var location = window.location.search;
+				// document.location.href = location + "&radius=" + radius;
 			});
-
+			
 			var leftParent = document.getElementById('left');
 			for (var i=0 ; i<searchResults.length; i++) {
 				searchResults[i].render( leftParent );
