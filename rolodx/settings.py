@@ -95,6 +95,17 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+"django.contrib.auth.context_processors.auth",
+"django.core.context_processors.debug",
+"django.core.context_processors.i18n",
+"django.core.context_processors.media",
+"django.core.context_processors.static",
+"django.contrib.messages.context_processors.messages",
+"django.core.context_processors.request",
+)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -120,12 +131,22 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'main',
     'haystack',
+    'socialregistration',
+    'socialregistration.contrib.facebook',
 
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs'
 )
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'socialregistration.contrib.facebook.auth.FacebookAuth',
+)
+FACEBOOK_APP_ID = '306122046113041'
+FACEBOOK_SECRET_KEY = 'db768c1a86d1dce60d69b3945f83c007'
+FACEBOOK_REQUEST_PERMISSIONS = 'email,user_about_me'
 
 # configuration for Haystack
 HAYSTACK_CONNECTIONS = {

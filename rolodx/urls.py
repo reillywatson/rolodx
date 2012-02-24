@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^pro/(?P<itemId>.+)$', 'main.views.item'),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^social/', include('socialregistration.urls', namespace = 'socialregistration')),
 )
 
 urlpatterns += staticfiles_urlpatterns()
