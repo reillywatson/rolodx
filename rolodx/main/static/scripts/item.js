@@ -5,25 +5,15 @@ Item = function ( data ) {
 Item.prototype = {
 	
 	name : null,
-	
 	occupation : null,
-	
 	rating : null,
-	
 	numRatings : null,
-	
 	street_address : null,
-	
 	website : null,
-	
 	email : null,
-	
 	hours : null,
-	
 	description : null,
-	
 	icon: null,
-	
 	constructor : Item,
 	
 	init : function( data ) {		
@@ -62,6 +52,16 @@ Item.prototype = {
 	}
 }
 
+addReview = function() {
+	var reviewText = document.getElementById("review_text").value;
+	var rating = 3;
+	var userDisplayName = 'some test user';
+	var review = new Review({userDisplayName:userDisplayName, rating: rating, text: reviewText});
+	var parentElementReviews = document.getElementById('item_reviews');
+	review.render(parentElementReviews);
+};
+
+
 /**********************/
 /**		REVIEW		**/
 
@@ -72,13 +72,9 @@ Review = function (  data  ) {
 Review.prototype = {
 	
 	author : null,
-	
 	rating : null,
-	
 	text : null,
-    
     constructor : Review,
-	
 	content : "",
 	
 	init : function( data ) {
@@ -119,15 +115,10 @@ Paginator = function( data ) {
 
 Paginator.prototype = {
 	NO_REVIEWS_YET : "No Reviews Yet",
-
 	PAGE : "Page {page} of {numPages}",
-	
 	currentPage : 1,
-	
 	numPages : 1,
-	
 	constructor : Paginator,
-	
 	template : "",
 	
 	init : function( data ) {
