@@ -56,8 +56,16 @@ addReview = function() {
 	var reviewText = document.getElementById("review_text").value;
 	var rating = 3;
 	var userDisplayName = 'some test user';
-	var review = new Review({userDisplayName:userDisplayName, rating: rating, text: reviewText});
+	var userId = '1';
+	data = {userDisplayName:userDisplayName, userId:userId, rating:rating, review:reviewText};
+	var review = new Review(data);
 	var parentElementReviews = document.getElementById('item_reviews');
+	var addReviewUrl = document.location.href.split('?')[0] + '/addReview'
+	YUI().use(["cookie","io-base"], function(Y) {
+		// TODO: add a callback here hooked up to a spinner or something
+		var headers = {"X-CSRFToken": Y.Cookie.get('csrftoken'), 'Content-Type':'application/json'};
+		Y.io(addReviewUrl, {method:"POST", data:data, headers:headers});
+	});
 	review.render(parentElementReviews);
 };
 

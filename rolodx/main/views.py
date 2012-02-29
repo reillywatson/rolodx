@@ -6,6 +6,8 @@ from backend.searchservice import SearchService, Order
 from backend.categoryservice import CategoryService
 import backend.geo
 from django.conf import settings
+from django.http import HttpResponse
+import json
 
 def home(request):
 	return render_to_response('home.html', context_instance=RequestContext(request))
@@ -92,3 +94,10 @@ def category(request, category_name):
 		return render_to_response('category.html', model.json, context_instance=RequestContext(request))
 	else:
 		return render_to_response('category.html', {'error_message':'No results found'}, context_instance=RequestContext(request))
+
+def addReview(request, itemId):
+	professionalId = int(itemId);
+	svc = ProfessionalService()
+	svc.addReview(professionalId, int(request.POST.get('userId')), request.POST.get('rating'), request.POST.get('review'))
+	resp = {'status':'ok'}
+	return HttpResponse(json.dumps(resp), mimetype="application/json")
