@@ -54,21 +54,17 @@ Item.prototype = {
 
 var currentStarCount = null;
 starOut = function() {
-	if (currentStarCount == null) {
-		starHover(0);
-	}
+	starHover(currentStarCount || 0);
 }
 
 starHover = function(numStars) {
-	if (currentStarCount == null) {
-		for (var i = 1; i <= 5; i++) {
-			var starItem = document.getElementById('item_star_'+i);
-			if (i <= numStars) {
-				starItem.style.backgroundImage="url('../static/images/star.png')";
-			}
-			else {
-				starItem.style.backgroundImage="url('../static/images/star_empty.png')";
-			}
+	for (var i = 1; i <= 5; i++) {
+		var starItem = document.getElementById('item_star_'+i);
+		if (i <= numStars) {
+			starItem.style.backgroundImage="url('../static/images/star.png')";
+		}
+		else {
+			starItem.style.backgroundImage="url('../static/images/star_empty.png')";
 		}
 	}
 };
