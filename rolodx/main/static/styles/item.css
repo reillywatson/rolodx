@@ -120,16 +120,22 @@
     margin-bottom: 20px;
 }
 
-.item_rate_stars {
+.star_container {
     background-color: #FFF;
-    background-image: url("../images/star.png");
     border-radius: 5px 5px 0 0;
     border-style: solid solid none;
     border-width: 1px 1px 0;
 	float: left;
-    height: 20px;
+	width:100px;
+	height:20px;
     margin-top: 15px;
-    width: 100px;
+}
+
+.item_rate_star {
+    background-image: url("../images/star_empty.png");
+    height: 20px;
+    width: 20px;
+    float: left;
 }
 
 .item_rate_review {

@@ -52,9 +52,34 @@ Item.prototype = {
 	}
 }
 
+var currentStarCount = null;
+starOut = function() {
+	if (currentStarCount == null) {
+		starHover(0);
+	}
+}
+
+starHover = function(numStars) {
+	if (currentStarCount == null) {
+		for (var i = 1; i <= 5; i++) {
+			var starItem = document.getElementById('item_star_'+i);
+			if (i <= numStars) {
+				starItem.style.backgroundImage="url('../static/images/star.png')";
+			}
+			else {
+				starItem.style.backgroundImage="url('../static/images/star_empty.png')";
+			}
+		}
+	}
+};
+
+starClick = function(numStars) {
+	currentStarCount = numStars;
+};
+
 addReview = function() {
 	var reviewText = document.getElementById("review_text").value;
-	var rating = 3;
+	var rating = currentStarCount;
 	var userDisplayName = 'some test user';
 	var userId = '1';
 	data = {userDisplayName:userDisplayName, userId:userId, rating:rating, text:reviewText};
