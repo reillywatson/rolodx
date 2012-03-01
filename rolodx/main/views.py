@@ -98,6 +98,6 @@ def category(request, category_name):
 def addReview(request, itemId):
 	professionalId = int(itemId);
 	svc = ProfessionalService()
-	svc.addReview(professionalId, int(request.POST.get('userId')), request.POST.get('rating'), request.POST.get('review'))
+	svc.addReview(professionalId, int(request.POST.get('userId')), request.POST.get('rating'), request.POST.get('text'))
 	resp = {'status':'ok'}
 	return HttpResponse(json.dumps(resp), mimetype="application/json")
