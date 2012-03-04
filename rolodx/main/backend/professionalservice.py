@@ -1,4 +1,4 @@
-from main.models import Professional, Review, User
+from main.models import Professional, Review
 from ui_models import ItemPageModel
 from datetime import datetime
 

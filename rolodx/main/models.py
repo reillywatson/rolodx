@@ -1,5 +1,6 @@
 from django.db import models
 from haystack.utils.geo import Point
+from django.contrib.auth.models import User
 
 # to consider: should Users just be Pros?
 #	WRT Professionals and Users, perhaps a Professional can inherit from a User?
@@ -56,13 +57,8 @@ class Professional(models.Model):
 	def __unicode__(self):
 		return self.name
 
-class User(models.Model):
-	name = models.CharField(max_length=200)
-	external_id = models.CharField(max_length=200)
-	# TODO: Other facebook things
-	email = models.CharField(max_length=200, blank=True, null=True) #email optional?
-	def __unicode__(self):
-		return self.name
+class UserProfile(models.Model):
+	user = models.ForeignKey(User, unique=True)
 
 class Review(models.Model):
 	user = models.ForeignKey(User)

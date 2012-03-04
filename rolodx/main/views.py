@@ -9,6 +9,7 @@ import backend.geo
 from django.conf import settings
 from django.http import HttpResponse, HttpRequest
 import json
+from main.models import UserProfile, UserProfessional
 
 def home(request):
 	return render_to_response('home.html', context_instance=RequestContext(request))
@@ -112,3 +113,17 @@ def addReview(request, itemId):
 	svc.addReview(professionalId, request.POST.get('userId'), request.POST.get('rating'), request.POST.get('text'))
 	resp = {'status':'ok'}
 	return HttpResponse(json.dumps(resp), mimetype="application/json")
+
+def profile(request):
+	user = request.user
+	#Hackish, move to UserService
+	UserProfile.objects.get_or_create(user=user)[0]
+
+	print 'Profile page for auth.userid: %s' % user.id
+	userProfessionals = UserProfessional.objects.filter(user__pk=user.id)
+	print userProfessionals
+	clientData = { "username" : user.username,
+			"email" : user.email,
+			"professionals" : userProfessionals }
+
+	return render_to_response('profile.html', clientData, context_instance=RequestContext(request))

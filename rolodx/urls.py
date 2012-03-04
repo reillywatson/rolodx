@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^social/', include('socialregistration.urls', namespace = 'socialregistration')),
+    url(r'^accounts/profile/', 'main.views.profile'),
 )
 
 urlpatterns += staticfiles_urlpatterns()
