@@ -9,11 +9,9 @@ class ProfessionalService:
 		reviews = Review.objects.filter(professional__pk=professionalId)
 		return ItemPageModel(items, reviews, itemsPerPage, currentPage)
 		
-	def addReview(self, professionalId, userId, rating, reviewText):
+	def addReview(self, professionalId, user, rating, reviewText):
 		items = Professional.objects.filter(pk=professionalId)
-		users = User.objects.filter(pk=userId)
-		if len(items) == 1 and len(users) == 1:
+		if len(items) == 1 and user != None and not user.is_anonymous:
 			pro = items[0]
-			user = users[0]
 			review = Review(user=user, professional=pro, text=reviewText, rating=rating, date=datetime.utcnow(), karma=0)
 			review.save()

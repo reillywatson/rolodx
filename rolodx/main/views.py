@@ -97,20 +97,10 @@ def category(request, category_name):
 	else:
 		return render_to_response('category.html', {'error_message':'No results found'}, context_instance=RequestContext(request))
 
-def facebookrequest(fn):
-	def addFacebookUserToRequest(*args, **kwds):
-		for arg in args:
-			if isinstance(arg,HttpRequest):
-				FacebookMiddleware().process_request(arg)
-		return fn(*args, **kwds)
-	return addFacebookUserToRequest
-
-@facebookrequest
 def addReview(request, itemId):
 	professionalId = int(itemId);
 	svc = ProfessionalService()
-	print request.facebook.uid
-	svc.addReview(professionalId, request.POST.get('userId'), request.POST.get('rating'), request.POST.get('text'))
+	svc.addReview(professionalId, request.user, request.POST.get('rating'), request.POST.get('text'))
 	resp = {'status':'ok'}
 	return HttpResponse(json.dumps(resp), mimetype="application/json")
 
