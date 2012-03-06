@@ -3,9 +3,15 @@
 {% block head %} 
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/search.css" /> 
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/map.css" /> 
+	<script src="http://yui.yahooapis.com/2.9.0/build/yahoo/yahoo-min.js"></script>
+	<script src="http://yui.yahooapis.com/2.9.0/build/json/json-min.js"></script>
+	<script src="http://yui.yahooapis.com/2.9.0/build/event/event-min.js"></script>
+	<script src="http://yui.yahooapis.com/2.9.0/build/connection/connection_core-min.js"></script>
+	
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAlLwEDIyHgeeg30BZpdAdsXumvBxbWXOA&sensor=true"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/search.js"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/googleMapper.js"></script>
+	
 	<script type="text/javascript">
 		var results = {{results.searchResults|safe}};
 		var paginatorData = {};
@@ -22,7 +28,6 @@
 			
 			googleMapper.addMarker(data, i);
 		}
-		
 		var onBeforeSearchLoad = window.onload;
 		window.onload = function () {
 			onBeforeSearchLoad();
@@ -30,11 +35,24 @@
 			googleMapper.render("map_canvas");
 			googleMapper.setExpandTrigger("expand_map");
 			
-			googleMapper.addZoomListener( function(radius) {
-				// TODO: Request radius specific data
-				// var re = new RegExp("&radius=\\d*\\.\\d+", "g");
-				// var location = window.location.search;
-				// document.location.href = location + "&radius=" + radius;
+			googleMapper.addZoomListener( function(radius, ne, sw) {
+				var callback = {
+				  success: function(o) {
+					var json = YAHOO.lang.JSON.parse(o.responseText);
+					var resultData = YAHOO.lang.JSON.parse(json.results.searchResults);
+					for (var i=0; i<resultData.length; i++) {
+						var data = resultData[i].fields;
+						data.id = resultData[i].pk;
+						new SearchResult(data).render( leftParent );
+						new SearchResult(data).addMouseOver( i, googleMapper );
+						
+						googleMapper.addMarker(data, i);
+					} },
+				  failure: function(o) { alert("Failure!"); },
+				  argument:null
+				};
+				var boundary = "dataonly=true&nbound="+ne.lng()+"&wbound="+sw.lat()+"&sbound="+sw.lng()+"&ebound="+ne.lat();
+				var transaction = YAHOO.util.Connect.asyncRequest('GET', searchPaginator.currentUrl + boundary, callback, null);
 			});
 			
 			var leftParent = document.getElementById('left');
@@ -45,6 +63,7 @@
 			
 			searchPaginator.render('search_pagination');
 		}
+		
 	</script>
 	{% block search_head %}{% endblock %}
 {% endblock %}

@@ -117,6 +117,7 @@ GoogleMapper.prototype = {
 				var bounds = this.getBounds();
 				var center = bounds.getCenter();
 				var ne = bounds.getNorthEast();
+				var sw = bounds.getSouthWest();
 
 				// r = radius of the earth in statute miles
 				var r = 3963.0;  
@@ -131,7 +132,7 @@ GoogleMapper.prototype = {
 				var dis = r * Math.acos(Math.sin(lat1) * Math.sin(lat2) + 
 				  Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1));
 			
-				fn( dis );
+				fn( dis, ne, sw );
 			});
 		});
 	},

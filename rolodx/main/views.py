@@ -1,5 +1,7 @@
+import json
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.http import HttpResponse
 from main.backend.ui_models import SearchPageModel, CategoryPageModel
 from backend.professionalservice import ProfessionalService
 from backend.searchservice import SearchService, Order
@@ -19,12 +21,8 @@ def getQuerystringParameters(request):
 	clientLatitude = None
 	clientLongitude = None
 
-	print "_______________"
-	print useLocation
-
 	latLong = None;
 	if useLocation == "1":
-		print "USING LOCATION"
 		latLong = backend.geo.lookup(request.META['REMOTE_ADDR'])
 		if latLong != None:
 			clientLatitude = latLong[0]
@@ -34,6 +32,11 @@ def getQuerystringParameters(request):
 	currentPage = int(request.GET.get('p', '1'))
 	itemsPerPage = int(request.GET.get('n',
 									   '7')) #TODO: This should probably not be here. We don't want users to control our pagination.
+	nbound = float(request.GET.get('nbound', 0))
+	sbound = float(request.GET.get('sbound', 0))
+	ebound = float(request.GET.get('ebound', 0))
+	wbound = float(request.GET.get('wbound', 0))
+	dataonly = request.GET.get('dataonly', False)
 	return {
 		'lat' : clientLatitude,
 		'long' : clientLongitude,
@@ -42,7 +45,12 @@ def getQuerystringParameters(request):
 		'query' : query,
 		'searchRadius' : searchRadius,
 		'useLocation' : useLocation,
-		'sort' : sort
+		'sort' : sort,
+		'nbound' : nbound,
+		'sbound' : sbound,
+		'ebound' : ebound,
+		'wbound' : wbound,
+		'dataonly' : dataonly
 	}
 
 def search(request):
@@ -50,11 +58,15 @@ def search(request):
 	ordering = Order.RATING
 	if params['sort'] == "2":
 		ordering = Order.DISTANCE
-	searchResult = SearchService().search(params['query'], params['lat'], params['long'], params['searchRadius'], params['currentPage'], params['itemsPerPage'], ordering)
+	searchResult = SearchService().search(params['query'], params['lat'], params['long'], params['searchRadius'], params['currentPage'], 
+										params['itemsPerPage'], ordering, params['nbound'], params['sbound'], params['ebound'], params['wbound'])
 	model = SearchPageModel(params["useLocation"], params["sort"], searchResult.searchObjects, searchResult.itemsPerPage, searchResult.currentPage, searchResult.totalResults, searchResult.text)
 
 	# Return response to the client
 	clientData = {"results" : model.json}
+	
+	if (params['dataonly']) :
+		return HttpResponse(json.dumps(clientData))
 	return render_to_response('search.html', clientData, context_instance=RequestContext(request))
 
 def item(request, itemId):

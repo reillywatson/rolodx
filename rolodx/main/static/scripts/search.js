@@ -79,21 +79,22 @@ SearchPaginator.prototype = {
 	PAGE : "Page {page} of {numPages}",	
 	template : "",
 	constructor : SearchPaginator,
+	currentUrl : "",
 	init : function( data ) {
 		var currentPage = data.paging.currentPage;
 		var numPages = data.paging.numPages;
 		var pageRegex = new RegExp('[&\\?]p='+currentPage);
-		var currentUrl = document.location.href.replace(pageRegex, '');
-		var separator = currentUrl.split('?')[1] ? '&':'?';
-		currentUrl = currentUrl + separator;
+		this.currentUrl = document.location.href.replace(pageRegex, '');
+		var separator = this.currentUrl.split('?')[1] ? '&':'?';
+		this.currentUrl = this.currentUrl + separator;
 		if (currentPage > 1) {
-			this.template += "<a class='pager_white' href='"+currentUrl+"p=1'>&lt;&lt;</a>"
-			this.template += "<a class='pager_white' href='"+currentUrl+"p=" + (currentPage-1) + "'>&lt;</a>"
+			this.template += "<a class='pager_white' href='"+this.currentUrl+"p=1'>&lt;&lt;</a>"
+			this.template += "<a class='pager_white' href='"+this.currentUrl+"p=" + (currentPage-1) + "'>&lt;</a>"
 		}		
 		this.template += "&nbsp;<span> " + this.PAGE.replace(/{page}/,currentPage).replace(/{numPages}/,numPages) + "</span>&nbsp;"
 		if (currentPage < numPages) {
-			this.template += "<a class='pager_white' href='"+currentUrl+"p=" + (currentPage+1) + "'>&gt;</a>"
-			this.template += "<a class='pager_white' href='"+currentUrl+"p=" + (numPages) + "'>&gt;&gt;</a>"
+			this.template += "<a class='pager_white' href='"+this.currentUrl+"p=" + (currentPage+1) + "'>&gt;</a>"
+			this.template += "<a class='pager_white' href='"+this.currentUrl+"p=" + (numPages) + "'>&gt;&gt;</a>"
 		}
 	},
 	

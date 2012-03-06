@@ -7,7 +7,7 @@ class Order:
 	RATING = 2
 
 class SearchService:
-	def search(self, text, lat, lng, radius, currentPage, itemsPerPage, ordering=Order.RATING):
+	def search(self, text, lat, lng, radius, currentPage, itemsPerPage, ordering=Order.RATING, nbound=None, sbound=None, ebound=None, wbound=None):
 		print 'searching!'
 		print (lat,lng,radius)
 		print ordering
@@ -20,7 +20,15 @@ class SearchService:
 		# NOTE: order_by has to be part of the same line as the query function call
 		# Otherwise it doesn't work.
 		query = SearchQuerySet().auto_query(text)
-		if -90 <= lat <= 90 and -180 <= lng <= 180:
+		if nbound and sbound and ebound and wbound:
+			topLeft = Point(nbound, ebound)
+			bottomRight = Point(sbound, wbound)
+			query = query.within('location', topLeft, bottomRight).distance('location', Point(lng,lat))
+			if ordering == Order.DISTANCE:
+				query = query.within('location', topLeft, bottomRight).distance('location', Point(lng,lat)).order_by('distance')
+			else:
+				query = query.within('location', topLeft, bottomRight).distance('location', Point(lng,lat)).order_by('-averageRating')
+		elif -90 <= lat <= 90 and -180 <= lng <= 180:
 			topLeft = Point(lng-radius,lat-radius)
 			bottomRight = Point(lng+radius,lat+radius)
 			query = query.within('location', topLeft, bottomRight).distance('location', Point(lng,lat))
