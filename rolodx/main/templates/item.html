@@ -3,6 +3,7 @@
 {% block head %} 
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/item.css" /> 
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/map.css" /> 
+	<script src="http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAlLwEDIyHgeeg30BZpdAdsXumvBxbWXOA&sensor=true"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/item.js"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/googleMapper.js"></script>
@@ -77,9 +78,15 @@
 	
 	<div class="item_container_bottom">
 		<div class="item_rate">
-			<div class="item_rate_stars"></div>
-			<textarea class="item_rate_review">This guy is just awesome. I'm continuously blown away by how wicked he is. Wow. Just wow.</textarea>
-			<div class="item_rate_rate_button"></div>
+			<div class="star_container">
+				<div class="item_rate_star" id="item_star_1" onmouseover="starHover(1);" onclick="starClick(1);" onmouseout="starOut();"></div>
+				<div class="item_rate_star" id="item_star_2" onmouseover="starHover(2);" onclick="starClick(2);" onmouseout="starOut();"></div>
+				<div class="item_rate_star" id="item_star_3" onmouseover="starHover(3);" onclick="starClick(3);" onmouseout="starOut();"></div>
+				<div class="item_rate_star" id="item_star_4" onmouseover="starHover(4);" onclick="starClick(4);" onmouseout="starOut();"></div>
+				<div class="item_rate_star" id="item_star_5" onmouseover="starHover(5);" onclick="starClick(5);" onmouseout="starOut();"></div>
+			</div>
+			<textarea id="review_text" class="item_rate_review">This guy is just awesome. I'm continuously blown away by how wicked he is. Wow. Just wow.</textarea>
+			<div class="item_rate_rate_button" onclick="addReview();"></div>
 			<div class="item_rate_facebook"><input type="checkbox"></input>Also submit to Facebook</div>
 		</div>
 		

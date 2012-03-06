@@ -5,25 +5,15 @@ Item = function ( data ) {
 Item.prototype = {
 	
 	name : null,
-	
 	occupation : null,
-	
 	rating : null,
-	
 	numRatings : null,
-	
 	street_address : null,
-	
 	website : null,
-	
 	email : null,
-	
 	hours : null,
-	
 	description : null,
-	
 	icon: null,
-	
 	constructor : Item,
 	
 	init : function( data ) {		
@@ -62,6 +52,45 @@ Item.prototype = {
 	}
 }
 
+var currentStarCount = null;
+starOut = function() {
+	starHover(currentStarCount || 0);
+}
+
+starHover = function(numStars) {
+	for (var i = 1; i <= 5; i++) {
+		var starItem = document.getElementById('item_star_'+i);
+		if (i <= numStars) {
+			starItem.style.backgroundImage="url('../static/images/star.png')";
+		}
+		else {
+			starItem.style.backgroundImage="url('../static/images/star_empty.png')";
+		}
+	}
+};
+
+starClick = function(numStars) {
+	currentStarCount = numStars;
+};
+
+addReview = function() {
+	var reviewText = document.getElementById("review_text").value;
+	var rating = currentStarCount;
+	var userDisplayName = 'some test user';
+	var userId = '1';
+	data = {userDisplayName:userDisplayName, userId:userId, rating:rating, text:reviewText};
+	var review = new Review(data);
+	var parentElementReviews = document.getElementById('item_reviews');
+	var addReviewUrl = document.location.href.split('?')[0] + '/addReview'
+	YUI().use(["cookie","io-base"], function(Y) {
+		// TODO: add a callback here hooked up to a spinner or something
+		var headers = {"X-CSRFToken": Y.Cookie.get('csrftoken'), 'Content-Type':'application/json'};
+		Y.io(addReviewUrl, {method:"POST", data:data, headers:headers});
+	});
+	review.render(parentElementReviews);
+};
+
+
 /**********************/
 /**		REVIEW		**/
 
@@ -72,13 +101,9 @@ Review = function (  data  ) {
 Review.prototype = {
 	
 	author : null,
-	
 	rating : null,
-	
 	text : null,
-    
     constructor : Review,
-	
 	content : "",
 	
 	init : function( data ) {
@@ -119,15 +144,10 @@ Paginator = function( data ) {
 
 Paginator.prototype = {
 	NO_REVIEWS_YET : "No Reviews Yet",
-
 	PAGE : "Page {page} of {numPages}",
-	
 	currentPage : 1,
-	
 	numPages : 1,
-	
 	constructor : Paginator,
-	
 	template : "",
 	
 	init : function( data ) {

@@ -8,10 +8,12 @@ urlpatterns = patterns('',
     url(r'^$', 'main.views.home'),
     url(r'^category/(?P<category_name>.+)/$', 'main.views.category'), #direct category access
     url(r'^search/',  'main.views.search'),
-    url(r'^pro/(?P<itemId>.+)$', 'main.views.item'),
+    url(r'^pro/(?P<itemId>\d+)/addReview$', 'main.views.addReview'),
+    url(r'^pro/(?P<itemId>\d+/?$)', 'main.views.item'),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^social/', include('socialregistration.urls', namespace = 'socialregistration')),
+    url(r'^accounts/profile/', 'main.views.profile'),
 )
 
 urlpatterns += staticfiles_urlpatterns()

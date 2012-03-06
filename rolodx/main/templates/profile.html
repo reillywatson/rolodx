@@ -1,0 +1,28 @@
+{% extends 'onecolumnbase.html' %}
+
+{% block head %} 
+	<!-- TODO: profile.css -->
+	<!-- TODO: profile.js -->
+	<link rel="stylesheet" href="{{ STATIC_URL }}styles/profile.css" /> 
+	<script type="text/javascript" src="{{ STATIC_URL }}scripts/profile.js"></script>
+	<script type="text/javascript">
+		<!-- TODO: render professionals -->
+	</script>
+{% endblock %}
+
+
+{% block content %}
+
+<!-- TODO: real markup -->
+username: {{ username }} <br/>
+email: {{ email }} <br/>
+<br/>
+My saved professionals:
+<br/>
+{% for userProfessional in professionals %}
+	<li>
+	<a href="/pro/{{ userProfessional.professional.id }}">{{ userProfessional.professional.name }}</a>
+	</li>
+{% endfor %}
+
+{% endblock %}

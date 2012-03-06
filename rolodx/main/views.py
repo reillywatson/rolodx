@@ -6,8 +6,12 @@ from main.backend.ui_models import SearchPageModel, CategoryPageModel
 from backend.professionalservice import ProfessionalService
 from backend.searchservice import SearchService, Order
 from backend.categoryservice import CategoryService
+from socialregistration.contrib.facebook.middleware import FacebookMiddleware
 import backend.geo
 from django.conf import settings
+from django.http import HttpResponse, HttpRequest
+import json
+from main.models import UserProfile, UserProfessional
 
 def home(request):
 	return render_to_response('home.html', context_instance=RequestContext(request))
@@ -104,3 +108,24 @@ def category(request, category_name):
 		return render_to_response('category.html', model.json, context_instance=RequestContext(request))
 	else:
 		return render_to_response('category.html', {'error_message':'No results found'}, context_instance=RequestContext(request))
+
+def addReview(request, itemId):
+	professionalId = int(itemId);
+	svc = ProfessionalService()
+	svc.addReview(professionalId, request.user, request.POST.get('rating'), request.POST.get('text'))
+	resp = {'status':'ok'}
+	return HttpResponse(json.dumps(resp), mimetype="application/json")
+
+def profile(request):
+	user = request.user
+	#Hackish, move to UserService
+	UserProfile.objects.get_or_create(user=user)[0]
+
+	print 'Profile page for auth.userid: %s' % user.id
+	userProfessionals = UserProfessional.objects.filter(user__pk=user.id)
+	print userProfessionals
+	clientData = { "username" : user.username,
+			"email" : user.email,
+			"professionals" : userProfessionals }
+
+	return render_to_response('profile.html', clientData, context_instance=RequestContext(request))
