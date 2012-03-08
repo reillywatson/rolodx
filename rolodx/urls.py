@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^social/', include('socialregistration.urls', namespace = 'socialregistration')),
     url(r'^accounts/profile/', 'main.views.profile'),
+    url(r'^logout/', 'main.views.logout'),
 )
 
 urlpatterns += staticfiles_urlpatterns()

@@ -34,10 +34,19 @@
 </head>
 
 <body>
-{% load facebook %}
-{% facebook_button %}
-	<div id="header" class="header">
+
+<div id="header" class="header">
 		<div class="header_content">
+			<div class="authbar">
+				{% if user.is_authenticated %}
+				<form action="/logout" method="GET" name="logout" class="logoutbutton">
+					<input type="image" src="/static/images/logout.png" />
+				</form>
+				{% else %}
+				{% load facebook %}
+				{% facebook_button %}
+				{% endif %}
+			</div>
 			<a href="/" class="logo"></a>
 	
 			<div class="searchboxandbutton">
