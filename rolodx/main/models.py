@@ -62,7 +62,6 @@ class UserProfile(models.Model):
 
 class Review(models.Model):
 	user = models.ForeignKey(User)
-	userDisplayName = models.CharField(max_length=200)
 	professional = models.ForeignKey(Professional)
 	text = models.CharField(max_length=2000)
 	rating = models.DecimalField(decimal_places=1, max_digits=2)

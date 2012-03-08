@@ -10,8 +10,14 @@ class ProfessionalService:
 		return ItemPageModel(items, reviews, itemsPerPage, currentPage)
 		
 	def addReview(self, professionalId, user, rating, reviewText):
+		#TODO: should check if user has already rated this professional, error if this is the case
+		#(should edit instead)
+
+		#TODO: fix js to always send a number for rating?
+		if rating == 'null':
+			rating = 0
+
 		items = Professional.objects.filter(pk=professionalId)
-		if len(items) == 1 and user != None and not user.is_anonymous:
-			pro = items[0]
-			review = Review(user=user, professional=pro, text=reviewText, rating=rating, date=datetime.utcnow(), karma=0)
+		if len(items) == 1 and user != None and not user.is_anonymous():
+			review = Review(user=user, professional=items[0], text=reviewText, rating=rating, date=datetime.utcnow(), karma=0)
 			review.save()

@@ -119,12 +119,7 @@ def addReview(request, itemId):
 
 def profile(request):
 	user = request.user
-	#Hackish, move to UserService
-	UserProfile.objects.get_or_create(user=user)[0]
-
-	print 'Profile page for auth.userid: %s' % user.id
 	userProfessionals = UserProfessional.objects.filter(user__pk=user.id)
-	print userProfessionals
 	clientData = { "username" : user.username,
 			"email" : user.email,
 			"professionals" : userProfessionals }
