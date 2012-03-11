@@ -73,17 +73,16 @@ GoogleMapper.prototype = {
 		this.markers.push(marker);
 	},
 	
-	render : function( container ) {
-		this.container = document.getElementById(container);
-		this.map = new google.maps.Map(this.container, this.options);
-		
-		var bounds = new google.maps.LatLngBounds();
+	renderMarkers : function(bounds) {
 		var that = this;
 		
 		for (var i=0; i< this.markers.length; i++) {
 			var marker = this.markers[i];
 			marker.setMap(this.map);
-			bounds.extend(marker.position);
+			if (bounds) {
+				bounds.extend(marker.position);
+			}
+			
 			// I'm gonna be tricky, here.
 			//	I'll keep a reference to the current GoogleMapper object in 'that'
 			//	When I'm inside my "clicked" function, I'll get the global infoWindow from 'that', and my data from 'this' (which is the current marker clicked)
@@ -93,6 +92,15 @@ GoogleMapper.prototype = {
 				that.infoWindow.open(this.map,this);
 			});
 		}
+	},
+	
+	render : function( container ) {
+		this.container = document.getElementById(container);
+		this.map = new google.maps.Map(this.container, this.options);
+		
+		var that = this;
+		var bounds = new google.maps.LatLngBounds();
+		this.renderMarkers(bounds);
 		
 		// Set a reasonable zoom level, if fit bounds finds a single entry
 		// Has to happen like this, because fitBounds is async, so we don't know the zoom level right away
@@ -110,10 +118,10 @@ GoogleMapper.prototype = {
 		}
 	},
 	
-	addZoomListener : function( fn ) {
+	addMoveListener : function( fn ) {
 		var that = this;
 		google.maps.event.addListenerOnce( this.map, 'idle', function() {
-			google.maps.event.addListener( that.map, 'zoom_changed', function() {
+			google.maps.event.addListener( that.map, 'bounds_changed', function() {
 				var bounds = this.getBounds();
 				var center = bounds.getCenter();
 				var ne = bounds.getNorthEast();

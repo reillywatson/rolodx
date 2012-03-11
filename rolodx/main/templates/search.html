@@ -35,18 +35,25 @@
 			googleMapper.render("map_canvas");
 			googleMapper.setExpandTrigger("expand_map");
 			
-			googleMapper.addZoomListener( function(radius, ne, sw) {
+			googleMapper.addMoveListener( function(radius, ne, sw) {
 				var callback = {
 				  success: function(o) {
 					var json = YAHOO.lang.JSON.parse(o.responseText);
 					var resultData = YAHOO.lang.JSON.parse(json.results.searchResults);
+					while (leftParent.hasChildNodes()) {
+						leftParent.removeChild(leftParent.lastChild);
+					}
+					
+					googleMapper.markers = [];
 					for (var i=0; i<resultData.length; i++) {
 						var data = resultData[i].fields;
 						data.id = resultData[i].pk;
+						console.log(i, data);
+						
 						new SearchResult(data).render( leftParent );
 						new SearchResult(data).addMouseOver( i, googleMapper );
-						
 						googleMapper.addMarker(data, i);
+						googleMapper.renderMarkers();
 					} },
 				  failure: function(o) { alert("Failure!"); },
 				  argument:null
