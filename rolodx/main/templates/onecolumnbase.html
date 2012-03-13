@@ -36,7 +36,6 @@
 <body>
 
 <div id="header" class="header">
-		<div class="header_content">
 			<div class="authbar">
 				{% if user.is_authenticated %}
 				<form action="/logout" method="GET" name="logout" class="logoutbutton">
@@ -47,6 +46,7 @@
 				{% facebook_button %}
 				{% endif %}
 			</div>
+		<div class="header_content">
 			<a href="/" class="logo"></a>
 	
 			<div class="searchboxandbutton">

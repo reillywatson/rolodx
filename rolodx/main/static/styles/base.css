@@ -42,6 +42,7 @@ a {text-decoration: none; color: #000;}
 
 .authbar {
     float: right;
+	margin-top: -40px;
 }
 
 /** ================		HEADER SEARCH		=================== **/
