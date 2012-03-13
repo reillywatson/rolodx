@@ -1,4 +1,4 @@
-from main.models import Professional, Review
+from main.models import Professional, Review, UserProfessional
 from ui_models import ItemPageModel
 from datetime import datetime
 
@@ -21,3 +21,7 @@ class ProfessionalService:
 		if len(items) == 1 and user != None and not user.is_anonymous():
 			review = Review(user=user, professional=items[0], text=reviewText, rating=rating, date=datetime.utcnow(), karma=0)
 			review.save()
+			
+			# Create association
+			association = UserProfessional(user=user, professional=items[0])
+			association.save()

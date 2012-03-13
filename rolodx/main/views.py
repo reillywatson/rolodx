@@ -3,7 +3,7 @@ import django
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse
-from main.backend.ui_models import SearchPageModel, CategoryPageModel
+from main.backend.ui_models import SearchPageModel, CategoryPageModel, ProfileModel
 from backend.professionalservice import ProfessionalService
 from backend.searchservice import SearchService, Order
 from backend.categoryservice import CategoryService
@@ -120,11 +120,8 @@ def addReview(request, itemId):
 def profile(request):
 	user = request.user
 	userProfessionals = UserProfessional.objects.filter(user__pk=user.id)
-	clientData = { "username" : user.username,
-			"email" : user.email,
-			"professionals" : userProfessionals }
-
-	return render_to_response('profile.html', clientData, context_instance=RequestContext(request))
+	model = ProfileModel(user.username, user.email, userProfessionals)
+	return render_to_response('profile.html', model.json, context_instance=RequestContext(request))
 
 def logout(request):
 	from django.http import HttpResponseRedirect

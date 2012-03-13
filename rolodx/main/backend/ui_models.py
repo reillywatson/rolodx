@@ -30,8 +30,15 @@ class BaseModel(object):
 	def json(self):
 		return {'baseData' : json.dumps({'locationBased' : self.useLocation, 'sort' : self.sort}) }
 
-# Right now, these model classes assume they always return JSON data.
-# But it's not hard to change, if we change our minds.
+class ProfileModel():
+	def __init__(self, userName, userEmail, userProfessionals):
+		professionals = []
+		for userPro in userProfessionals:
+			professionals.append(userPro.professional)
+		
+		results = {"name" : userName, "email" : userEmail, "professionals" : serialize('json', professionals, fields=('name','occupation','averageRating','description', 'numRatings', 'address_latitude', 'address_longitude')) }
+		self.json = {'results' : {"profile" : results}}
+
 class SearchPageModel(BaseModel):
 	def __init__(self, useLocation, sort, searchResults, itemsPerPage, currentPage, totalResults, searchQuery):
 		super(SearchPageModel, self).__init__(useLocation, sort)

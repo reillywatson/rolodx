@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/profile.css" /> 
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/profile.js"></script>
 	<script type="text/javascript">
-		<!-- TODO: render professionals -->
+		var profileData = {{results.profile|safe}};
 	</script>
 {% endblock %}
 
@@ -16,8 +16,8 @@
 <div id="profile_page">
 	<div id="profile_data">
 		<div id="profile_photo"></div>
-		<div id="profile_name"></div>
-		<div id="profile_fb_email"></div>
+		<div id="profile_name">Robert Beghian</div>
+		<div id="profile_fb_email">vasken@gmail.com</div>
 	</div>
 	
 	<div id="profile_contacts">
