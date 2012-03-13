@@ -99,7 +99,7 @@ SearchPaginator.prototype = {
 	},
 	
 	render : function( elementId ) {
-		parent = document.getElementById(elementId);
+		var parent = document.getElementById(elementId);
 		parent.innerHTML += this.template;
 	}
 }

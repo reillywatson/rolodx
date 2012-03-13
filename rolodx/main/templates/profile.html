@@ -1,12 +1,30 @@
 {% extends 'onecolumnbase.html' %}
 
 {% block head %} 
-	<!-- TODO: profile.css -->
-	<!-- TODO: profile.js -->
+	<link rel="stylesheet" href="{{ STATIC_URL }}styles/pro.css" /> 
 	<link rel="stylesheet" href="{{ STATIC_URL }}styles/profile.css" /> 
+	<script src="http://yui.yahooapis.com/2.9.0/build/yahoo/yahoo-min.js"></script>
+	<script src="http://yui.yahooapis.com/2.9.0/build/json/json-min.js"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}scripts/profile.js"></script>
 	<script type="text/javascript">
 		var profileData = {{results.profile|safe}};
+		var profileProfessionals = YAHOO.lang.JSON.parse(profileData.professionals);
+		var professionals = [];
+		for (var i=0; i<profileProfessionals.length; i++) {
+			var data = profileProfessionals[i].fields;
+			data.id = profileProfessionals[i].pk;
+			professionals.push( new Professional(data) );
+		}
+		
+		window.onload = function() {
+			var profile = new Profile({name : YAHOO.lang.JSON.parse(profileData.name), email : YAHOO.lang.JSON.parse(profileData.email)});
+			profile.render("profile_data");
+			
+			for (var i=0; i<professionals.length; i++) {
+				var pro = professionals[i];
+				pro.render("profile_contacts_content");
+			}
+		}
 	</script>
 {% endblock %}
 
@@ -14,16 +32,12 @@
 {% block content %}
 
 <div id="profile_page">
-	<div id="profile_data">
-		<div id="profile_photo"></div>
-		<div id="profile_name">Robert Beghian</div>
-		<div id="profile_fb_email">vasken@gmail.com</div>
-	</div>
+	<div id="profile_data"></div>
 	
 	<div id="profile_contacts">
 		<div id="profile_contacts_title">My Contacts</div>
 		<hr/>
-		<div id="profile_contacts_title"></div>
+		<div id="profile_contacts_content"></div>
 	</div>
 
 </div>

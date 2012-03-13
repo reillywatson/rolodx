@@ -36,7 +36,7 @@ class ProfileModel():
 		for userPro in userProfessionals:
 			professionals.append(userPro.professional)
 		
-		results = {"name" : userName, "email" : userEmail, "professionals" : serialize('json', professionals, fields=('name','occupation','averageRating','description', 'numRatings', 'address_latitude', 'address_longitude')) }
+		results = {"name" : json.dumps(userName), "email" : json.dumps(userEmail), "professionals" : serialize('json', professionals, fields=('name','occupation','averageRating','description', 'numRatings', 'address_latitude', 'address_longitude')) }
 		self.json = {'results' : {"profile" : results}}
 
 class SearchPageModel(BaseModel):

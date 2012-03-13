@@ -1,0 +1,49 @@
+
+
+.pro_container {
+    margin-top: 30px;
+    max-height: 100px;
+    min-height: 80px;
+    overflow: hidden;
+    width: 550px;
+}
+
+.pro_icon {
+    background-image: url("../images/placeholders/sprites.png");
+    background-position: 0 -761px;
+    background-repeat: no-repeat;
+    border: 1px solid;
+    float: left;
+    height: 68px;
+    margin-right: 10px;
+    width: 68px;
+}
+
+.pro_rating {
+    float: left;
+    width: 450px;
+}
+
+.num_ratings{
+    color: #A3A29E;
+    float: left;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.pro_text {
+    color: #2AA4C9;
+    float: left;
+    font-family: sans-serif;
+    font-weight: bold;
+    width: 450px;
+}
+
+.pro_description {
+    float: left;
+    font-family: sans-serif;
+    font-size: 11px;
+    max-height: 41px;
+    max-width: 450px;
+    overflow: hidden;
+}
