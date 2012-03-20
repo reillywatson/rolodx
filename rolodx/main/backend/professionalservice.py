@@ -32,7 +32,7 @@ class ProfessionalService:
 				review = Review(user=user, professional=professional, text=reviewText, rating=rating, date=datetime.utcnow(), karma=0)
 				
 				# Create association
-				association = UserProfessional(user=user, professional=iprofessional)
+				association = UserProfessional(user=user, professional=professional)
 				association.save()
 
 			review.save()
