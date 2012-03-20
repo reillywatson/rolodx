@@ -74,20 +74,42 @@ starClick = function(numStars) {
 };
 
 addReview = function() {
+    // User is sorted out via django's request.user object, so no need to pass or get userid here.
 	var reviewText = document.getElementById("review_text").value;
 	var rating = currentStarCount;
-	var userDisplayName = 'some test user';
-	var userId = '1';
-	data = {userDisplayName:userDisplayName, userId:userId, rating:rating, text:reviewText};
-	var review = new Review(data);
-	var parentElementReviews = document.getElementById('item_reviews');
+	var data = { rating:rating, text:reviewText};
+
 	var addReviewUrl = document.location.href.split('?')[0] + '/addReview'
-	YUI().use(["cookie","io-base"], function(Y) {
+	YUI().use(["cookie","io-base", "json-parse"], function(Y) {
+
 		// TODO: add a callback here hooked up to a spinner or something
-		var headers = {"X-CSRFToken": Y.Cookie.get('csrftoken'), 'Content-Type':'application/json'};
-		Y.io(addReviewUrl, {method:"POST", data:data, headers:headers});
+
+        var cfg = {
+            method:'POST',
+            data:data,
+            headers:{"X-CSRFToken": Y.Cookie.get('csrftoken'), 'Content-Type':'application/json'},
+            on : {
+                success : function (x,o) {
+                    Y.log("RAW JSON DATA: " + o.responseText);
+
+                    var messages = []
+
+                    try {
+                        messages = Y.JSON.parse(o.responseText);
+                    }
+                    catch (e) {
+                        alert("JSON parse failed!");
+                        return;
+                    }
+
+                    var review = new Review(messages[0].fields);
+                    review.appendReviewToTopOfList(document.getElementById('item_reviews'));
+                }
+            }
+        };
+
+		Y.io(addReviewUrl, cfg);
 	});
-	review.render(parentElementReviews);
 };
 
 
@@ -103,6 +125,7 @@ Review.prototype = {
 	author : null,
 	rating : null,
 	text : null,
+    lastModified : null,
     constructor : Review,
 	content : "",
 	
@@ -114,10 +137,12 @@ Review.prototype = {
 		this.rating = starsNumToString(data.rating);
 		this.author = data.user.fields.username;
 		this.text = data.text;
+        this.lastModified = data.date;
 		
         var template = "";
 		template +=	'<div class="item_review">';
 		template +=		'<div class="rating_stars_{stars}"></div>';
+        template +=     '<div class="item_review_lastModified">{lastModified}</div>';
 		template +=		'<div class="item_review_text">{text}</div>';
 		template +=		'<div class="item_review_author">- {author}</div>';
 		template +=	'</div>';
@@ -125,13 +150,18 @@ Review.prototype = {
 		template = template.replace(/{stars}/,this.rating);
 		template = template.replace(/{text}/,this.text);
 		template = template.replace(/{author}/,this.author);
+        template = template.replace(/{lastModified}/, this.lastModified);
 		
 		this.content = template;
 	},
 	
 	render : function( parent ) {
-		parent.innerHTML += this.content
+		parent.innerHTML += this.content;
 	},
+
+    appendReviewToTopOfList : function ( parent ) {
+        parent.innerHTML = this.content + parent.innerHTML;
+    },
 	
 	toString : function() {
 		return "author: " +this.author + " rating " + this.rating + " text " + this.text; 

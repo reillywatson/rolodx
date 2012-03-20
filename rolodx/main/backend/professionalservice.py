@@ -6,7 +6,7 @@ class ProfessionalService:
 	
 	def getItemPageData(self, professionalId, currentPage, itemsPerPage):
 		items = Professional.objects.filter(pk=professionalId)
-		reviews = Review.objects.filter(professional__pk=professionalId)
+		reviews = Review.objects.filter(professional__pk=professionalId).order_by('-date')
 		return ItemPageModel(items, reviews, itemsPerPage, currentPage)
 		
 	def addReview(self, professionalId, user, rating, reviewText):
@@ -25,6 +25,8 @@ class ProfessionalService:
 			# Create association
 			association = UserProfessional(user=user, professional=items[0])
 			association.save()
+
+		return review
 
 	def updateReview(self, professionalId, userId, rating, reviewText):
 		reviews = Review.objects.filter(professional__pk=professionalId, user__pk=userId)

@@ -111,11 +111,13 @@ def category(request, category_name):
 		return render_to_response('category.html', {'error_message':'No results found'}, context_instance=RequestContext(request))
 
 def addReview(request, itemId):
+	from django.core.serializers import serialize
 	professionalId = int(itemId);
 	svc = ProfessionalService()
-	svc.addReview(professionalId, request.user, request.POST.get('rating'), request.POST.get('text'))
-	resp = {'status':'ok'}
-	return HttpResponse(json.dumps(resp), mimetype="application/json")
+	review = svc.addReview(professionalId, request.user, request.POST.get('rating'), request.POST.get('text'))
+	#TODO: status return code *and* new review
+	jsonReview = serialize('json', [review,], fields=('date','karma','rating','text', 'user'), relations={'user' : {'fields' : ('username', )} })
+	return HttpResponse(jsonReview, mimetype="application/json")
 
 def profile(request):
 	user = request.user
