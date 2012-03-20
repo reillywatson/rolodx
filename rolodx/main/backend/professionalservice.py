@@ -10,18 +10,33 @@ class ProfessionalService:
 		return ItemPageModel(items, reviews, itemsPerPage, currentPage)
 		
 	def addReview(self, professionalId, user, rating, reviewText):
-		#TODO: should check if user has already rated this professional, error if this is the case
-		#(should edit instead)
-
 		#TODO: fix js to always send a number for rating?
+		# RB: Yes. But we should have this as a backup anyway.
 		if rating == 'null':
 			rating = 0
-
+		
 		items = Professional.objects.filter(pk=professionalId)
 		if len(items) == 1 and user != None and not user.is_anonymous():
-			review = Review(user=user, professional=items[0], text=reviewText, rating=rating, date=datetime.utcnow(), karma=0)
+			professional = items[0]
+
+			reviews = Review.objects.filter(professional=professional, user=user)
+			if len(reviews) != 0:
+				# Update review/rating
+				review = reviews[0]
+				review.rating = rating
+				review.date = datetime.utcnow()
+				review.text=reviewText
+				print review.text, review.rating, review.date
+			else:
+				# Add new review/rating
+				review = Review(user=user, professional=professional, text=reviewText, rating=rating, date=datetime.utcnow(), karma=0)
+				
+				# Create association
+				association = UserProfessional(user=user, professional=iprofessional)
+				association.save()
+
 			review.save()
-			
+
 			# Create association
 			association = UserProfessional(user=user, professional=items[0])
 			association.save()
@@ -43,3 +58,4 @@ class ProfessionalService:
 		review.date = datetime.utcnow()
 		review.hasBeenModified = False
 		review.save()
+
