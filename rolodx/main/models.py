@@ -68,6 +68,7 @@ class Review(models.Model):
 	date = models.DateTimeField()
 	#If we want to do " x / y found this helpful", we'd need different fields
 	karma = models.IntegerField()
+	hasBeenModified = models.BooleanField()
 
 class ProfessionalReview(models.Model):
 	professional = models.ForeignKey(Professional)

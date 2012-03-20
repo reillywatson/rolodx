@@ -25,3 +25,19 @@ class ProfessionalService:
 			# Create association
 			association = UserProfessional(user=user, professional=items[0])
 			association.save()
+
+	def updateReview(self, professionalId, userId, rating, reviewText):
+		reviews = Review.objects.filter(professional__pk=professionalId, user__pk=userId)
+		if len(reviews) == 0:
+			print 'Review for professional %s and user %s does not exist', (professionalId, userId)
+			return
+		elif len(reviews) > 1:
+			print 'More than one review found for professional %s and user %s does not exist', (professionalId, userId)
+			return
+
+		review = reviews[0];
+		review.rating = rating;
+		review.text = reviewText;
+		review.date = datetime.utcnow()
+		review.hasBeenModified = False
+		review.save()

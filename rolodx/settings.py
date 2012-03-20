@@ -182,3 +182,6 @@ LOGGING = {
 
 AUTH_PROFILE_MODULE = 'main.UserProfile'
 
+SERIALIZATION_MODULES = {
+	'json': 'wadofstuff.django.serializers.json'
+}
