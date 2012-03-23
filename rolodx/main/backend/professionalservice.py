@@ -1,4 +1,5 @@
 from main.models import Professional, Review, UserProfessional
+from main.search_indexes import ProfessionalIndex
 from ui_models import ItemPageModel
 from datetime import datetime
 
@@ -14,7 +15,7 @@ class ProfessionalService:
 		# RB: Yes. But we should have this as a backup anyway.
 		if rating == 'null':
 			rating = 0
-		
+
 		items = Professional.objects.filter(pk=professionalId)
 		if len(items) == 1 and user != None and not user.is_anonymous():
 			professional = items[0]
@@ -30,7 +31,7 @@ class ProfessionalService:
 			else:
 				# Add new review/rating
 				review = Review(user=user, professional=professional, text=reviewText, rating=rating, date=datetime.utcnow(), karma=0)
-				
+
 				# Create association
 				association = UserProfessional(user=user, professional=professional)
 				association.save()
@@ -59,3 +60,35 @@ class ProfessionalService:
 		review.hasBeenModified = False
 		review.save()
 
+	#TODO: should we link an added professional to the user that created it?
+	def addProfessional(self, name, occupation, description, email, website, categories,
+	                    street_address, state_province, country, daytimePhone, eveningPhone):
+		from haystack import indexes
+
+		professional = Professional()
+		professional.name = name
+		professional.occupation = occupation
+		professional.description = description
+		professional.email = email
+		professional.website = website
+		#professional.categories = categories
+		professional.street_address = street_address
+		professional.state_province = state_province
+		professional.country = country
+		professional.daytimePhone = daytimePhone
+		professional.eveningPhone = eveningPhone
+
+		now = datetime.utcnow()
+		professional.dateCreated = now
+		professional.lastModified = now
+
+		professional.averageRating = 0
+		professional.numRatings = 0
+
+		professional.save()
+
+		# TODO: somehow update solr asynchronously? Synchronous update for now ...
+		index = ProfessionalIndex()
+		index.update_object(instance=professional)
+
+		return professional

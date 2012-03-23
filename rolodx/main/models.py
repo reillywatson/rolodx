@@ -50,6 +50,9 @@ class Professional(models.Model):
 		return None
 	#icon?
 
+	dateCreated = models.DateTimeField(blank=True, null=True)
+	lastModified = models.DateTimeField(blank=True, null=True)
+
 	# A Professional may offer multiple services. 
 	# Multiple Professionals may offer the same services.
 	# TODO: Not sure if this is required, needs good example first

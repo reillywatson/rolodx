@@ -1,18 +1,18 @@
-import json
 import django
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.http import HttpResponse
 from main.backend.ui_models import SearchPageModel, CategoryPageModel, ProfileModel
 from backend.professionalservice import ProfessionalService
 from backend.searchservice import SearchService, Order
 from backend.categoryservice import CategoryService
-from socialregistration.contrib.facebook.middleware import FacebookMiddleware
 import backend.geo
-from django.conf import settings
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse
 import json
-from main.models import UserProfile, UserProfessional
+from main.models import UserProfessional
+from django.contrib.auth.decorators import login_required
+
+#TODO: We will probably want to consider splitting this file when it gets too big
 
 def home(request):
 	return render_to_response('home.html', context_instance=RequestContext(request))
@@ -110,6 +110,7 @@ def category(request, category_name):
 	else:
 		return render_to_response('category.html', {'error_message':'No results found'}, context_instance=RequestContext(request))
 
+@login_required
 def addReview(request, itemId):
 	from django.core.serializers import serialize
 	professionalId = int(itemId);
@@ -118,6 +119,28 @@ def addReview(request, itemId):
 	#TODO: status return code *and* new review
 	jsonReview = serialize('json', [review,], fields=('date','karma','rating','text', 'user'), relations={'user' : {'fields' : ('username', )} })
 	return HttpResponse(jsonReview, mimetype="application/json")
+
+@login_required
+def addProfessional(request):
+	from django.core.serializers import serialize
+
+	professional = ProfessionalService().addProfessional(
+		name = request.POST.get('name'),
+		occupation = request.POST.get('occupation'),
+		description = request.POST.get('description'),
+		email = request.POST.get('email'),
+		website = request.POST.get('website'),
+		categories = request.POST.get('categories'),
+		street_address = request.POST.get('streetaddress'),
+		state_province = request.POST.get('stateprovince'),
+		country = request.POST.get('country'),
+		daytimePhone = request.POST.get('daytimephone'),
+		eveningPhone = request.POST.get('eveningphone'),
+	)
+
+	#TODO: status return code
+	jsonProfessional = serialize('json', [professional, ])
+	return HttpResponse(jsonProfessional, mimetype="application/json")
 
 def profile(request):
 	user = request.user
