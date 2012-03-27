@@ -1,0 +1,36 @@
+.pro_adder {
+	margin-top: 30px;
+	overflow: auto;
+	cursor: pointer;
+}
+
+#pro_placeholder {
+	background-image:url("../images/pro_adder.png");
+	background-repeat: no-repeat;
+	border: 1px dashed gray;
+	width: 68px;
+	height: 68px;
+	float: left;
+}
+
+#pro_adder_container {
+	border: 1px dashed gray;
+	float: left;
+	width: 460px;
+	height: 68px;
+	margin-left: 10px;
+}
+
+#pro_adder_top_label {
+	text-align: center;
+	padding-top: 10px;
+	font-size: 18px;
+	color: #E8BF49;
+}
+
+#pro_adder_bottom_label {
+	text-align: center;
+	font-size: 20px;
+	color: #E8BF49;
+	font-weight: bold;
+}
