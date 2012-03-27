@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^category/(?P<category_name>.+)/$', 'main.views.category'), #direct category access
     url(r'^search/',  'main.views.search'),
     url(r'^pro/(?P<itemId>\d+)/addReview$', 'main.views.addReview'),
+    url(r'^pro/addProfessional$', 'main.views.addProfessional'),
     url(r'^pro/(?P<itemId>\d+/?$)', 'main.views.item'),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
