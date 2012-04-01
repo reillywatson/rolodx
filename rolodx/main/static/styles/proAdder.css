@@ -61,8 +61,13 @@
 	margin-left: 10px;
 }
 
-.pro_adder_large_txt {
+.pro_adder_edit_text {
 	font-style: italic;
+	cursor: pointer;
+	padding: 0 5px;
+}
+
+.pro_adder_text {
 	cursor: pointer;
 	padding: 0 5px;
 }
